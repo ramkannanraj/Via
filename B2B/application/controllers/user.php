@@ -220,8 +220,8 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 		//if($varr == $dates)
 	    $str_len = strlen( $mobile_no );
 	  
-		if( $secure_code == $sess_secure_code )
-			{
+		//if( $secure_code == $sess_secure_code )
+		//	{
 				/*
 				    $data['type']=$type_var;
 					$data['mobile_no'] =  substr($mobile_no, $str_len - 4, 4);
@@ -258,31 +258,32 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 				$this->load->view("common/menu");
 				$this->load->view("home",$data);
 				$this->load->view("common/footer");
-			}
-			else
-			{ 
+		//	}
+		//	else
+		//	{ 
 			 
 			 
-				$update = $this->user_model->update_user_code($auto_no,$mobile_no);
+		//		$update = $this->user_model->update_user_code($auto_no,$mobile_no);
 			//	if ( $update == false )  echo "SMS SENDING FAILED";
 			//	$testing="One Time Password to verify your Mobile $mobile_no on Paybucks is $auto_no.This verification code for safety of your account and must be done before you proceed.";
 			
-			$testing = "One Time Password to verify your Mobile $mobile_no on Paybuks is $auto_no.";
+		//	$testing = "One Time Password to verify your Mobile $mobile_no on Paybuks is $auto_no.";
 			
-                $sms_data=array(
-		        'date' => $current_date,
-		        'agentmob' => $mobile_no,
-		        'msg' => $testing,
-		        'by_uid' =>$login_uid,
-		              );
-			   $insert =$this->user_model->insert_sms_details($sms_data);
-					 $data['type']=$type_var;
-					
+           //     $sms_data=array(
+		     //   'date' => $current_date,
+		    //    'agentmob' => $mobile_no,
+		  //      'msg' => $testing,
+		  //      'by_uid' =>$login_uid,
+		  //            );
+		//	   $insert =$this->user_model->insert_sms_details($sms_data);
+			//		 $data['type']=$type_var;
+			//		
 					 $data['mobile_no'] =  substr($mobile_no, $str_len - 4, 4);
-					$this->load->view("common/header_securelogin");
-					$this->load->view("securelogin",$data);
-					$this->load->view("common/footer");
-				}
+			//		$this->load->view("common/header_securelogin");
+			//		$this->load->view("securelogin",$data);
+			//		$this->load->view("common/footer");
+                    
+			//	}
 			}
 		
 		
