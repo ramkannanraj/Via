@@ -147,7 +147,7 @@
                                       
                                      <div class="acc-login visible-xs">
 
-     <a href="http://paybuks.com/dev/B2B/index.php"><i class="fa fa-sign-in"></i> <span class="hidden-xs">Login</span></a>
+     <a href="<?php echo base_url(); ?>index.php"><i class="fa fa-sign-in"></i> <span class="hidden-xs">Login</span></a>
                            
  </div>
         
@@ -174,7 +174,7 @@
                         
                                    <div class="acc-login hidden-xs">
 
-      <a class="btn-bg" href="http://paybuks.com/dev/B2B/index.php"><i class="fa fa-sign-in"></i> <span class="hidden-xs">Login</span></a>
+      <a class="btn-bg" href="<?php echo base_url(); ?>index.php"><i class="fa fa-sign-in"></i> <span class="hidden-xs">Login</span></a>
                            
  </div>   
 
@@ -182,15 +182,15 @@
                         
                               <ul class="nav navbar-nav navbar-right">
 
-                                <li class="active"><a href="http://paybuks.com/">Home</a></li>
+                                <li class="active"><a href="<?php echo base_url();?>">Home</a></li>
 
-                                <li><a href="http://paybuks.com/index.html">Recharge</a></li>
+                                <li><a href="<?php echo base_url(); ?>index.html">Recharge</a></li>
 
-                                <li><a href="http://paybuks.com/send-money.html">Send Money</a></li>
+                                <li><a href="<?php echo base_url(); ?>send-money.html">Send Money</a></li>
 
-                                <li><a href="http://paybuks.com/index.html">Shopping</a></li>
+                                <li><a href="<?php echo base_url(); ?>index.html">Shopping</a></li>
 
-                                <li><a href="http://paybuks.com/consumer-login.html">Register</a></li>
+                                <li><a href="<?php echo base_url(); ?>consumer-login.html">Register</a></li>
                                 
                             <!--     <li class="acc-login"><a class="btn-bg" href="B2B/index.php"><i class="fa fa-sign-in"></i> Login</a></li>-->
 
@@ -382,7 +382,7 @@
 
                    
     <div class="social">
-    <span><img src="http://paybuks.com/images/foot-logo.jpg"></span>
+    <span><img src="<?php echo base_url();?>images/foot-logo.jpg"></span>
  <ul class="list-unstyled">
 
                         	<li class="fb"><a href="">fb</a></li>
@@ -407,21 +407,21 @@
 
                         <ul class="list-inline">
 
-                        	<li><a href="http://paybuks.com/about-us.html">About Us</a></li>
+                        	<li><a href="<?php echo base_url();?>about-us.html">About Us</a></li>
                         
-                        <li><a href="http://paybuks.com/what-we-do.html">What we Do</a></li>
+                        <li><a href="<?php echo base_url();?>what-we-do.html">What we Do</a></li>
 
-                        <li><a href="http://paybuks.com/partnerwithus.html">Partner with Us</a></li>
+                        <li><a href="<?php echo base_url();?>partnerwithus.html">Partner with Us</a></li>
 
-                        <li><a href="http://paybuks.com/terms-condition.html">Terms and Conditions</a></li>
+                        <li><a href="<?php echo base_url();?>terms-condition.html">Terms and Conditions</a></li>
 
-                        <li><a href="http://paybuks.com/career.html">Career</a></li>
+                        <li><a href="<?php echo base_url();?>career.html">Career</a></li>
 
-                        <li><a href="http://paybuks.com/customer-care.html">Customer Care</a></li>
+                        <li><a href="<?php echo base_url();?>customer-care.html">Customer Care</a></li>
 
-                        <li><a href="http://paybuks.com/contact.html">Contact Us</a></li>
+                        <li><a href="<?php echo base_url();?>contact.html">Contact Us</a></li>
 
-                        <li><a href="http://paybuks.com/security.html">Security</a></li>
+                        <li><a href="<?php echo base_url();?>security.html">Security</a></li>
 
                         </ul>      
 
@@ -476,7 +476,7 @@
 
             
 
-            	<span><img src="http://paybuks.com/images/payment.jpg"></span>
+            	<span><img src="<?php echo base_url();?>images/payment.jpg"></span>
 
                 <!--<div class="foot-links">
 

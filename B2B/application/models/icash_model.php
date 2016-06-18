@@ -271,7 +271,7 @@ while($row=mysql_fetch_array($sql))
 			 $merchant_id=$row['merchant_id'];
 			 $agent_id=$row['agent_id'];
 		}
-			$service_url = 'http://api.icashcard.in/impsmethods.asmx/REGISTRATION';
+			$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/REGISTRATION';
 			$ch = curl_init($service_url);
 			$curl_post_data = array(
 			"RequestData" =>"<REGISTRATIONREQUEST><TERMINALID>$terminal_id</TERMINALID>
@@ -283,7 +283,7 @@ while($row=mysql_fetch_array($sql))
 			<USERADDRESSPROOF></USERADDRESSPROOF><ADDRESSPROOFURL></ADDRESSPROOFURL><PARAM1></PARAM1><PARAM2>
 			</PARAM2><PARAM3></PARAM3><PARAM4></PARAM4><PARAM5></PARAM5></REGISTRATIONREQUEST>");
 			$post_array_string = '';
-			
+		 
 			foreach($curl_post_data as $key=>$value) 
 			{ 
 				$post_array_string .= $key.'='.$value.'&'; 
@@ -326,12 +326,12 @@ while($row=mysql_fetch_array($sql))
 				$transaction_cod=$responseArray['STATUS'];
 				$_SESSION["tran"] = $transaction_cod;
 				$var_trans=$_SESSION["tran"];
-				$service_url = 'http://api.icashcard.in/impsmethods.asmx/SENDERRESENDOTP';
+				$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/SENDERRESENDOTP';
 				$ch = curl_init($service_url);
 				$curl_post_data = array(			
 				"RequestData" =>"<SENDERRESENDOTPREQUEST>
-				<TERMINALID>100024</TERMINALID>
-				<LOGINKEY>1982032620</LOGINKEY>
+				<TERMINALID>200291</TERMINALID>
+				<LOGINKEY>0211042052</LOGINKEY>
 				<MERCHANTID>24</MERCHANTID>
 				<TRANSACTIONID>$var_trans</TRANSACTIONID>
 				<AGENTID>WallTech</AGENTID>
@@ -394,7 +394,7 @@ while($row=mysql_fetch_array($sql))
 		}
 		
 		
-			$service_url = 'http://api.icashcard.in/impsmethods.asmx/REGISTRATION';
+			$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/REGISTRATION';
 			$ch = curl_init($service_url);
 			$curl_post_data = array(
 			"RequestData" =>"<REGISTRATIONREQUEST>
@@ -471,15 +471,15 @@ while($row=mysql_fetch_array($sql))
 				$transaction_cod=$responseArray['STATUS'];
 				$_SESSION["tran"] = $transaction_cod;
 				$var_trans=$_SESSION["tran"];
-				$service_url = 'http://api.icashcard.in/impsmethods.asmx/SENDERRESENDOTP';
+				$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/SENDERRESENDOTP';
 				$ch = curl_init($service_url);
 				$curl_post_data = array(			
 				"RequestData" =>"<SENDERRESENDOTPREQUEST>
-				<TERMINALID>100024</TERMINALID>
-				<LOGINKEY>1982032620</LOGINKEY>
-				<MERCHANTID>24</MERCHANTID>
+				<TERMINALID>200291</TERMINALID>
+				<LOGINKEY>0211042052</LOGINKEY>
+				<MERCHANTID>291</MERCHANTID>
 				<TRANSACTIONID>$var_trans</TRANSACTIONID>
-				<AGENTID>WallTech</AGENTID>
+				<AGENTID>ViaPaise</AGENTID>
 				<PARAM1></PARAM1>
 				<PARAM2></PARAM2>
 				<PARAM3></PARAM3>
@@ -523,16 +523,16 @@ while($row=mysql_fetch_array($sql))
 		
 		function icashotp($tran_n,$otp_n)
 		{
-			$service_url = 'http://api.icashcard.in/impsmethods.asmx/SENDERREGISTER';
+			$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/SENDERREGISTER';
 			$ch = curl_init($service_url);
 			$curl_post_data = array(			
 			"RequestData" =>"<SENDERREGISTERREQUEST>
-			<TERMINALID>100024</TERMINALID>
-			<LOGINKEY>1982032620</LOGINKEY>
-			<MERCHANTID>24</MERCHANTID>
+			<TERMINALID>200291</TERMINALID>
+			<LOGINKEY>0211042052</LOGINKEY>
+			<MERCHANTID>291</MERCHANTID>
 			<TRANSACTIONID>$tran_n</TRANSACTIONID>
 			<OTP>$otp_n</OTP>
-			<AGENTID>WallTech</AGENTID>
+			<AGENTID>ViaPaise</AGENTID>
 			<PARAM1></PARAM1>
 			<PARAM2></PARAM2>
 			<PARAM3></PARAM3>
@@ -599,7 +599,7 @@ while($row=mysql_fetch_array($sql))
 			 $merchant_id=$row['merchant_id'];
 			 $agent_id=$row['agent_id'];
 		}
-		$reg_url = 'http://api.icashcard.in/impsmethods.asmx/SENDERREGISTER';
+		$reg_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/SENDERREGISTER';
 		$ch = curl_init($reg_url);
 		$post_data = array(
 		"RequestData" =>"<SENDERREGISTERREQUEST>
@@ -616,6 +616,7 @@ while($row=mysql_fetch_array($sql))
 		<PARAM5></PARAM5>
 		</SENDERREGISTERREQUEST>");
 		$array_string = '';
+       
 		foreach($post_data as $key=>$value) 
 		{ 
 			$array_string .= $key.'='.$value.'&'; 
@@ -669,7 +670,7 @@ while($row=mysql_fetch_array($sql))
 			 $merchant_id=$row['merchant_id'];
 			 $agent_id=$row['agent_id'];
 		}
-		$service_url = 'http://api.icashcard.in/impsmethods.asmx/LOGIN_V2';
+		$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/LOGIN_V2';
 		$ch = curl_init($service_url);
 		$curl_post_data = array(
 		"RequestData" =>"<LOGIN_V2REQUEST>
@@ -684,6 +685,7 @@ while($row=mysql_fetch_array($sql))
 		<PARAM4></PARAM4>
 		<PARAM5></PARAM5>
 		</LOGIN_V2REQUEST>");
+       // print_r($curl_post_data);exit();
 		$post_array_string = '';
 		foreach($curl_post_data as $key=>$value) 
 		{ 
@@ -700,6 +702,7 @@ while($row=mysql_fetch_array($sql))
 		$xml = simplexml_load_string($xml);
 		$json = json_encode($xml);
 		$responseArray = json_decode($json,true);
+      //  print_r($responseArray);exit();
 		$response= $responseArray['STATUSCODE'];
 		$s_response= $responseArray['STATUS'];
 		
@@ -752,7 +755,7 @@ while($row=mysql_fetch_array($sql))
 			 $merchant_id=$row['merchant_id'];
 			 $agent_id=$row['agent_id'];
 		}
-		$reg_url = 'http://api.icashcard.in/impsmethods.asmx/VALIDATELOGIN_V1';
+		$reg_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/VALIDATELOGIN_V1';
 		$ch = curl_init($reg_url);
 		$post_data = array(
 		"RequestData" =>"
@@ -859,7 +862,7 @@ while($row=mysql_fetch_array($sql))
 			 $merchant_id=$row['merchant_id'];
 			 $agent_id=$row['agent_id'];
 		}
-		$service_url = 'http://api.icashcard.in/impsmethods.asmx/TOPUP_V2';
+		$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/TOPUP_V2';
 		$ch = curl_init($service_url);
 		$curl_post_data = array(
 		"RequestData" =>"<TOPUP_V2REQUEST>
@@ -965,7 +968,7 @@ while($row=mysql_fetch_array($sql))
 			 $merchant_id=$row['merchant_id'];
 			 $agent_id=$row['agent_id'];
 		}
-		$service_url = 'http://api.icashcard.in/impsmethods.asmx/ADDBENEFICIARY';
+		$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/ADDBENEFICIARY';
 		$ch = curl_init($service_url);
 		$curl_post_data = array(
 		"RequestData" =>"<ADDBENEFICIARYREQUEST>
@@ -1048,7 +1051,7 @@ $merchant_id=$row['merchant_id'];
 $agent_id=$row['agent_id'];
 }
 
-		$service_url = 'http://api.icashcard.in/impsmethods.asmx/BENEREGISTER';
+		$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/BENEREGISTER';
 		$ch = curl_init($service_url);
 		$curl_post_data = array(
 		"RequestData" =>"<BENEREGISTERREQUEST>
@@ -1116,7 +1119,7 @@ $merchant_id=$row['merchant_id'];
 $agent_id=$row['agent_id'];
 }
 		
-		$service_url = 'http://api.icashcard.in/impsmethods.asmx/REMOVEBENEFICIARY';
+		$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/REMOVEBENEFICIARY';
 		$ch = curl_init($service_url);
 		$curl_post_data = array(
 		"RequestData" =>"<REMOVEBENEFICIARYREQUEST>
@@ -1167,15 +1170,15 @@ $agent_id=$row['agent_id'];
 
 	function icash_bene_otp($card_number,$ben_id,$otp_no,$ben_status)
 	{
-		$service_url = 'http://api.icashcard.in/impsmethods.asmx/REMOVEBENEOTP';
+		$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/REMOVEBENEOTP';
 		$ch = curl_init($service_url);
 		$curl_post_data = array(
 		"RequestData" =>"<REMOVEBENEOTPREQUEST>
-		<TERMINALID>100024</TERMINALID>
-		<LOGINKEY>1982032620</LOGINKEY>
-		<MERCHANTID>24</MERCHANTID>
+		<TERMINALID>200291</TERMINALID>
+		<LOGINKEY>0211042052</LOGINKEY>
+		<MERCHANTID>291</MERCHANTID>
 		<CARDNO>$card_number</CARDNO>
-		<AGENTID>WallTech</AGENTID>
+		<AGENTID>ViaPaise</AGENTID>
 		<BENEID>$ben_id</BENEID>
 		<OTP>$otp_no</OTP>
 		<BENESTATUS>$ben_status</BENESTATUS>
@@ -1276,13 +1279,13 @@ $agent_id=$row['agent_id'];
 				
 				
 
-		$service_url = 'http://api.icashcard.in/impsmethods.asmx/TRANSACTION_V3';
+		$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/TRANSACTION_V3';
 		$ch = curl_init($service_url);
 		$curl_post_data = array(
 		"RequestData" =>"<TRANSACTION_V3REQUEST>
-        <TERMINALID>100024</TERMINALID>
-		<LOGINKEY>1982032620</LOGINKEY>
-		<MERCHANTID>24</MERCHANTID>
+        <TERMINALID>200291</TERMINALID>
+		<LOGINKEY>0211042052</LOGINKEY>
+		<MERCHANTID>291</MERCHANTID>
 		<CARDNO>$card_no</CARDNO>
 		<TRANSTYPE>$trans_type</TRANSTYPE>
 		<TRANSTYPEDESC>$acc_no</TRANSTYPEDESC>
@@ -1368,13 +1371,13 @@ else if($status_code ==3)
 			$merchant_id=$row['merchant_id'];
 			$agent_id=$row['agent_id'];
 		}
-			$service_url = 'http://api.icashcard.in/impsmethods.asmx/TRANSACTIONREQUERY';
+			$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/TRANSACTIONREQUERY';
 			$ch = curl_init($service_url);
 			$curl_post_data = array(
 			"RequestData" =>"<TRANSACTIONREQUERYREQUEST>
-		<TERMINALID>100024</TERMINALID>
-		<LOGINKEY>1982032620</LOGINKEY>
-		<MERCHANTID>24</MERCHANTID>
+		<TERMINALID>200291</TERMINALID>
+		<LOGINKEY>0211042052</LOGINKEY>
+		<MERCHANTID>291</MERCHANTID>
 			<TRANSACTIONID>$rand_id</TRANSACTIONID>
 			<AGENTID>$agent_id</AGENTID>
 			<PARAM1></PARAM1>
@@ -1504,13 +1507,13 @@ else if($status_code ==3)
 				
 				
 
-		$service_url = 'http://api.icashcard.in/impsmethods.asmx/TRANSACTION_V3';
+		$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/TRANSACTION_V3';
 		$ch = curl_init($service_url);
 		$curl_post_data = array(
 		"RequestData" =>"<TRANSACTION_V3REQUEST>
-		<TERMINALID>100024</TERMINALID>
-		<LOGINKEY>1982032620</LOGINKEY>
-		<MERCHANTID>24</MERCHANTID>
+		<TERMINALID>200291</TERMINALID>
+		<LOGINKEY>0211042052</LOGINKEY>
+		<MERCHANTID>291</MERCHANTID>
 		<CARDNO>$card_no</CARDNO>
 		<TRANSTYPE>$trans_type</TRANSTYPE>
 		<TRANSTYPEDESC>$acc_no</TRANSTYPEDESC>
@@ -1609,7 +1612,7 @@ else if($status_code ==3)
 			$merchant_id=$row['merchant_id'];
 			$agent_id=$row['agent_id'];
 		}
-			$service_url = 'http://api.icashcard.in/impsmethods.asmx/TRANSACTIONREQUERY';
+			$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/TRANSACTIONREQUERY';
 			$ch = curl_init($service_url);
 			$curl_post_data = array(
 			"RequestData" =>"<TRANSACTIONREQUERYREQUEST>
@@ -1737,13 +1740,13 @@ else if($status_code ==3)
 				$adminBeforeBal = $this->getAdminBeforBal();
 				$retailerBeforeBal = $this->getRetailerBeforBal();
 		
-		$service_url = 'http://api.icashcard.in/impsmethods.asmx/TRANSACTION_V3';
+		$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/TRANSACTION_V3';
 		$ch = curl_init($service_url);
 		$curl_post_data = array(
 		"RequestData" =>"<TRANSACTION_V3REQUEST>
-		<TERMINALID>100024</TERMINALID>
-		<LOGINKEY>1982032620</LOGINKEY>
-		<MERCHANTID>24</MERCHANTID>
+		<TERMINALID>200291</TERMINALID>
+		<LOGINKEY>0211042052</LOGINKEY>
+		<MERCHANTID>291</MERCHANTID>
 		<CARDNO>$card_no</CARDNO>
 		<TRANSTYPE>$trans_type</TRANSTYPE>
 		<TRANSTYPEDESC>$acc_no</TRANSTYPEDESC>
@@ -1823,7 +1826,7 @@ else if($status_code ==3)
 			$merchant_id=$row['merchant_id'];
 			$agent_id=$row['agent_id'];
 		}
-			$service_url = 'http://api.icashcard.in/impsmethods.asmx/TRANSACTIONREQUERY';
+			$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/TRANSACTIONREQUERY';
 			$ch = curl_init($service_url);
 			$curl_post_data = array(
 			"RequestData" =>"<TRANSACTIONREQUERYREQUEST>
@@ -1921,7 +1924,7 @@ while($row=mysql_fetch_array($sql))
 			 $merchant_id=$row['merchant_id'];
 			 $agent_id=$row['agent_id'];
 		}
-		$service_url = 'http://api.icashcard.in/impsmethods.asmx/LOGIN_CP';
+		$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/LOGIN_CP';
 		$ch = curl_init($service_url);
 		$curl_post_data = array(
 		"RequestData" =>"<LOGIN_CPREQUEST>
@@ -1937,6 +1940,7 @@ while($row=mysql_fetch_array($sql))
 		<PARAM5></PARAM5>
 		</LOGIN_CPREQUEST>");
 		$post_array_string = '';
+        //print_r($curl_post_data);exit;
 		foreach($curl_post_data as $key=>$value) 
 		{ 
 			$post_array_string .= $key.'='.$value.'&'; 
@@ -1952,7 +1956,9 @@ while($row=mysql_fetch_array($sql))
 		$xml = simplexml_load_string($xml);
 		$json = json_encode($xml);
 		$responseArray = json_decode($json,true);
+       // print_r($responseArray);exit();
 		$response= $responseArray['STATUSCODE'];
+        
 		if($response==0)
 		{
 			$data['mobile'] = $mobile;
@@ -2156,14 +2162,14 @@ function insert_card_topup($top_val,$card_no)
 		
 		function updateSendmoneyBal($card){
 			
-		$service_url = 'http://api.icashcard.in/impsmethods.asmx/CHECKCARDBALANCE';
+		$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/CHECKCARDBALANCE';
 $ch = curl_init($service_url);
 $curl_post_data = array(
 "RequestData" =>"<CHECKCARDBALANCEREQUEST>
-<TERMINALID>100024</TERMINALID>
-<LOGINKEY>1982032620</LOGINKEY>
-<MERCHANTID>24</MERCHANTID>
-<AGENTID>WallTech</AGENTID>
+<TERMINALID>200291</TERMINALID>
+<LOGINKEY>0211042052</LOGINKEY>
+<MERCHANTID>291</MERCHANTID>
+<AGENTID>ViaPaise</AGENTID>
 <CARDNO>$card</CARDNO>
 </CHECKCARDBALANCEREQUEST>");
 $post_array_string = '';
