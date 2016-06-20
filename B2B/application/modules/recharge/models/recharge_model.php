@@ -736,8 +736,45 @@ return $query->result();
 	}	 	
 	
 	public function get_ezypay_balance(){
+	   $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetAccountStatement";
+$mySOAP = <<<EOD
+{
+"Authentication": {
+"LoginId": "Viapaise",
+"Password": "Viapaise123"
+},
+"AccountStatementInput": {
+"FromDate": "06/20/2016",
+"ToDate": "06/20/2016"
+}
+}
+}
+EOD;
+// The HTTP headers for the request (based on image above)
+$headers = array(
+'Content-Type: application/json',
+);
+// Build the cURL session
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_POST, TRUE);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $mySOAP);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+// Send the request and check the response
+if (($result = curl_exec($ch)) === FALSE) {
+die('cURL error: '.curl_error($ch)."<br />\n");
+} else {
+//print_r($result);
+$test=json_decode($result);
+
+$testval= $test->AccountStatementOutput->TotalRemainingAmount;
+return $testval;
+}
+curl_close($ch);
 	
 	
+/*
 	$url = "http://103.29.232.110:8089/Ezypaywebservice/GetBalance.aspx?AuthorisationCode=de4527cfd9674f86bc";
 
 $ch = curl_init();
@@ -755,6 +792,7 @@ $ch = curl_init();
 							 
 							 return "-1";
 						 } 
+--*/
 					
 					
 		
