@@ -35,8 +35,16 @@ ini_set('max_execution_time', 300);
 |
 
 */
+$host = $_SERVER['HTTP_HOST'];
+if($host=="localhost")
+{
+	$config['base_url']	= 'http://localhost/Via/B2B/';
+} 
+else
+{
+	$config['base_url']	= 'http://dev.viapaise.com/Via/trunk/B2B/';
+}
 
-$config['base_url'] = 'http://paybuks.com/B2B/';
 
 //$config['base_url'] ='';
 
