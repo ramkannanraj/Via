@@ -473,14 +473,17 @@
                                 <span id="preSucc" style="color:green;"> </span>
                                     <p>Quick Recharge</p>
                                     <form action="javascript:void(0);" method="post" id="prepaidForm">
-                                    <input type="text" placeholder="+91" name="mobilenumber" id="pre-mobilenumber" /> 
-                                    <input type="text" placeholder="Rs" name="amount" id="pre-amount"  />
+                                    <input type="text" placeholder="+91" maxlength="10" pattern="[0-9]{10}" name="mobilenumber" id="pre-mobilenumber" required /> 
+                                    <input type="text" placeholder="Rs" name="amount" id="pre-amount" required  />
                                     <select name="serviceprovider" id="pre-service_type" >
-                                    	<option value="1">Airtel</option>
-                                        <option value="2">Aircel</option>
+                                    	
+                                       <!--
+ <option value="">Aircel</option>
+-->
                                         <option value="4">BSNL</option>
                                          <option value="3">BSNL-Validity</option>
-                                        <option value="15">DOCOMO</option>
+                                        
+<option value="15">DOCOMO</option>
                                         <option value="16">DOCOMO-Special</option>
                                         <option value="34">IDEA</option>
                                         <option value="45">MTNL DEL</option>
@@ -500,6 +503,7 @@
                                         <option value="21">VIDEOCON-TOP UP</option>
                                         <option value="22">VIDEOCON-SPECIAL</option>
                                         <option value="12">VODAFONE-TOP UP</option>
+
                                          
                                     </select>
                                     <input type="hidden" id="service_type_pre" name="service_type" value="prepaid"/>
@@ -866,8 +870,9 @@ var mobile = $('#pre-mobilenumber').val();
 	
 	//setTimeout(show_succ, 4000);
 	 
+     
  
-		  showModal();				
+		  //showModal();				
 	 
 	
     $.ajax({
@@ -877,7 +882,8 @@ var mobile = $('#pre-mobilenumber').val();
 				//datatype:"json",
 				success: function( result)  
                 { 
-		          // alert(result);
+		          alert(result);
+                  
 				$('#trans_id').html(result.trans_id);
 				if(result.class == "fail"){
 				
@@ -962,9 +968,12 @@ showModal();
                 type: "POST",
                 url: "<?php echo  base_url();?>recharge/ad_postpaid_recharge", 
                 data: form_data,
+                
 				datatype:"json",
+                
 				success: function( result )  
                 { 
+                
 				$('#trans_id').html(result.trans_id);
 				
 				if(result.class == "fail"){
@@ -993,18 +1002,18 @@ showModal();
 				}else{
 					
 				$('#otherFail').html('Some Technical Issue.');	
-				setTimeout(closeModal, 2000);
+				setTimeout(closeModal, 10000);
 					
 				}
 			    },
 				error:function(){
 			$('#otherFail').html('Some Technical Issue.');	
-				setTimeout(closeModal, 2000);
+				setTimeout(closeModal, 10000);
 				}
     }).fail(function() {
 		
                $('#otherFail').html('Some Technical Issue.');	
-				setTimeout(closeModal, 2000);
+				setTimeout(closeModal, 10000);
       });
  
  
@@ -1033,7 +1042,7 @@ $(document).on('submit','.dthRecharge',function(){
 	
 	var form_data = $('#'+formId).serialize();
 	 	
-showModal();
+     showModal();
 	//alert(form_data);
 	
 	 $.ajax({

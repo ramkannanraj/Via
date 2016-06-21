@@ -49,8 +49,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = '64.187.228.106';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'Kumar7346';
+$db['default']['username'] = 'developer_via';
+$db['default']['password'] = 'pass1';
 $db['default']['database'] = 'viapaise_dev';
 
 //$db['default']['hostname'] = 'localhost';

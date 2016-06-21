@@ -737,6 +737,7 @@ return $query->result();
 	
 	public function get_ezypay_balance(){
 	   $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetAccountStatement";
+       $dateform=date('m/d/Y');
 $mySOAP = <<<EOD
 {
 "Authentication": {
@@ -744,8 +745,8 @@ $mySOAP = <<<EOD
 "Password": "Viapaise123"
 },
 "AccountStatementInput": {
-"FromDate": "06/20/2016",
-"ToDate": "06/20/2016"
+"FromDate": "$dateform",
+"ToDate": "$dateform"
 }
 }
 }
