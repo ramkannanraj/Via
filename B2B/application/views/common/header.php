@@ -206,7 +206,7 @@
             <div class="navbar-header">
         
                <a class="toggle-menu menu-left gradient_btn1"><i class=" glyphicon glyphicon-menu-hamburger"></i></a>
-              <a class="navbar-brand" href="http://paybuks.com"><img class="img-responsive" src="<?php echo base_url()?>/assets/paybuks/images/logo_blue.png"></a>
+              <a class="navbar-brand" href="http://viapaise.com"><img class="img-responsive" src="<?php echo base_url()?>/assets/paybuks/images/logo_blue.png"></a>
               
                <ul class="pull-right list-unstyled list-inline visible-xs">
                 
