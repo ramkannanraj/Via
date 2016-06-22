@@ -190,7 +190,7 @@
                         
                                    <div class="acc-login hidden-xs">
 
-      <a class="btn-bg" href="http://paybuks.com/B2B/index.php"><i class="fa fa-sign-in"></i> <span class="hidden-xs">Login</span></a>
+      <a class="btn-bg" href="<?php echo base_url();?>"><i class="fa fa-sign-in"></i> <span class="hidden-xs">Login</span></a>
                            
  </div>   
 
@@ -254,7 +254,7 @@
 
                 
 
-                	<p>You have successfully logged out , <a href="http://paybuks.com/B2B/index.php">click here</a> to login again.</p>
+                	<p>You have successfully logged out , <a href="<?php echo base_url();?>">click here</a> to login again.</p>
 
                     
 
@@ -318,7 +318,7 @@
 
                         <ul class="list-inline">
 
-                        	<li><a href="http://paybuks.com/about-us.html">About Us</a></li>
+                        	<li><a href="<?php echo base_url();?>about-us.html">About Us</a></li>
                         
                         <li><a href="http://paybuks.com/what-we-do.html">What we Do</a></li>
 
