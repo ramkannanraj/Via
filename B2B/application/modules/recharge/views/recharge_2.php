@@ -1043,7 +1043,7 @@ $(document).on('submit','.dthRecharge',function(){
 	var form_data = $('#'+formId).serialize();
 	 	
      showModal();
-	//alert(form_data);
+	alert(form_data);
 	
 	 $.ajax({
                 type: "POST",
