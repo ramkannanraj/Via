@@ -1,5 +1,5 @@
 <head>
-    <title>Paybuks Smart Payments</title>
+    <title>Via Paise Smart Payment</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <meta name="description" content="Blue Moon - Responsive Admin Dashboard" />

@@ -54,6 +54,7 @@
                                         
                                         </div>
            <div class="col-lg-9">
+           <?php print_r($member);?>
                     <div class="form-group col-lg-6">
                     	<label>Name</label>
                         <input type="text" class="form-control" value="<?=$member->name?>" disabled="disabled" />
