@@ -22,7 +22,7 @@
                       <p>Profile</p>
                       </div>
                 <!-- col-xs-12 ends-->
-                <form action="<?php echo site_url('user/do_upload')?>" method="post" id="myform" enctype="multipart/form-data">
+                <form action="<?=site_url('user/do_upload')?>" method="post" id="myform" enctype="multipart/form-data">
                
                 						<?php
                                         if($this->session->flashdata('item')!="") {
