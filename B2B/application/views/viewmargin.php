@@ -70,9 +70,9 @@ responsive: true
                                                 <tr>
                                                     <td>
                                                      <?php if(($val->id)==19) {?>
-                                                      <img src='<?=base_url(). 'images/'.$val->image?>' width='50' height="50">TOPUP<br />                                  
+                                                      <img src='<?php echo base_url(). 'images/'.$val->image?>' width='50' height="50">TOPUP<br />                                  
                                                      <?php } else { ?>
-                                                     <img src='<?=base_url(). 'images/'.$val->image?>' width='50' height="50">                          
+                                                     <img src='<?php echo base_url(). 'images/'.$val->image?>' width='50' height="50">                          
                                                    	 <?php } if(($val->id)==16 )  {?>
 														 Validity                       
 													<?php  } if(($val->id)==3) {?>
@@ -99,10 +99,10 @@ responsive: true
                                                     <?php if($this->session->userdata('type')== "distributor"
                                                     ||$this->session->userdata('type')== "super"  || 
                                                     $this->session->userdata('type')=='admin') { ?>
-                                                    <td><?=$val->dcommission?> <br /></td>
+                                                    <td><?php echo $val->dcommission?> <br /></td>
                                                     <?php }  ?>
-                                                    <td><?=$val->commission?> <br /></td>          
-                                                    <td><?=$val->smscode?> <br /></td>
+                                                    <td><?php echo $val->commission?> <br /></td>          
+                                                    <td><?php echo $val->smscode?> <br /></td>
                                                 </tr>
                                                  <?php }?>
                                             </tbody>
@@ -138,16 +138,16 @@ responsive: true
                                                 <?php foreach($postpaid_mob->result() as $val){?>
                                                 <tr>
                                                     <td>
-                                                    <img src='<?=base_url(). 'images/'.$val->image?>' width='50' height="50">
+                                                    <img src='<?php echo base_url(). 'images/'.$val->image?>' width='50' height="50">
                                                     </td>
                                                      
                                                     <?php if($this->session->userdata('type')== "distributor"
                                                     ||$this->session->userdata('type')== "super"  || 
                                                     $this->session->userdata('type')=='admin') { ?>
-                                                    <td><?=$val->dcommission?> <br /></td>
+                                                    <td><?php echo $val->dcommission?> <br /></td>
                                                     <?php }  ?>
-                                                    <td><?=$val->commission?> <br /></td>          
-                                                    <td><?=$val->smscode?> <br /></td>
+                                                    <td><?php echo $val->commission?> <br /></td>          
+                                                    <td><?php echo $val->smscode?> <br /></td>
                                                 </tr>
                                                  <?php }?>
                                             </tbody>
@@ -183,14 +183,14 @@ responsive: true
                                             <?php foreach($dth->result() as $val){?>
                                                 <tr>	
                                                     <td><?php /*?><?= $val->name?><?php */?>
-                                                    <img src='<?=base_url(). 'images/'.$val->image?>' width='60' height="60"> <br /></td>
+                                                    <img src='<?php echo base_url(). 'images/'.$val->image?>' width='60' height="60"> <br /></td>
                                                     <?php if($this->session->userdata('type')== "distributor"
                                                     ||$this->session->userdata('type')== "super"  || 
                                                     $this->session->userdata('type')=='admin') { ?>
-                                                    <td><?=$val->dcommission?> <br /></td>
+                                                    <td><?php echo $val->dcommission?> <br /></td>
                                                     <?php }  ?>
-                                                    <td><?=$val->commission?>  <br /></td>          
-                                                    <td><?=$val->smscode?> <br /></td>
+                                                    <td><?php echo $val->commission?>  <br /></td>          
+                                                    <td><?php echo $val->smscode?> <br /></td>
                                                 </tr>
                                             <?php }?>
                                           </tbody>
