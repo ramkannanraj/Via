@@ -5,7 +5,7 @@
 
 <footer id="footer" class="main_footer">
 <a href="#" class="footerp"><img src="<?php echo base_url()?>/assets/paybuks/images/footer_logo.png" /></a>
-<p>@ Copyright 2015 - 2016  |  PAYBUKS All rights reserved</p>
+<p>@ Copyright 2016 - 2017  |  ViaPiase All rights reserved</p>
 </footer> 
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/paybuks/css/sticky-footer-navbar.css" />
