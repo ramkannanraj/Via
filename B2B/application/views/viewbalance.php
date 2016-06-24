@@ -43,14 +43,14 @@
 
  <?php
  
- $service_url = 'http://api.icashcard.in/impsmethods.asmx/CHECKCARDBALANCE';
+ $service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/CHECKCARDBALANCE';
 $ch = curl_init($service_url);
 $curl_post_data = array(
 "RequestData" =>"<CHECKCARDBALANCEREQUEST>
-<TERMINALID>100024</TERMINALID>
-<LOGINKEY>1982032620</LOGINKEY>
-<MERCHANTID>24</MERCHANTID>
-<AGENTID>WallTech</AGENTID>
+<TERMINALID>200291</TERMINALID>
+<LOGINKEY>0211042052</LOGINKEY>
+<MERCHANTID>291</MERCHANTID>
+<AGENTID>ViaPaise</AGENTID>
 <CARDNO>$card</CARDNO>
 </CHECKCARDBALANCEREQUEST>");
 $post_array_string = '';
