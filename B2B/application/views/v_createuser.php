@@ -108,7 +108,7 @@ if($data1->num_rows()>=$limit)
 		{
 			echo "<script type='text/javascript'>alert('Your user creation limit is over.');</script>";
 			echo 'Your user creation limit is over.';  }else {		   ?>
-            <form action="<?=site_url('user/register')?>" method="post">
+            <form action="<? echo site_url('user/register')?>" method="post">
             <center>
 <span>
 <?php
@@ -231,7 +231,7 @@ if($type=$this->session->userdata('type')=='super'){?>
                 </div>
                 </form>
              <?php }}else{?>
-<form action="<?=site_url('user/register')?>" method="post" id="message1" data-abide="ajax">                
+<form action="<? echo site_url('user/register')?>" method="post" id="message1" data-abide="ajax">                
                 <div class="col-xs-12 profile-details">
 <center>
                                         <span>
