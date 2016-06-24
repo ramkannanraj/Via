@@ -54,18 +54,18 @@
                                         
                                         </div>
            <div class="col-lg-9">
-           <?php print_r($member);?>
+           
                     <div class="form-group col-lg-6">
                     	<label>Name</label>
-                        <input type="text" class="form-control" value="<?=$member->name?>" disabled="disabled" />
+                        <input type="text" class="form-control" value="<?php echo $member->name?>" disabled="disabled" />
                     </div>
                     <div class="form-group col-lg-6">
                     	<label>Username</label>
-                        <input type="text" class="form-control" value="<?=$member->username?>"  disabled="disabled" />
+                        <input type="text" class="form-control" value="<?php echo $member->username?>"  disabled="disabled" />
                     </div>
                     <div class="form-group col-lg-6">
                     	<label>Firm</label>
-                        <input type="text" class="form-control" value="<?=$member->companyname?>" disabled="disabled"  />
+                        <input type="text" class="form-control" value="<?php echo $member->companyname?>" disabled="disabled"  />
                     </div>
                     
                           
@@ -87,23 +87,23 @@ foreach ($query->result() as $row)
                         
               <div class="form-group col-lg-6">
                     	<label>Email id</label>
-                        <input type="text" class="form-control" value="<?=$member->email?>" disabled="disabled"  />
+                        <input type="text" class="form-control" value="<?php echo $member->email?>" disabled="disabled"  />
                     </div>
                     <div class="form-group col-lg-6">
                     	<label>Mobile Number</label>
-                        <input type="text" class="form-control" value="<?=$member->mobile?>"  disabled="disabled" />
+                        <input type="text" class="form-control" value="<?php echo $member->mobile?>"  disabled="disabled" />
                     </div>
                     <div class="form-group col-lg-12">
                     	<label>Address</label>
-                        <textarea type="text" rows="4" class="form-control" value="<?=$member->address1?>"  disabled="disabled" /></textarea>
+                        <textarea type="text" rows="4" class="form-control" value="<?php echo $member->address1?>"  disabled="disabled" /></textarea>
                     </div>
                     <div class="form-group col-lg-6">
                     	<label>State</label>
-                        <input type="text" class="form-control" value="<?=$member->state?>"  disabled="disabled" />
+                        <input type="text" class="form-control" value="<?php echo $member->state?>"  disabled="disabled" />
                     </div>
                     <div class="form-group col-lg-6">
                     	<label>City</label>
-                        <input type="text" class="form-control" value="<?=$member->city?>" disabled="disabled"  />
+                        <input type="text" class="form-control" value="<?php echo $member->city?>" disabled="disabled"  />
                     </div> 
              
                         
@@ -111,7 +111,7 @@ foreach ($query->result() as $row)
               <div class="form-group col-lg-6">
                     	<label>New Password</label>
                         <input type="password" value="" name="password" id="password" data-validate="required,alphaNumeric" class="form-control" disabled="disabled">
-                        <input type="hidden" name="did" id="did" value="<?=$member->uid?>"/>
+                        <input type="hidden" name="did" id="did" value="<?php echo $member->uid?>"/>
                     </div>
                         
                         <div class="form-group col-lg-6">
