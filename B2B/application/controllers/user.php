@@ -1,6 +1,6 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-	class user extends CI_Controller {
+	class User extends CI_Controller {
 		public function __construct()
 		{
 			 
@@ -604,7 +604,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 			
 		      );
 			$reg=$this->user_model->register($register_data);
-		    $testing="Welcome to Paybuks,Dear $name,your account has been activated.Your User ID: $usname and Password: $pass";
+		    $testing="Welcome to ViaPaise,Dear $name,your account has been activated.Your User ID: $usname and Password: $pass";
 		    $sms_data=array(
 		    'date' => $current_date,
 		    'agentmob' => $usname,
@@ -614,10 +614,10 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 			$insert =$this->user_model->insert_sms_details($sms_data,$email,$name,$usname,$pass);	
              $send =$this->user_model->send_sms($email,$name,$usname,$pass,$mobile);
 			 
-            $Name='support@paybuks.com';
+            $Name='support@vaipaise.com';
 			//$Name='Paybuks';
 			$to =$email;
-			$subject = "Welcome to Paybuks";
+			$subject = "Welcome to ViaPaise";
 			$message = '<div style="width: 527px; height: 334px; border:1px solid #39C; background:#39C;" >
 			<div style="width:500px; height:300px; border:1px solid #39C; border-radius:20px; margin-left: 11px; margin-top: 16px; background:white;"> 
 			<h3 style="float:left; width:350px; text-align: center;color:#39C">Welcome to Paybuks,</h3>
