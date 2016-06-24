@@ -63,10 +63,10 @@
                                                 Cyberplat
                                                 </td>
                                                 <td ><input type="text" name="commission"
-                                                id="commission" value="<?=$val->commission?>" class="update" alt="commission" rel="<?=$val->id?>" /><br />
+                                                id="commission" value="<?php echo $val->commission?>" class="update" alt="commission" rel="<?php echo $val->id?>" /><br />
                                                 </td>
                                                 <td><input type="text" name="dcommission"
-                                                id="dcommission" value="<?=$val->dcommission?>"  class="update" alt="dcommission" rel="<?=$val->id?>"  /><br /></td>
+                                                id="dcommission" value="<?php echo $val->dcommission?>"  class="update" alt="dcommission" rel="<?php echo $val->id?>"  /><br /></td>
                                                <!-- <td><input type="text" name="sfcommission" 
                                                 id="sfcommission" value="<?//=$val->sfcommission?>" /><br />
                                                 </td>
