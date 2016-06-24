@@ -172,7 +172,7 @@ function isNumber(evt) {
     function viewdata(){
       $.ajax({
    type: "GET",
-   url: "<?=base_url('mobile_no_change/view_records')?>",
+   url: "<?php echo base_url('mobile_no_change/view_records')?>",
    dataType: "html"
       }).done(function( msg ) {
    $( "#viewdata" ).html( msg );
@@ -192,7 +192,7 @@ function isNumber(evt) {
 	 
    $.ajax({
        type: "POST",
-       url: "<?=base_url('mobile_no_change/mobile_no_update')?>",
+       url: "<?php echo base_url('mobile_no_change/mobile_no_update')?>",
        data: datas,
        dataType: "html"
    }).done(function( msg ) {
