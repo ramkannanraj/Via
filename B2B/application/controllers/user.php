@@ -251,9 +251,9 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 				$data['saved_card_details'] = $this->user_model->get_saved_card_details($login_uid);
 				$data['saved_address_details'] = $this->user_model->get_saved_address_details($login_uid);
 				$data['saved_transaction_details'] = $this->user_model->get_saved_transaction_details($login_uid);
-				
+				$data['State'] = $this->user_model->getstate();
 				$data['user_available_balance'] = $this->user_model->get_total_user_details();
-				
+			
 				$this->load->view("common/header");
 				$this->load->view("common/menu");
 				$this->load->view("home",$data);

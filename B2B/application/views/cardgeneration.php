@@ -71,23 +71,26 @@
                             </tr>
                             </thead>
                             <tbody>
-                                        <?php $i=1;foreach($card as $val){?>
+                                       
+                                        <?php if(!empty($card)){ $i=1;foreach($card as $val){?>
                                             <tr>
-											 <td><?=$i;?> <br /></td>
+											 <td><?php echo $i;?> <br /></td>
                                               
-                                                <td><?=$val->user_name?> <br /></td>          
-                                                <td><?=$val->last_name?> <br /></td>
-                                                <td><?=$val->mobile_number?> <br /></td>
-                                                <td><?=$val->state?> <br /></td>          
-                                                <td><?=$val->city?> <br /></td>
-                                                <td><?=$val->pin_code?> <br /></td>
-                                                <td><?=$val->card_no?> <br /></td>  
-                                                <td><?=$val->created_by_name?> <br /></td>         
-                                                <td><?=$val->expiry_date?> <br /></td>
+                                                <td><?php echo $val->user_name?> <br /></td>          
+                                                <td><?php echo $val->last_name?> <br /></td>
+                                                <td><?php echo $val->mobile_number?> <br /></td>
+                                                <td><?php echo $val->state?> <br /></td>          
+                                                <td><?php echo $val->city?> <br /></td>
+                                                <td><?php echo $val->pin_code?> <br /></td>
+                                                <td><?php echo $val->card_no?> <br /></td>  
+                                                <td><?php echo $val->created_by_name?> <br /></td>         
+                                                <td><?php echo $val->expiry_date?> <br /></td>
                                                 
                                                 <td><?=$val->card_status?> <br /></td>
                                             </tr>
-                                        <?php $i++;}?>
+                                         <?php $i++; } } else { ?>
+                                  <td>No Results Found</td>
+	                                <?php } ?>
                                         </tbody>
                           </table>
                     </div>
