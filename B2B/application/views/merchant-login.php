@@ -12,7 +12,7 @@
 
     
 
-    <title>Merchant Login | Paybuks</title>
+    <title>Merchant Login | ViaPaise</title>
 
     
 
