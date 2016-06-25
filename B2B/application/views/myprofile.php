@@ -110,13 +110,13 @@ foreach ($query->result() as $row)
                         
               <div class="form-group col-lg-6">
                     	<label>New Password</label>
-                        <input type="password" value="" name="password" id="password" data-validate="required,alphaNumeric" class="form-control" disabled="disabled">
+                        <input type="password" value="" name="password" id="password" data-validate="required,alphaNumeric" class="form-control">
                         <input type="hidden" name="did" id="did" value="<?php echo $member->uid?>"/>
                     </div>
                         
                         <div class="form-group col-lg-6">
                     	<label>Re-entry Password</label>                       
-                        <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" value="" disabled="disabled">
+                        <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" value="">
                     </div>
                         
                         
