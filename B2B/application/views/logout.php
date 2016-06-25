@@ -21,7 +21,7 @@
 
     
 
-    <title>Logout | Paybuks</title>
+    <title>Logout | ViaPaise</title>
 
     
 
@@ -413,7 +413,7 @@
 
                 </div>--> <!-- foot-links ends -->
 
-                <p>@Copyright 2015-Paybuks
+                <p>@Copyright 2016-17 Via Paise
 
  All rights reserved.</p>
 

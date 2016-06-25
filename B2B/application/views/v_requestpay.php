@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Paybuks Mobile money</title>
+<title>Via Paise</title>
 </head>
 
 <body>
@@ -61,7 +61,7 @@ td
                     <div class="title">Request Payment</div></div>
                     <div class="widget-body">
                     <div class="metro-nav">
-<form action="<?=site_url('payment/paymentregister')?>" method="post">
+<form action="<?php echo site_url('payment/paymentregister')?>" method="post">
 
 <table class="text-box">
 <tr><td>Payment Mode</td><td><select name="mode" class="form-control">
