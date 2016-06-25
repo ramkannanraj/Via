@@ -80,22 +80,22 @@
 								
 								?> 
                             <tr>      
-                                <td><?=$i;?></td>
-                                <td><?=$val->mobilenumber?> </td>
-                                <td><?=$date_in?></td>
-                                <td><?=$val->amount?></td>
-                                <td><?=$val->service?></td>
-                                <td><?=$val->after_balance?></td>  
-                                <td><?=$val->before_balance?></td>  <?php if( $this->session->userdata('type')=='distributor'  ){ ?>
-                   <td><?=$val->dcommission?></td>
+                                <td><?php echo $i;?></td>
+                                <td><?php echo $val->mobilenumber?> </td>
+                                <td><?php echo $date_in?></td>
+                                <td><?php echo $val->amount?></td>
+                                <td><?php echo $val->service?></td>
+                                <td><?php echo $val->after_balance?></td>  
+                                <td><?php echo $val->before_balance?></td>  <?php if( $this->session->userdata('type')=='distributor'  ){ ?>
+                   <td><?php echo $val->dcommission?></td>
                    <?php } ?>
                                <?php if(  $this->session->userdata('type')=='admin'  ){ ?>
-                   <td><?=$val->username?></td>
+                   <td><?php echo $val->username?></td>
                    <?php } ?>
-                                 <td><?=$val->commission?></td> 
-                                <td><?=$val->trans_id?></td>					
-                                <td><?=$con?></td>  
-                                 <td><?=$val->recharge_type?></td>	
+                                 <td><?php echo $val->commission?></td> 
+                                <td><?php echo $val->trans_id?></td>					
+                                <td><?php echo $con?></td>  
+                                 <td><?php echo $val->recharge_type?></td>	
                        		 </tr>
                              <?php $i++;} } ?>
                              

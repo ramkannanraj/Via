@@ -86,10 +86,10 @@
                                                 <td><?php echo $val->created_by_name?> <br /></td>         
                                                 <td><?php echo $val->expiry_date?> <br /></td>
                                                 
-                                                <td><?=$val->card_status?> <br /></td>
+                                                <td><?php echo $val->card_status?> <br /></td>
                                             </tr>
                                          <?php $i++; } } else { ?>
-                                  <td>No Results Found</td>
+                                <tr>  <td colspan="5"><center>No Results Found</center></td></tr>
 	                                <?php } ?>
                                         </tbody>
                           </table>

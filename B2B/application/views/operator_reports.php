@@ -50,7 +50,7 @@
                           </tr>
                         </thead>
                                 <tbody>
-          <?php $i=1; foreach($results as $report_details_distributors){ ?>
+          <?php  if(!empty($results)){ $i=1; foreach($results as $report_details_distributors){ ?>
      <tr>
 
 <?php
@@ -64,7 +64,9 @@
          <td><?php echo round($report_details_distributors->dcommi,2);?></td>
          <td><?php echo round($report_details_distributors->commi,2);?></td>
       </tr>    
-     <?php 	$i++; }?>
+      <?php $i++; } } else { ?>
+                                <tr>  <td colspan="5"><center>No Results Found</center></td></tr>
+	                                <?php } ?>
     </tbody>
                           </table>
                     </div>
