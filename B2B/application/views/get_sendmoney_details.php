@@ -26,10 +26,10 @@
                 	<div class="form-group">
                     <?php $type=$this->session->userdata('type');
 					 if($type === "admin" || $type === "distributor" || $type === "retailer"){ ?>
-                      <a href="<?php echo site_url('transfer/get_transfer_details') ?>" class="btn btn-default active">View Transfer</a><?php } ?>
+                      <a href="<?php echo site_url('transfer/get_transfer_details') ?>" class="btn btn-warning">View Transfer</a><?php } ?>
                         
                         <?php if($type === "admin" ){?>
-                 <a href="<?php echo site_url('sendmoney_transfer/get_sendmoney_details') ?>" class="btn btn-warning">View Sendmoney Transfer</a><?php } ?>
+                 <a href="<?php echo site_url('sendmoney_transfer/get_sendmoney_details') ?>" class="btn btn-default active">View Sendmoney Transfer</a><?php } ?>
                         
                         
                     </div>
@@ -77,7 +77,7 @@
          <input placeholder="To date" readonly type="text" id="report_to_date" name="to_date" value=""  class="form-control"/>
           </div>
           <div class="form-group col-lg-2">
-                                    <input  class="btn btn-primary form-control" type="submit" value="Submit">
+                                    <input  class="btn btn-warning form-control" type="submit" value="Submit">
                                     <?php //if(!empty($_REQUEST['from_date']) || !empty($_REQUEST['to_date']) ){ ?>
                                     <?php //} ?>
                </div>                  
