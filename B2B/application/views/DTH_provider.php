@@ -3,14 +3,15 @@
     	<div class="admin-page2">
         	<div class="row">
             	<div class="col-xs-12 profile-btn">
-                	<ul>
-                    	<?php $type=$this->session->userdata('type');
+                <div class="form-group">
+                     	<?php $type=$this->session->userdata('type');
 						if( $type === "admin" ){?>
-                    	<li><a href="<?php echo site_url('prepaid/prepaid_service') ?>" class="gradient_btn2">Prepaid</a></li>
-                        <li><a href="<?php echo site_url('postpaid/postpaid_service') ?>" class="gradient_btn2">Postpaid</a></li>
-                        <li ><a href="#" class="gradient_btn2 active">DTH</a></li>
+                    	<a href="<?php echo site_url('prepaid/prepaid_service') ?>" class="btn btn-warning">Prepaid</a>
+                        <a href="<?php echo site_url('postpaid/postpaid_service') ?>" class="btn btn-warning">Postpaid</a>
+                        <a href="<?php echo site_url('DTH_provider/DTH_service') ?>" class="btn btn-default active">DTH</a>
+ <a href="<?php echo site_url('sendmoney/add_commission') ?>" class="btn btn-warning">Send Money</a>
                         <?php } ?>
-                    </ul>
+                   </div>
                 </div>
                 <!-- col-xs-12 ends-->
                
