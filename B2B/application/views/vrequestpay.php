@@ -16,7 +16,7 @@
                 <div class="panel dashboard">
                 <div class="panel-body">
                 	<div class="form-group">
-                      <a href="<?php echo site_url('payment/viewrequestpaymentdetail') ?>" class="btn btn-warning">View Request</a>
+                      <a href="<?php echo site_url('payment/viewrequestpaymentdetail') ?>" class="btn btn-default">View Request</a>
                       <a href="<?php echo site_url('paymentreversal/viewreversalpaymentdetail') ?>" class="btn btn-warning">View Reversal</a>
                         
                    </div>

@@ -41,7 +41,7 @@
 </select></div>
 <div class="form-group col-lg-2">
 
- <input type="submit" value="Submit" name="submit" class="btn btn-primary form-control" />
+ <input type="submit" value="Submit" name="submit" class="btn btn-warning form-control" />
 </div>
 		
 

@@ -32,7 +32,7 @@
          <?php } ?> 
     </select>
 
-	<input type="submit" id="showLoader"   value="Go" class="btn btn-small btn-info" style="font-weight:15px;width: 120px; height: 35px;font-size: 15px;"/>
+	<input type="submit" id="showLoader"   value="Go" class="btn btn-small btn-warning" style="font-weight:15px;width: 120px; height: 35px;font-size: 15px;"/>
     
     
 	</div>

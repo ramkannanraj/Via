@@ -26,13 +26,13 @@
                 	<div class="form-group">
                     <?php $type=$this->session->userdata('type');
 					 if($type === "admin" || $type === "distributor" || $type === "retailer"){ ?>
-                      <a href="<?php echo site_url('transfer/get_transfer_details') ?>" class="btn btn-warning active">View Transfer</a><?php } ?>
+                      <a href="<?php echo site_url('transfer/get_transfer_details') ?>" class="btn btn-default active">View Transfer</a><?php } ?>
                         
                         <?php if($type === "admin" ){?>
                  <a href="<?php echo site_url('sendmoney_transfer/get_sendmoney_details') ?>" class="btn btn-warning">View Sendmoney Transfer</a><?php } ?>
                         
                         <?php if($type === "super" ){?>
-                       <a href="<?php echo site_url('transfer/get_transfer_details') ?>" class="btn btn-warning active">View Transfer</a><?php } ?>
+                       <a href="<?php echo site_url('transfer/get_transfer_details') ?>" class="btn btn-default active">View Transfer</a><?php } ?>
                     </div>
                     
                      <div class="mobile-1">
@@ -172,8 +172,8 @@
 
 <div class="form-group col-sm-12 col-xs-12">
 <div class="pull-right">
-<button type="button" id="refund_btn"  class="btn btn-primary" style="margin-right:20px;">Refund</button>
-<button type="button" class="btn btn-primary" data-dismiss="modal" style="width:130px;">Close</button>
+<button type="button" id="refund_btn"  class="btn btn-warning" style="margin-right:20px;">Refund</button>
+<button type="button" class="btn btn-warning" data-dismiss="modal" style="width:130px;">Close</button>
 </div>
 </div>
 <?php }?>

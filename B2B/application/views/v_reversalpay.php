@@ -334,7 +334,7 @@ function isNumber(evt) {
 								 <tr><td>Requested To</td><td><input type="text" name="sendid" value="<?php foreach ($records->result() as $row) {
  echo $row->name; }?>" readonly="readonly" /></td></tr>
 
-                             <tr><td></td><td  class="five"><input type="submit" onClick="javascript: validate_topup_reversal()" value="Submit" class="btn btn-info btn-small"></td></tr>
+                             <tr><td></td><td  class="five"><input type="submit" onClick="javascript: validate_topup_reversal()" value="Submit" class="btn btn-warning btn-small"></td></tr>
 
 
 
@@ -410,7 +410,7 @@ function isNumber(evt) {
 								<tr><td>Requested To</td><td><input type="text" name="sendid" readonly value="<?php foreach ($records->result() as $row) {
  echo $row->name; }?>"  /></td></tr>
 
-                            <tr><td></td><td class="five" ><input type="submit" onClick="javascript: validate_amount_reversal()" value="Submit" class="btn btn-info btn-small" ></td></tr>
+                            <tr><td></td><td class="five" ><input type="submit" onClick="javascript: validate_amount_reversal()" value="Submit" class="btn btn-warning btn-small" ></td></tr>
 
                               <div style="display:none" id="amount_loading"><img src="images/ajax-loader.gif"></div>
 
