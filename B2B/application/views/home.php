@@ -23,13 +23,13 @@
 
   .user-info-block .panel-heading{
 	/* background: rgb(162, 162, 162);*/
-	 background: #00bbf0; 
+	 background: #ec971f; 
 	  /*background: rgba(0, 0, 0, 0) linear-gradient(90deg, rgba(7, 127, 240, 1) 0%, rgba(0, 187, 240, 1) 100%) repeat scroll 0 0;*/
 	  color:#fff;
   }
   
   .user-info-block .panel-heading:hover{
-   background: rgba(0, 0, 0, 0) linear-gradient(270deg, rgba(227, 16, 109, 1) 0%, rgba(134, 1, 120, 1) 100%) repeat scroll 0 0!important;
+    background: rgba(0, 0, 0, 0) linear-gradient(270deg,#f0ad4e,#ec971f) repeat scroll 0 0 !important;
   }
 .user-row .title{
 	font-size:20px;

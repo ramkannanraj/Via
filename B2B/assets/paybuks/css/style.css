@@ -60,7 +60,7 @@ position: relative;
 	
 	}
 header .navbar-default {
-    background: #00bbf0 none repeat scroll 0 0;
+    background: #8A60AB none repeat scroll 0 0;
     height: 50px;
 	border-radius:0px;
 	margin-bottom: 0px;
@@ -166,12 +166,12 @@ header .navbar-nav li a.logout::before {
     vertical-align: middle;
 }
 .main_menu ul li:hover a, .main_menu ul li a.active {
-    background: rgba(0, 0, 0, 0) linear-gradient(270deg, rgba(227, 16, 109, 1) 0%, rgba(134, 1, 120, 1) 100%) repeat scroll 0 0;
+    background: #8A60AB;
     transition: all 0.4s ease 0s;
 }
 .main_menu ul li:hover a::after, .main_menu ul li a.active::after {
     border-bottom: 5px solid transparent;
-    border-left: 7px solid #e3106d;
+    border-left: 7px solid #8a60ab;
     border-top: 5px solid transparent;
     bottom: 0;
     content: "";
@@ -292,7 +292,7 @@ header .navbar-nav li a.logout::before {
 }
 
 .btn-default{
-	background: rgba(0, 0, 0, 0) linear-gradient(270deg, rgba(227, 16, 109, 1) 0%, rgba(134, 1, 120, 1) 100%) repeat scroll 0 0!important;
+	background: #006363 !important;
 	color:#fff!important;
 	text-align:center;
 	border:none!important;
@@ -306,7 +306,7 @@ header .navbar-nav li a.logout::before {
 }
 
 .btn-default:hover {
-    background: rgba(0, 0, 0, 0) linear-gradient(270deg, rgba(134, 1, 120, 1) 0%, rgba(227, 16, 109, 1) 100%) repeat scroll 0 0!important;
+    background: #218484 !important;
     color: #fff;
 }
 
@@ -570,7 +570,7 @@ PROFILE
     width: 100%;
 }
 .mobile-1 p {
-    background: #e1106d none repeat scroll 0 0;
+    background: #8A60AB none repeat scroll 0 0;
     color: #fff;
     font-weight: bold;
     margin-bottom: 20px;
@@ -632,7 +632,7 @@ PROFILE
     margin-top: 20px;
 }
 .table-responsive .air-table1 .table-title {
-    background: #00bbf0 none repeat scroll 0 0;
+    background: #8A60AB none repeat scroll 0 0;
     color: #fff;
     font-weight: normal;
 }

@@ -19,7 +19,7 @@ background: #fff;
     border-top: 1px solid #d2d6de;
 }
 #footer {
-	background-color: #00bbf0; /* #e1e1e1; */
+	background-color: #8A60AB !important; /* #e1e1e1; */
 	color: #fff;
     padding: 32px;
     position:relative;

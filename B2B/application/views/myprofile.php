@@ -7,8 +7,8 @@
                 <div class="panel dashboard">
         <div class="panel-body">
                 	<div class="form-group">
-                    <a href="#" class="btn btn-primary">Profile</a>
-                      <a href="<?php echo site_url('margin/viewmargin') ?>" class="btn btn-primary">Discounts</a>
+                    <a href="#" class="btn btn-warning">Profile</a>
+                      <a href="<?php echo site_url('margin/viewmargin') ?>" class="btn btn-warning">Discounts</a>
                       </div>
                       </div>
                       </div>
@@ -123,7 +123,7 @@ foreach ($query->result() as $row)
                   
                     <div class="form-group col-lg-12">
                 <div class="pull-right">
-                   	<input type="submit" id="submit" name="dsubmit" value="Submit" class="btn btn-primary">
+                   	<input type="submit" id="submit" name="dsubmit" value="Submit" class="btn btn-warning">
                 </div>
                 </div>
                 </div>

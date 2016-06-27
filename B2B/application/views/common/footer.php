@@ -4,7 +4,7 @@
 
 
 <footer id="footer" class="main_footer">
-<a href="#" class="footerp"><img src="<?php echo base_url()?>/assets/paybuks/images/footer_logo.png" /></a>
+<a href="#" class="footerp"><img src="<?php echo base_url()?>/assets/paybuks/images/logo_blue.png" /></a>
 <p>@ Copyright 2016 - 2017  |  ViaPiase All rights reserved</p>
 </footer> 
 
@@ -19,7 +19,7 @@ background: #fff;
     border-top: 1px solid #d2d6de;
 }
 #footer {
-	background-color: #00bbf0; /* #e1e1e1; */
+	background-color: #8A60AB ; /* #e1e1e1; */
 	color: #fff;
     padding: 32px;
     position:relative;

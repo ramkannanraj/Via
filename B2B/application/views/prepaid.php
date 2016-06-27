@@ -9,10 +9,10 @@
                      <div class="form-group">
                      	<?php $type=$this->session->userdata('type');
 						if( $type === "admin" ){?>
-                    	<a href="<?php echo site_url('prepaid/prepaid_service') ?>" class="btn btn-default active">Prepaid</a>
-                        <a href="<?php echo site_url('postpaid/postpaid_service') ?>" class="btn btn-primary">Postpaid</a>
-                        <a href="#" class="btn btn-primary">DTH</a>
- <a href="<?php echo site_url('sendmoney/add_commission') ?>" class="btn btn-primary">Send Money</a>
+                    	<a href="<?php echo site_url('prepaid/prepaid_service') ?>" class="btn btn-warning active">Prepaid</a>
+                        <a href="<?php echo site_url('postpaid/postpaid_service') ?>" class="btn btn-warning">Postpaid</a>
+                        <a href="#" class="btn btn-warning">DTH</a>
+ <a href="<?php echo site_url('sendmoney/add_commission') ?>" class="btn btn-warning">Send Money</a>
                         <?php } ?>
                    </div>
                     
