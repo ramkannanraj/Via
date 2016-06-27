@@ -295,7 +295,7 @@ header .navbar-nav li a.logout::before {
 	background: #006363 !important;
 	color:#fff!important;
 	text-align:center;
-	border:none!important;
+	border-color: #006363!important;
 }
 
 .btn-primary{
@@ -321,14 +321,14 @@ input.form-control, textarea.form-control, select.form-control{
 }
 
 .modal-header{
-	background: rgba(0, 0, 0, 0) linear-gradient(90deg, rgba(7, 127, 240, 1) 0%, rgba(0, 187, 240, 1) 100%) repeat scroll 0 0!important;
+	background: rgba(0, 0, 0, 0) linear-gradient(90deg,#8A60AB,#4E4C92) repeat scroll 0 0!important;
 	color:#fff!important;
 }
 
 
 
 .gradient_btn, .gradient_btn.btn {
-    background: rgba(0, 0, 0, 0) linear-gradient(270deg, rgba(227, 16, 109, 1) 0%, rgba(134, 1, 120, 1) 100%) repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) linear-gradient(270deg,#f0ad4e,#EC971F) repeat scroll 0 0;
     border: medium none !important;
     border-radius: 8px;
     color: #fff;
@@ -340,7 +340,7 @@ input.form-control, textarea.form-control, select.form-control{
     padding: 0 50px;
 }
 .gradient_btn:hover {
-    background: rgba(0, 0, 0, 0) linear-gradient(270deg, rgba(134, 1, 120, 1) 0%, rgba(227, 16, 109, 1) 100%) repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) linear-gradient(270deg,#EC971F,#f0ad4e) repeat scroll 0 0;
     color: #fff;
 }
 .gradient_btn2 {
@@ -786,12 +786,12 @@ input[type=radio].css-checkbox + label.css-label {
 
 }
 input[type=radio].css-checkbox + label.css-label:hover{
-	color:#00bbf0;
+	color:#ec971f;
 }
 
 input[type=radio].css-checkbox:checked + label.css-label {
 	background-position: 0 -16px;
-	color:#00bbf0;
+	color:#ec971f;
 }
 label.css-label {
 	background-image: url(../images/radio.png);

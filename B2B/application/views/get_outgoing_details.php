@@ -13,7 +13,7 @@
                 <div class="panel dashboard">
                 <div class="panel-body">
                 	<div class="form-group">
-                       <a href="#" class="btn btn-primary">Outgoing</a>
+                       <a href="#" class="btn btn-warning">Outgoing</a>
                         
                     </div>
                     <div class="mobile-1">
@@ -29,7 +29,7 @@
                        	  <label>To date</label><input type="text" value="" placeholder="To date"   id="report_to_date" name="to_date" class="form-control">
                           </div>
                             <div class="form-group">
-                          <input type="submit" value="Submit" class="btn btn-default">
+                          <input type="submit" value="Submit" class="btn btn-warning">
                           <?php //if(!empty($_REQUEST['from_date']) || !empty($_REQUEST['to_date']) ){ ?>
                                     <?php //} ?>
                                </div>     

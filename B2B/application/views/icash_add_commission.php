@@ -12,10 +12,10 @@
  <div class="form-group">
                                     <?php $type=$this->session->userdata('type');
                                     if( $type === "admin" ){?>
-                                    <a href="<?php echo site_url('prepaid/prepaid_service') ?>" class="btn btn-primary">Prepaid</a>
-                                    <a href="<?php echo site_url('postpaid/postpaid_service') ?>" class="btn btn-default active">Postpaid</a>
-                                    <a href="#" class="btn btn-primary">DTH</a>
- <a href="<?php echo site_url('sendmoney/add_commission') ?>" class="btn btn-primary">Send Money</a>
+                                    <a href="<?php echo site_url('prepaid/prepaid_service') ?>" class="btn btn-warning">Prepaid</a>
+                                    <a href="<?php echo site_url('postpaid/postpaid_service') ?>" class="btn btn-warning active">Postpaid</a>
+                                    <a href="#" class="btn btn-warning">DTH</a>
+ <a href="<?php echo site_url('sendmoney/add_commission') ?>" class="btn btn-default">Send Money</a>
                                     <?php } ?>
                                </div>
                 	<div class="mobile-1">
@@ -57,7 +57,7 @@
                              </div>
                               <div class="form-group col-lg-3">
                               <label>Action</label> 
-                              <input type="submit" value="Save" class="form-control btn-primary">
+                              <input type="submit" value="Save" class="form-control btn-warning">
                          </div>
                    
                         </form>
@@ -78,7 +78,7 @@
                                <input type="hidden" class="form-control" value="<?php echo $commission->type; ?>" name="type"/>
                                <input type="hidden" class="form-control" value="<?php echo $commission->id; ?>" name="id"/>
                               <span class="input-group-btn">
-                                 <input type="submit" value="Save" class="btn btn-primary">
+                                 <input type="submit" value="Save" class="btn btn-warning">
                               </span>
                             </div><!-- /input-group -->
                                                 

@@ -8,15 +8,15 @@
                			 <div class="form-group">
                     
                     	<?php if($type === "distributor" ||$type === "super" ){?>
-                        <a href="<?php echo site_url('user/createuser') ?>" class="btn btn-primary">Create User</a>
-                        <a href="<?php echo site_url('home/index') ?>" class="btn btn-primary">View User</a></li>
+                        <a href="<?php echo site_url('user/createuser') ?>" class="btn btn-warning">Create User</a>
+                        <a href="<?php echo site_url('home/index') ?>" class="btn btn-warning">View User</a></li>
                         
                     	<?php } if($type === "admin"  ){?>
-                    	<a href="<?php echo site_url('user/createuser') ?>" class="btn btn-primary">Create User</a>
-                        <a href="<?php echo site_url('home/index') ?>" class="btn btn-primary">View User</a>
+                    	<a href="<?php echo site_url('user/createuser') ?>" class="btn btn-warning">Create User</a>
+                        <a href="<?php echo site_url('home/index') ?>" class="btn btn-warning">View User</a>
                         <a href="<?php echo site_url('mobile_no_change/index') ?>" class="btn btn-default chg-mobi-no ">Change Mobile No</a>
                         <?php } if($type === "admin"){ ?>
-                        <a href="<?php echo site_url('user/viewbalance/distributor') ?>" class="btn btn-primary">View Balance</a>
+                        <a href="<?php echo site_url('user/viewbalance/distributor') ?>" class="btn btn-warning">View Balance</a>
                         <?php } ?>
                     
                     </div>

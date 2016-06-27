@@ -77,14 +77,14 @@ $(document).on('change','.state',function(){
                         
 							  <?php if($this->session->userdata('type')=='distributor' || $this->session->userdata('type')=='super' ){?>
                               <a href="<?php echo site_url('user/createuser') ?>" class="btn btn-default">Create User</a> 
-                               <a href="<?php echo site_url('home/index') ?>" class="btn btn-primary">View User</a> 
+                               <a href="<?php echo site_url('home/index') ?>" class="btn btn-warning">View User</a> 
                               
                               <?php } if($this->session->userdata('type')=='admin'){?>
                               <a href="<?php echo site_url('user/createuser') ?>" class="btn btn-default">Create User</a> 
-                              <a href="<?php echo site_url('home/index') ?>" class="btn btn-primary">View User</a>
-                              <a href="<?php echo site_url('mobile_no_change/index') ?>" class="btn btn-primary chg-mobi-no ">Change Mobile No</a>
+                              <a href="<?php echo site_url('home/index') ?>" class="btn btn-warning">View User</a>
+                              <a href="<?php echo site_url('mobile_no_change/index') ?>" class="btn btn-warning chg-mobi-no ">Change Mobile No</a>
                               <?php } if($this->session->userdata('type')=='admin'){ ?>
-                               <a href="<?php echo site_url('user/viewbalance/distributor') ?>" class="btn btn-primary">View Balance</a>
+                               <a href="<?php echo site_url('user/viewbalance/distributor') ?>" class="btn btn-warning">View Balance</a>
                               <?php } ?>
                     
                     </div>

@@ -29,7 +29,7 @@
                       <a href="<?php echo site_url('transfer/get_transfer_details') ?>" class="btn btn-default active">View Transfer</a><?php } ?>
                         
                         <?php if($type === "admin" ){?>
-                 <a href="<?php echo site_url('sendmoney_transfer/get_sendmoney_details') ?>" class="btn btn-primary">View Sendmoney Transfer</a><?php } ?>
+                 <a href="<?php echo site_url('sendmoney_transfer/get_sendmoney_details') ?>" class="btn btn-warning">View Sendmoney Transfer</a><?php } ?>
                         
                         
                     </div>

@@ -137,7 +137,7 @@ padding-top: 15px;
                           <div class="input-group">
   <input type="text" id="addAmount" name="addAmount" placeholder="Enter Amount" class="form-control" aria-label="...">
   <div class="input-group-btn">
-    <input type="button" class="btn btn-primary cancel" value="cancel"/>
+    <input type="button" class="btn btn-danger cancel" value="cancel"/>
      <input type="submit" class="btn btn-default" value="Add" />
   </div>
 </div>
@@ -206,7 +206,7 @@ padding-top: 15px;
                           <div class="input-group">
   <input type="text" id="sendMoneyAmt" name="sendMoneyAmt" placeholder="Enter Amount" class="form-control" aria-label="...">
   <div class="input-group-btn">
-    <input type="button" class="btn btn-primary cancel" value="cancel"/>
+    <input type="button" class="btn btn-danger cancel" value="cancel"/>
      <input type="submit" class="btn btn-default" value="Add" />
   </div>
 </div>
@@ -480,7 +480,7 @@ padding-top: 15px;
                                     <div class="form-group col-md-12 col-xs-12">
                                     	<div class="pull-right">
                                     	<button type="submit" class="btn btn-default">Save Card</button>
-                                         <button type="submit" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+                                         <button type="submit" data-dismiss="modal" class="btn btn-danger">Cancel</button>
                                         </div>
                                     </div>
                                 </div>
@@ -548,7 +548,7 @@ padding-top: 15px;
                                     <div class="form-group col-md-12 col-xs-12">
                                     	<div class="pull-right">
                                     	<button type="submit" class="btn btn-default">Save address</button>
-                                        <button type="submit" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+                                        <button type="submit" data-dismiss="modal" class="btn btn-danger">Cancel</button>
                                         </div>
                                     </div>
                                 </div>

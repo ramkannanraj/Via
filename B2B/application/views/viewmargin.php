@@ -30,8 +30,8 @@ responsive: true
                 <div class="panel dashboard">
             <div class="panel-body">
                        <div class="form-group">
-                       <a href="<?php echo site_url('user/myprofile') ?>" class="btn btn-default">Profile</a>
-                       <a href="#" class="btn btn-default active">Discounts</a>
+                       <a href="<?php echo site_url('user/myprofile') ?>" class="btn btn-warning">Profile</a>
+                       <a href="#" class="btn btn-warning active">Discounts</a>
                        </div>
                        
                        </div>

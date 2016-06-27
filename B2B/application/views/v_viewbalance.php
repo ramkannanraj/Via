@@ -8,13 +8,13 @@
                 	<div class="form-group">
                     
                     	<?php if($type === "distributor" ||$type === "super" ){?>
-                        <a href="<?php echo site_url('user/createuser') ?>" class="btn btn-primary">Create User</a>
-                        <a href="<?php echo site_url('home/index') ?>" class="btn btn-primary">View User</a>
+                        <a href="<?php echo site_url('user/createuser') ?>" class="btn btn-warning">Create User</a>
+                        <a href="<?php echo site_url('home/index') ?>" class="btn btn-warning">View User</a>
                         
                     	<?php } if($type === "admin"  ){?>
-                    	<a href="<?php echo site_url('user/createuser') ?>" class="btn btn-primary">Create User</a>
-                        <a href="<?php echo site_url('home/index') ?>" class="btn btn-primary">View User</a>
-                        <a href="<?php echo site_url('mobile_no_change/index') ?>" class="btn btn-primary chg-mobi-no ">Change Mobile No</a>
+                    	<a href="<?php echo site_url('user/createuser') ?>" class="btn btn-warning">Create User</a>
+                        <a href="<?php echo site_url('home/index') ?>" class="btn btn-warning">View User</a>
+                        <a href="<?php echo site_url('mobile_no_change/index') ?>" class="btn btn-warning chg-mobi-no ">Change Mobile No</a>
                         <?php } if($type === "admin"){ ?>
                         <a href="<?php echo site_url('user/viewbalance/distributor') ?>" class="btn btn-default">View Balance</a>
                         <?php } ?>

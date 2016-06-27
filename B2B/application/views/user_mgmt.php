@@ -8,15 +8,15 @@
                 <div class="panel-body">
                         <div class="form-group">
                             <?php if($type === "distributor" ||$type === "super" ){?>
-                            <a href="<?php echo site_url('user/createuser') ?>" class="btn btn-primary">Create User</a>
-                            <a href="<?php echo site_url('home/index') ?>" class="btn btn-default">View User</a>
+                            <a href="<?php echo site_url('user/createuser') ?>" class="btn btn-warning">Create User</a>
+                            <a href="<?php echo site_url('home/index') ?>" class="btn btn-warning">View User</a>
                             
                             <?php } if($type === "admin"  ){?>
-                            <a href="<?php echo site_url('user/createuser') ?>" class="btn btn-primary">Create User</a>
-                            <a href="<?php echo site_url('home/index') ?>" class="btn btn-default">View User</a>
-                            <a href="<?php echo site_url('mobile_no_change/index') ?>" class="btn btn-primary chg-mobi-no">Change Mobile No</a>
+                            <a href="<?php echo site_url('user/createuser') ?>" class="btn btn-warning">Create User</a>
+                            <a href="<?php echo site_url('home/index') ?>" class="btn btn-warning">View User</a>
+                            <a href="<?php echo site_url('mobile_no_change/index') ?>" class="btn btn-warning chg-mobi-no">Change Mobile No</a>
                             <?php } if($type === "admin"){ ?>
-                            <a href="<?php echo site_url('user/viewbalance/distributor') ?>" class="btn btn-primary">View Balance</a>
+                            <a href="<?php echo site_url('user/viewbalance/distributor') ?>" class="btn btn-warning">View Balance</a>
                             <?php } ?>
                         </div>
                         
@@ -110,8 +110,8 @@ while($row=mysql_fetch_array($sql))
 <?php 	if($active=='yes'){ ?>
 
 <td>
-<a class="active1" style="color:#00BBF0;" href="<?=site_url('home/statusactive')?>/<?php echo $row['uid']; ?>"onclick="if(confirm('Do you want to change the inactive status ')) return true; else return false;"  title="Edit Status" alt="Edit Status">
-<span style="color:#00BBF0; font-size:10px !important;" class="glyphicon glyphicon-ok" aria-hidden="true"></span> active</a></td>
+<a class="active1" style="color:#EC9924;" href="<?=site_url('home/statusactive')?>/<?php echo $row['uid']; ?>"onclick="if(confirm('Do you want to change the inactive status ')) return true; else return false;"  title="Edit Status" alt="Edit Status">
+<span style="color:#EC9924; font-size:10px !important;" class="glyphicon glyphicon-ok" aria-hidden="true"></span> active</a></td>
 
 <?php  }else if($active=='no') {  ?>
 
