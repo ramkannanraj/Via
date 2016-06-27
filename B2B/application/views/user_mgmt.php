@@ -255,8 +255,8 @@ $active=$row['isactive'];
 
 <div class="form-group col-sm-12">
 <div class="pull-right">
-<button type="button" onClick="updatedata('<?php echo $row['uid']; ?>')" class="btn btn-primary">Save changes</button>
-<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+<button type="button" onClick="updatedata('<?php echo $row['uid']; ?>')" class="btn btn-default">Save changes</button>
+<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 </div>
 </div>
 </div>
@@ -318,8 +318,8 @@ $active=$row['isactive'];
 
 <div class="form-group col-sm-12 col-xs-12">
 <div class="pull-right">
-<button type="button" onClick="update_fund_transfer('<?php echo $row['uid']; ?>')" class="btn btn-primary" style="margin-right:20px;">Transfered Amount</button>
-<button type="button" class="btn btn-primary" data-dismiss="modal" style="width:130px;">Close</button>
+<button type="button" onClick="update_fund_transfer('<?php echo $row['uid']; ?>')" class="btn btn-default" style="margin-right:20px;">Transfered Amount</button>
+<button type="button" class="btn btn-danger" data-dismiss="modal" style="width:130px;">Close</button>
 </div>
 </div>
 <?php }?>
@@ -383,8 +383,8 @@ $active=$row['isactive'];
 
 <div class="form-group col-sm-12 col-xs-12">
 <div class="pull-right">
-<button type="button" onClick="update_sendmoney_transfer('<?php echo $row['uid']; ?>')" class="btn btn-primary" style="margin-right:20px;">Transfered Amount</button>
-<button type="button" class="btn btn-primary" data-dismiss="modal" style="width:130px;">Close</button>
+<button type="button" onClick="update_sendmoney_transfer('<?php echo $row['uid']; ?>')" class="btn btn-default" style="margin-right:20px;">Transfered Amount</button>
+<button type="button" class="btn btn-danger" data-dismiss="modal" style="width:130px;">Close</button>
 </div>
 </div>
 <?php }?>
@@ -443,8 +443,8 @@ $active=$row['isactive'];
 
 <div class="form-group col-sm-12 col-xs-12">
 <div class="pull-right">
-<button type="button" onClick="update_locked_amnt('<?php echo $row['uid']; ?>')" class="btn btn-primary" style="margin-right:20px;">Transfered Amount</button>
-<button type="button" class="btn btn-primary" data-dismiss="modal" style="width:130px;">Close</button>
+<button type="button" onClick="update_locked_amnt('<?php echo $row['uid']; ?>')" class="btn btn-default" style="margin-right:20px;">Transfered Amount</button>
+<button type="button" class="btn btn-danger" data-dismiss="modal" style="width:130px;">Close</button>
 </div>
 </div>
 <?php }?>
