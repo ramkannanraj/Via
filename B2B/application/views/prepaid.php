@@ -51,17 +51,9 @@
                                                 <?php echo ($status=='Disable') ?  "checked" : "" ;  ?>/>Disable
                                                 </td>
                                                 
-                                                <td>
-                                                <?php $provider= $val->provider; ?>  
-                                                <input type="radio" name="provider_<?php echo $dd1; ?> " id="provider"
-                                                value="Ezypay" 
-                                                <?php echo ($provider=='Ezypay') ?  "checked" : "" ;  ?> class="css-checkbox"/> 
-                                                Ezypay
-                                                <input type="radio" name="provider_<?php echo $dd1; ?>" id="provider" 
-                                                value="Cyberplat" 
-                                                <?php echo ($provider=='Cyberplat') ?  "checked" : "" ;  ?> class="css-checkbox"/>
-                                                Cyberplat
-                                                </td>
+                                                
+                                                <td><?php echo $val->provider;?></td>
+                                                
                                                 <td ><input type="text" name="commission"
                                                 id="commission" value="<?php echo $val->commission?>" class="update" alt="commission" rel="<?php echo $val->id?>" /><br />
                                                 </td>

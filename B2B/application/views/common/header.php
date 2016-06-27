@@ -8,7 +8,7 @@
 <meta name="keywords" content="Notifications, Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Wrapbootstrap, Bootstrap, bootstrap.gallery" />
 <meta name="author" content="Bootstrap Gallery" />
     
-<link rel="shortcut icon" href="<?php echo base_url()?>/assets/paybuks/css/images/favicon_square.png">
+<link rel="shortcut icon" href="<?php echo base_url()?>assets/paybuks/images/favicon.png">
    <!-- MY STYLESHEET -->
 <link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/style.css" type="text/css" />
 <!-- BOOSTRAB STYLESHEET -->

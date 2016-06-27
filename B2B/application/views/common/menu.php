@@ -5,7 +5,7 @@ $username = $this->session->userdata('username');
 $uid = $this->session->userdata('uid');		 
 if(	$type == '' && $username == '' && $uid == '')
 {	
-	header("Location: http://www.paybuks.com"); 
+	header("Location: http://64.187.228.106/dev/Via/trunk/B2B/"); 
 }
 if($type === "admin" || $type === "retailer" ||$type === "distributor" ||$type === "super" || $type === "consumer" ){?>
 
