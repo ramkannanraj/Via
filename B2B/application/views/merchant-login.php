@@ -18,7 +18,7 @@
 
     <!-- style css -->
 
-    <link href="http://www.paybuks.com/style.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/style_index.css" rel="stylesheet" type="text/css">
 
     
 
@@ -77,11 +77,11 @@
 
         
 
-        		<div class="hire-icon"><a href="career.html"><img src="http://www.paybuks.com/images/hire.png"></a></div>
+        		<div class="hire-icon"><a href="career.html"><img src="assets/images/hire.png"></a></div>
 
                 <div class="acc-icon">
 
-                	<a class="btn-bg" href="invite-friends.html">Invite <br /> Friends</a>
+                	<a class="btn-warning" href="invite-friends.html">Invite <br /> Friends</a>
 
                     <a href="mobile-app.html">MOBILE <br /> APP</a>
 
@@ -153,7 +153,7 @@
         
                                 
                                    
-                                    <a class="navbar-brand" href="/"><img class="img-responsive" src="http://www.paybuks.com/images/logo.png"></a>
+                                    <a class="navbar-brand" href="/"><img class="img-responsive" src="assets/paybuks/images/logo_blue.png"></a>
         </div>
          
         
@@ -174,7 +174,7 @@
                         
                                    <div class="acc-login hidden-xs">
 
-      <a class="btn-bg" href="<?php echo base_url(); ?>index.php"><i class="fa fa-sign-in"></i> <span class="hidden-xs">Login</span></a>
+      <a class="btn-warning" href="<?php echo base_url(); ?>index.php"><i class="fa fa-sign-in"></i> <span class="hidden-xs">Login</span></a>
                            
  </div>   
 
@@ -279,7 +279,7 @@
                                     <div class="col-lg-6 no-padding">
                                     
 
-                                	<button type="submit" class="form-control">Login</button>
+                                	<button type="submit" class="form-control btn-warning">Login</button>
                                     </div>
 								</div>
                                     
@@ -382,7 +382,7 @@
 
                    
     <div class="social">
-    <span><img src="<?php echo base_url();?>images/foot-logo.jpg"></span>
+    <span><img src="assets/paybuks/images/logo_blue.png"></span>
  <ul class="list-unstyled">
 
                         	<li class="fb"><a href="">fb</a></li>
@@ -444,7 +444,7 @@
                         <div class="input-group">
       <input type="text" class="form-control" placeholder="Email id">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Subscribe</button>
+        <button class="btn btn-warning" type="button">Subscribe</button>
       </span>
     </div>
    
@@ -502,7 +502,7 @@
 
                 </div>--> <!-- foot-links ends -->
 
-                <p>@Copyright 2015-Paybuks
+                <p>@Copyright 2016-Viapaisa
 
  All rights reserved.</p>
 
