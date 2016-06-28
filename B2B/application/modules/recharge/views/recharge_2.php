@@ -292,7 +292,7 @@
 
 </div>
 <div class="form-group text-center">
-                                     <input class="btn btn-primary" id="close" data-dismiss="modal" type="button" value="Ok"/>
+                                     <input class="btn btn-warning" id="close" data-dismiss="modal" type="button" value="Ok"/>
                                      </div>
 </div>
  
@@ -362,7 +362,7 @@
                                                 
                                             </div>
                                     <div class="form-group text-center">
-                                     <input class="btn btn-primary" id="close" data-dismiss="modal" type="button" value="Ok"/>
+                                     <input class="btn btn-warning" id="close" data-dismiss="modal" type="button" value="Ok"/>
                                      </div>
                                     </div>
                                     
@@ -429,7 +429,7 @@
                                                     
                                                    <div class="form-group">
                                     <div class="pull-right">
-                                     <input class="btn btn-primary" id="close" data-dismiss="modal" type="button" value="Ok"/>
+                                     <input class="btn btn-warning" id="close" data-dismiss="modal" type="button" value="Ok"/>
                                      </div>
                                      </div> 
                                                 </div>

@@ -35,9 +35,9 @@
 </div>
     <?php } ?>
                           <h3>Card Generation</h3>
-                     <p><span class="glyphicon glyphicon-briefcase" style="font-size:48px;"></span></p>
+                     <p style="display:inline-block;"><span class="glyphicon glyphicon-briefcase" style="font-size:48px;"></span></p>
                      
-                        <a href="<?php echo site_url('sendmoney/create_card') ?>" class="btn btn-default pull-right">Card Generation</a>
+                        <a href="<?php echo site_url('sendmoney/create_card') ?>" class="btn btn-warning pull-right">Card Generation</a>
                 	<div class="clearfix"></div>
                  
                    
@@ -62,9 +62,9 @@
                 	<div class="panel dashboard">
                     	<div class="panel-body">
                           <h3>Login with pin</h3>
-                          <p><span class="fa fa-key fa-2x" style="font-size:48px;"></span></p>
+                          <p style="display:inline-block;"><span class="fa fa-key fa-2x" style="font-size:48px;"></span></p>
                          
-                                <a class="btn btn-default pull-right accordion accordion-close" id="log_pin">Login with pin</a>
+                                <a class="btn btn-warning pull-right accordion accordion-close" id="log_pin">Login with pin</a>
                                 <span id="forgetPin" style="color:green;"></span>
                                 
                                 <div class="clearfix"></div>
@@ -110,8 +110,8 @@
                          <div class="panel dashboard">
                     	<div class="panel-body">
                          <h3>Login with OTP</h3>
-                   <p><span class="fa fa-tty fa-2x" style="font-size:48px;"></span></p>
-                            <a class="btn btn-default pull-right accordion accordion-close" id="log_otp">Login with OTP</a>
+                   <p style="display:inline-block;"><span class="fa fa-tty fa-2x" style="font-size:48px;"></span></p>
+                            <a class="btn btn-warning pull-right accordion accordion-close" id="log_otp">Login with OTP</a>
                             <div class="clearfix"></div>
                           <div class="otp" style="display:none">
                                

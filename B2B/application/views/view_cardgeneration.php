@@ -47,7 +47,7 @@ function isNumber(evt) {
     <?php } ?>
     <div class="form-group pull-right">
                
-                 		<a href="<?php echo site_url('sendmoney/log') ?>" class="btn btn-default">Back</a>
+                 		<a href="<?php echo site_url('sendmoney/log') ?>" class="btn btn-warning">Back</a>
                     
                     </div>
                     
@@ -148,7 +148,7 @@ function isNumber(evt) {
                     
                     <div class="form-group col-md-12">
                     <div class="pull-right">
-                        <input type="submit" name="submit" value="Submit"class="btn btn-default">
+                        <input type="submit" name="submit" value="Submit"class="btn btn-warning">
                         </div>
                     </div>
                 </form>
