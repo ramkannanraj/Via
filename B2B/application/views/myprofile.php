@@ -22,8 +22,8 @@
                       <p>Profile</p>
                       </div>
                 <!-- col-xs-12 ends-->
-                <form action="<?php echo site_url('user/do_upload')?>" method="post" id="myform" enctype="multipart/form-data">
-               
+                <form action="<?php echo site_url('User/do_upload')?>" method="post" id="myform" enctype="multipart/form-data">
+              
                 						<?php
                                         if($this->session->flashdata('item')!="") {
                                         $message = $this->session->flashdata('item');
@@ -73,7 +73,7 @@
 $parent=$member->parent_id;
 $this->db->select('*');
 $this->db->from('usermaster');
-$this->db->where('uid',$parent);                             
+$this->db->where('uid',$parent);  
 $query = $this->db->get(); 
 foreach ($query->result() as $row)
 {
@@ -99,11 +99,11 @@ foreach ($query->result() as $row)
                     </div>
                     <div class="form-group col-lg-6">
                     	<label>State</label>
-                        <input type="text" class="form-control" value="<?php echo $member->state?>"  disabled="disabled" />
+                        <input type="text" class="form-control" value="<?php echo $member->state_name?>"  disabled="disabled" />
                     </div>
                     <div class="form-group col-lg-6">
                     	<label>City</label>
-                        <input type="text" class="form-control" value="<?php echo $member->city?>" disabled="disabled"  />
+                        <input type="text" class="form-control" value="<?php echo $member->city_name?>" disabled="disabled"  />
                     </div> 
              
                         

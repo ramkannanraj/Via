@@ -465,7 +465,12 @@
 
 			$this->db->where('uid',$id);
 
-			$q = $this->db->get('usermaster');			
+		//	$q = $this->db->get('usermaster');	
+        $this->db->select('uid,name,parent_id,username, password, companyname,email,mobile,state_name,address1,city_name');
+$this->db->from('usermaster');
+$this->db->join('states', 'usermaster.state = states.state_id');
+$this->db->join('cities', 'usermaster.city = cities.city_id');
+$q = $this->db->get();		
 
 			if($q->num_rows() > 0) 
 
