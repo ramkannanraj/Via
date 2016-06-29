@@ -344,7 +344,7 @@ input.form-control, textarea.form-control, select.form-control{
     color: #fff;
 }
 .gradient_btn2 {
-    background: rgba(0, 0, 0, 0) linear-gradient(90deg, rgba(7, 127, 240, 1) 0%, rgba(0, 187, 240, 1) 100%) repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) linear-gradient(90deg,#EC971F,#f0ad4e) repeat scroll 0 0;
 
     color: #fff;
 
@@ -353,7 +353,7 @@ input.form-control, textarea.form-control, select.form-control{
     padding: 0 30px;
 }
 .gradient_btn2:hover, .gradient_btn2.active {
-    background: rgba(0, 0, 0, 0) linear-gradient(270deg, rgba(134, 1, 120, 1) 0%, rgba(227, 16, 109, 1) 100%) repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) linear-gradient(270deg,#006363,#409595) repeat scroll 0 0;
     color: #fff;
 }
 

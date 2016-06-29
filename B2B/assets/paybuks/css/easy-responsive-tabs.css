@@ -179,7 +179,7 @@ h2.resp-accordion {
 }
 
 .resp-tab-active {
-    background: rgba(0, 0, 0, 0) linear-gradient(270deg, rgba(227, 16, 109, 1) 0%, rgba(134, 1, 120, 1) 100%) repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) linear-gradient(270deg,#006363,#409595) repeat scroll 0 0;
     color: #fff !important;
 }
 
