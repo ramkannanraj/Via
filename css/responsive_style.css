@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* CSS Document */
+
+@media (min-width: 320px) and (max-width: 767px) {
+body { font-size: 14px; }
+.logo, .footer_logo { width:90px; height:auto; }
+.navbar-collapse.in { overflow-y: inherit; }
+.navbar-default .navbar-collapse, .navbar-default .navbar-form { margin-top: 20px; }
+.header_heading, .header_title {  font-size: 24px; }
+.header_content_div { padding-top: 0; }
+.header_button { font-size: 16px; margin-bottom: 5%; }
+.centralize { padding:0; }
+.heading_violet { font-size: 24px; }
+.center_div { padding: 0; text-align: justify; }
+.service_div { padding:0; }
+.div_include {  margin-bottom: 5%; }
+.heading_white { font-size: 24px; }
+.center_div1 { padding:0; }
+.design_img { margin: 0; }
+.centralize1 {   padding-bottom: 10%;padding-top: 0; }
+.padding_div { padding:0; }
+.service_icon_img { padding: 10%; }
+.t_img { margin: 8% 0; }
+.end_div { margin-bottom:10%; }
+.footer_div { padding:0 15px; }
+.follow_us .fa { font-size: 28px; }
+.margin_left { margin-left: 0; }
+.footer_menu_gap, .footer_menu_gap1 { margin-bottom: 8%; }
+.follow { margin-top: 10%; }
+.footer_padding { padding-bottom: 0; }
+.header_div { padding-bottom: 0; }
+}
+
+
+@media (min-width: 240px) and (max-width: 319px) {
+body {  font-size: 14px; }
+.logo, .footer_logo { width:90px; height:auto; margin: 0 -10px; }
+.navbar-default .navbar-nav > li > a { font-size: 14px; }
+.navbar-default .navbar-nav > li > a:hover { font-size: 14px; }
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover { font-size: 14px; }
+.navbar-collapse.in { overflow-y: inherit; }
+.navbar-default .navbar-collapse, .navbar-default .navbar-form { margin-top: 20px; }
+.header_content_div { padding-top: 0; }
+.header_heading { font-size: 28px; }
+.header_title { font-size: 36px; }
+.header_button { font-size: 14px; padding: 4%; margin: 5% 0; }
+.header_content_div { padding-bottom: 0; }
+.header_div { padding-bottom: 0; }
+.centralize { padding:0; }
+.heading_violet { font-size: 18px; }
+.heading_white { font-size: 18px; }
+.center_div {
+    padding: 0;
+    text-align: justify;
+}
+.service_div { padding:0; }
+.center_div1 {
+    padding: 0;
+}
+.centralize1 { padding:0; }
+.padding_div { padding:0; }
+.service_icon_div {
+    height: auto;
+    width: auto;
+}
+.end_div {
+    margin-bottom: 10%;
+}
+.follow {
+    margin-top: 0;
+}
+.follow_us .fa {
+    font-size: 24px;
+}
+.footer_menu_gap {
+    margin-bottom: 0;
+}
+.footer_padding {
+    padding-bottom: 0;
+}
+}
+
+
+@media (min-width: 320px) and (max-width: 413px) {
+.service_icon_div { height: auto !important; width: auto !important; margin: 0 !important; }
+}
+@media only screen and (max-width: 414px){
+.service_icon_div { border: 10px solid #ffffff; border-radius: 50%; height: 300px; padding: 3%; width: 300px; margin: 0 8%; }
+}
+
+@media (min-width: 415px) and (max-width: 767px) {
+.service_icon_div { border: 10px solid #ffffff; border-radius: 50%; height: 300px; padding: 3%; width: 300px; margin: 0 22%; }
+.t_img1 { margin: 0 20%; }
+.t_img { margin: 5% 20%; }
+.header_content_div { padding-bottom: 0; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+.container { width: 100% ; }
+body { font-size: 14px; }
+.menu_bar_div { padding: 1% 4%; }
+.logo, .footer_logo { width:100px; height:auto; }
+.header_content_div { padding-top: 0; }
+.navbar-default .navbar-nav > li > a { font-size: 13px; }
+.header_button { font-size: 16px; }
+.centralize { padding-bottom: 0; padding-right: 5%; padding-top: 8%; }
+.heading_violet { font-size: 28px; }
+.heading_white { font-size: 28px; }
+.content_violet { font-size: 14px; }
+.comtent_white { font-size: 14px; }
+.center_div { padding: 0 10%; text-align: justify; }
+.service_div { padding:1%; }
+.div_include { padding: 5%; }
+.center_div1 { padding: 0 10%; }
+.centralize1 { padding-bottom: 10%; padding-top: 5%; }
+.margin_left { margin-left: 0; }
+.follow_us .fa { font-size: 28px; }
+.footer_div { padding: 0 7%; }
+.t_img1, .t_img { margin: 35% 0; }
+.footer_padding { padding-bottom: 0; }
+}

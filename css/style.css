@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* CSS Document */
+li a:hover{ text-decoration:none; }
+p { text-align:justify; }
+.no_padding { padding:0; }
+.row { margin:0; }
+body { font-family: 'Raleway', sans-serif; }
+/*header*/
+.logo {  margin-top: -7%; }
+.menu_bar_div { padding: 1% 10%;}
+.navbar { z-index:99999; }
+.navbar-default .second_nav_menu > li > a{ color:#383838; }
+.navbar-default .navbar-nav > li > a {
+   font-family: 'Raleway', sans-serif;
+   color: #fff;
+	text-transform:uppercase;
+	margin: 0 5%;
+    width: 100%;
+}
+.navbar-default .navbar-nav > li > a:hover {
+    color: #E4A124;
+	}
+.navbar-default {
+   background:#8A60AB; 	
+    border-color: transparent;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    background-color: inherit;
+    color: #E4A124;
+	font-weight:bold;
+}
+/*.header_img { width: 100%; }*/
+.navbar {
+    /*margin-bottom: -60px;*/
+}
+.header_div { 
+	min-height:100%;
+	padding-bottom: 50px;
+	padding-top: 100px;
+	background:#67559D; 
+	background: -webkit-linear-gradient(#9163AE, #4B4B91); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#9163AE, #4B4B91); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#9163AE, #4B4B91); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#9163AE, #4B4B91); /* Standard syntax */
+}
+.header_title { font-weight:bold; font-size: 48px; }
+.btn-default.focus, .btn-default:focus { background:#7f75ae; border-color:#7f75ae;color:#fff;  }
+.button_design { background:#7F75AE; border-color: #7F75AE;color:#fff;}
+.button_design:hover { background:#756ba4; border-color: #7F75AE;color:#fff;}
+.header_button { font-size: 22px;padding: 2% 4%; }
+.header_content_div { padding-top: 8%;padding-bottom: 8%; }
+
+/*header ends*/
+
+/*body*/
+.heading_violet { color:#735AA2; font-weight:bold; }
+.heading_white { color:#fff; }
+.posted_by { font-size:11px; }
+.violet { 
+	background:#825EA8;
+	color:#fff;
+	background:#67559D; 
+	background: -webkit-linear-gradient(#9163AE, #4B4B91); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#9163AE, #4B4B91); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#9163AE, #4B4B91); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#9163AE, #4B4B91); /* Standard syntax */}
+.white { color:#000; }
+.padding_div { padding-bottom: 5%;padding-top: 5%; }
+.centralize { padding-bottom: 3%;padding-right: 5%;padding-top: 3%; }
+.centralize1 { padding-bottom: 20%;padding-top: 20%; }
+.center_div1 { padding: 0 25%; }
+.center_div { text-align:center; padding: 0 25%; }
+/*.service_div { border: 10px solid #ffffff; }*/
+.div_include { border:1px solid #eee; padding: 2%;box-shadow: 0 1px 3px #ccc;padding: 3%; }
+.violet_box { background:#9F7CEC;padding: 2%; min-height: 210px; }
+.service_icon_div { background:#4CAF50;  border-radius: 50%;border: 10px solid #ffffff;border-radius: 50%;padding: 3%; }
+.service_icon_div:hover { background:#77da7b; }
+.design_img { width: 100%; margin: 20px 0; }
+.content_violet { color: #735aa2; text-align:center!important; }
+.content_white { color:#fff; }
+.modal-dialog { margin: 200px auto; }
+
+/*body ends*/
+
+/*footer*/
+footer, .footerstyle { background:#2E2D36; }
+.footer_menu { list-style: outside none none;padding: 0; }
+.footer_menu li a { color:#fff; font-size:13px; }
+.footer_menu li a:hover { color: #e4a124; }
+.footer_div { padding-left: 8%;}
+.footer_padding { padding-bottom: 5%; }
+.copyright { text-align:center;margin:1%;color:#fff; }
+.follow_us .fa {  font-size: 38px;color:#fff; }
+.footer_logo { padding: 3% 15px; }
+.followus_icon { font-size:12px;text-align: center; }
+.margin_left { margin-left: -5px; }
+/*.follow { margin-top:70px; }*/
+.footer_menu_gap { margin-bottom:40px; }
+.footer_icon:hover { font-size: 50px; }
+.follow_us { margin-left: -4%;padding: 0; }
+/*footer ends*/

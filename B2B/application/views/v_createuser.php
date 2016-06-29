@@ -278,7 +278,7 @@ if($type=$this->session->userdata('type')=='super'){?>
                                 <input type="radio" name="gender" id="radio4" class="css-checkbox" /><label for="radio4" class="css-label radGroup2">Male</label>
                                 </td>
                                 <td>
-                                <input type="radio" name="gender" id="radio5" class="css-checkbox" checked="checked"/><label for="radio5" class="css-label radGroup2">Famale</label>
+                                <input type="radio" name="gender" id="radio5" class="css-checkbox" checked="checked"/><label for="radio5" class="css-label radGroup2">Female</label>
                                 </td>
                                 </tr>
                           	</table>
