@@ -190,9 +190,9 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 		}
 		
 		
-		public function home()
+   		public function home()
 		{
-			
+		
 		$dates = date('Y-m-d');
 		$mobile_no=$this->session->userdata('mobile');
 		$email=$this->input->post('email');
@@ -323,7 +323,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 			
             $sms =$this->user_model->otpsms($mobile_no,$auth_code);
 
- $testing="One Time Password to verify your Mobile $mobile_no on Paybuks is $auth_code.This verification code for safety of your account and must be done before you proceed.";
+ $testing="One Time Password to verify your Mobile $mobile_no on ViaPaise is $auth_code.This verification code for safety of your account and must be done before you proceed.";
 
 		    $insetsms_data=array(
 		     'date' => $current_date,
