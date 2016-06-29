@@ -353,7 +353,7 @@ input.form-control, textarea.form-control, select.form-control{
     padding: 0 30px;
 }
 .gradient_btn2:hover, .gradient_btn2.active {
-    background: rgba(0, 0, 0, 0) linear-gradient(270deg,#006363,#409595) repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) linear-gradient(270deg,#006363,#409595) repeat scroll 0 0; 
     color: #fff;
 }
 
