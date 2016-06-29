@@ -109,6 +109,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 			
 			if($auth)
 				{ 
+				    $ad = $this->user_model->update_user_secure($dates,$status);
 					redirect(site_url('user/home'));
 					}
 					else
