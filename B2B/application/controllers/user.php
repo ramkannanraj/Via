@@ -620,7 +620,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 			$subject = "Welcome to ViaPaise";
 			$message = '<div style="width: 527px; height: 334px; border:1px solid #39C; background:#39C;" >
 			<div style="width:500px; height:300px; border:1px solid #39C; border-radius:20px; margin-left: 11px; margin-top: 16px; background:white;"> 
-			<h3 style="float:left; width:350px; text-align: center;color:#39C">Welcome to Paybuks,</h3>
+			<h3 style="float:left; width:350px; text-align: center;color:#39C">Welcome to ViaPaise,</h3>
 			<p style="width:350px; text-align: left; margin-left: 26px;word-wrap: break-word;">
 			<br><br>
 			Dear '.$name.', 
@@ -633,11 +633,11 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 			<br><br>
 			</p>
 			</div>
-			<a style="float:right; margin-right: 48px; text-decoration:none; color:#FFF;" href="http://paybuks.in">© paybuks.in</a>
+			<a style="float:right; margin-right: 48px; text-decoration:none; color:#FFF;" href="ViaPaise.com">© ViaPaise.com</a>
 			</div>';
 
 						$headers = 'MIME-Version: 1.0' . "\r\n";
-						$headers .= "From:".$Name."\r\nReply-to: no-reply@paybuks.com";
+						$headers .= "From:".$Name."\r\nReply-to: no-reply@ViaPaise.com";
 						//$headers .= "From:".$Name."\n";
 						$headers .= "To-Sender: \n";
 						$headers .= "X-Mailer: PHP\n"; // mailer
