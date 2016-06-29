@@ -110,13 +110,13 @@ while($row=mysql_fetch_array($sql))
 <?php 	if($active=='yes'){ ?>
 
 <td>
-<a class="active1" style="color:#EC9924;" href="<?=site_url('home/statusactive')?>/<?php echo $row['uid']; ?>"onclick="if(confirm('Do you want to change the inactive status ')) return true; else return false;"  title="Edit Status" alt="Edit Status">
+<a class="active1" style="color:#EC9924;" href="<?php echosite_url('home/statusactive')?>/<?php echo $row['uid']; ?>"onclick="if(confirm('Do you want to change the inactive status ')) return true; else return false;"  title="Edit Status" alt="Edit Status">
 <span style="color:#EC9924; font-size:10px !important;" class="glyphicon glyphicon-ok" aria-hidden="true"></span> active</a></td>
 
 <?php  }else if($active=='no') {  ?>
 
 <td>
-<a class="inactive1" style="color:#575B5D;" href="<?=site_url('home/statusinactive')?>/<?php echo $row['uid']; ?>"onclick="if(confirm('Do you want to change the active status')) return true; else return false;" title="Edit Status" alt="Edit Status">
+<a class="inactive1" style="color:#575B5D;" href="<?php echosite_url('home/statusinactive')?>/<?php echo $row['uid']; ?>"onclick="if(confirm('Do you want to change the active status')) return true; else return false;" title="Edit Status" alt="Edit Status">
 <span style="color:#575B5D; font-size:10px;" class="glyphicon glyphicon-remove" aria-hidden="true"></span> Inactive</a></td>
 
 <?php  } ?>
@@ -135,7 +135,7 @@ while($row=mysql_fetch_array($sql))
 <a data-toggle="modal" title="Send Money Transfer" data-target="#sendmoney_transfer-<?php echo $row['uid'];?>">
 <img class="actionicons" src="<?php echo base_url()?>/img/fund transfer.png" />
 </a>
-<a href="<?=site_url('home/deltuser')?>/<?php echo $row['uid']; ?>" onclick="if(confirm('Do you want to delete')) return true; else return false;"  title="Fund Delete User" alt="Delete User">
+<a href="<?php echosite_url('home/deltuser')?>/<?php echo $row['uid']; ?>" onclick="if(confirm('Do you want to delete')) return true; else return false;"  title="Fund Delete User" alt="Delete User">
 <img class="actionicons" src="<?php echo base_url()?>/img/delete.png" />
 </a>
 
@@ -212,7 +212,7 @@ $active=$row['isactive'];
 
 <div class="form-group col-sm-6">
 <label for="pop_name">Mobile no</label>
-<input type="text" class="form-control" id="age<?php echo $row['uid']; ?>" value="<?php echo $row['mobile']; ?>"  <?php if($val!='admin') {?> readonly="readonly" 
+<input type="text" class="form-control" id="age<?php echo $row['uid']; ?>" value="<?php echo $row['mobile']; ?>" pattern="[7-9]{1}[0-9]{9}" title="Phone number with 7-9 and remaing 9 digit with 0-9"  <?php if($val!='admin') {?> readonly="readonly" 
 <?php } ?>>
 </div>
 <div class="form-group col-sm-6">
@@ -580,7 +580,7 @@ var executive_name= $('#executive_name'+str).val();
     
    $.ajax({
        type: "POST",
-       url: "<?=base_url('home/update')?>",
+       url: "<?php echo base_url('home/update')?>",
        data: datas,
        dataType: "html"
    }).done(function( msg ) {
@@ -612,7 +612,7 @@ if(ltransfered_amnt=="" || ltransfered_amnt==null)
      //document.write(datas);
    $.ajax({
        type: "POST",
-       url: "<?=base_url('home/locked_balance')?>",
+       url: "<?php echo base_url('home/locked_balance')?>",
        data: datas,
        dataType: "html"
    }).done(function( msg ) {
@@ -636,7 +636,7 @@ if(ltransfered_amnt=="" || ltransfered_amnt==null)
     
    $.ajax({
        type: "POST",
-       url: "<?=base_url('home/released_balance')?>",
+       url: "<?php echo base_url('home/released_balance')?>",
        data: datas,
        dataType: "html"
    }).done(function( msg ) {
@@ -670,7 +670,7 @@ if(amt=="" || amt==null)
     
    $.ajax({
        type: "POST",
-       url: "<?=base_url('home/update_funds_transfer')?>",
+       url: "<?php echo base_url('home/update_funds_transfer')?>",
        data: datas,
        dataType: "html"
    }).done(function( msg ) {
@@ -703,7 +703,7 @@ if(amt=="" || amt==null)
     
    $.ajax({
        type: "POST",
-       url: "<?=base_url('home/update_sendmoney_transfer')?>",
+       url: "<?php echo base_url('home/update_sendmoney_transfer')?>",
        data: datas,
        dataType: "html"
    }).done(function( msg ) {
