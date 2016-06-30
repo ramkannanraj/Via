@@ -259,10 +259,11 @@ public function update_funds_transfer()
    public function update_sendmoney_transfer()
     {
      $type='SEND MONEY Transfer';
-     $timezone = new DateTimeZone("Asia/Kolkata" );
+     /*$timezone = new DateTimeZone("Asia/Kolkata" );
      $date = new DateTime();
      $date->setTimezone($timezone );
-     $date = $date->format( 'Y-m-d H:i:s' );
+     $date = $date->format( 'Y-m-d H:i:s' );*/
+	 $date =  date('Y-m-d H:i:s');
      $total_balance =$_POST['sendmoney_balance'];
      $used_balance =$_POST['sendmoney_used_balance'];
      $login_user_tbalance =$_POST['parent_tot'];
