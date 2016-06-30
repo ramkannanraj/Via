@@ -66,7 +66,7 @@ $(document).ready(function() {
                   </div>
                   <div class="widget-body">
                     <div class="metro-nav">
-  <form action="<?=site_url('reports/operator_report')?>" method="post" name="operator_det" id="operator_det">
+  <form action="<?php echo site_url('reports/operator_report')?>" method="post" name="operator_det" id="operator_det">
                                     <p>From Date:<input placeholder="From date"  type="text" id="operator_date" name="operator_date" value="" /> 
                                   &nbsp;
                                     <input style="margin-bottom:10px"  class="btn btn-small btn-info" type="submit" value="Go">

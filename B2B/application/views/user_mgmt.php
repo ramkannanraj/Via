@@ -212,7 +212,7 @@ $active=$row['isactive'];
 
 <div class="form-group col-sm-6">
 <label for="pop_name">Mobile no</label>
-<input type="text" class="form-control" id="age<?php echo $row['uid']; ?>" value="<?php echo $row['mobile']; ?>"  <?php if($val!='admin') {?> readonly="readonly" 
+<input type="text" class="form-control" id="age<?php echo $row['uid']; ?>" maxlength="10" minlength="10" number="true" onKeyPress="return isNumber(event)" value="<?php echo $row['mobile']; ?>"  <?php if($val!='admin') {?> readonly="readonly" 
 <?php } ?>>
 </div>
 <div class="form-group col-sm-6">
@@ -526,7 +526,14 @@ $active=$row['isactive'];
 <!---==============RELEASE FUND ENDS---======================--->
 
   <script type="text/javascript">
-  
+  function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
      function updatedata(str){
    var id = str;
    var fn = $('#fn'+str).val();

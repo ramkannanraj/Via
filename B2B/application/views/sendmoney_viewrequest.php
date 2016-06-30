@@ -44,7 +44,7 @@
                                      <div class="widget-body">
 										<div class="metro-nav">
                                         
-<form action="<?=site_url('')?>" method="post">
+<form action="<?php echo site_url('')?>" method="post">
 <div class="table-responsive">
 <table width="100%" border="0" class="display" id="table_mobile">
 <thead>

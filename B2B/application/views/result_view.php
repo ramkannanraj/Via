@@ -1,16 +1,16 @@
 <h4>My Profile:</h4>
 <p>
-Name: <?=$member->name?> <br />
-Username: <?=$member->username?><br />
-Firm: <?=$member->companyname?> <br />
-Email: <?=$member->email?><br />
-Mobile: <?=$member->mobile?> <br />
-Address: <?=$member->address1?><br />
-State: <?=$member->state?> <br />
-City: <?=$member->city?><br />
-Sponser ID: <?=$member->parent_id?> <br />
-<form action="<?=site_url('user/update_password')?>" method="post" id="myform">
-	<input type="hidden" name="did" name="did" value="<?=$member->uid?>">
+Name: <?php echo $member->name?> <br />
+Username: <?php echo $member->username?><br />
+Firm: <?php echo $member->companyname?> <br />
+Email: <?php echo $member->email?><br />
+Mobile: <?php echo $member->mobile?> <br />
+Address: <?php echo $member->address1?><br />
+State: <?php echo $member->state?> <br />
+City: <?php echo $member->city?><br />
+Sponser ID: <?php echo $member->parent_id?> <br />
+<form action="<?php echo site_url('user/update_password')?>" method="post" id="myform">
+	<input type="hidden" name="did" name="did" value="<?php echo $member->uid?>">
 		New Password:&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password" id="password" required /><br /><br />
 		Re-new Password:<input type="password" name="confirmpassword" id="confirmpassword" required /><br />
 	<input type="submit" id="submit" name="dsubmit" value="Submit">

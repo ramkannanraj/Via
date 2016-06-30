@@ -42,7 +42,7 @@
                     
 
                       
-<span id="spn_thankyou" align="center" >Thanks for using paybuks.com</span><br><br>
+<span id="spn_thankyou" align="center" >Thanks for using ViaPaise.com</span><br><br>
 
 <br><br>
 <p align="justify" style="margin-left:5px;margin-top: -20px;" >
@@ -64,13 +64,13 @@ Login from multiple browser windows at the same time.</br>
 </br>
 <p style="margin-left:450px;margin-top:-105px;font-size:10px;width:350px;">
 You may start another session by clicking below &nbsp;&nbsp;&nbsp;
-<a href="<?=site_url('/index.php')?><?php $array_items = array('username' => '', 'uid' => '', 'type' => ''); $this->session->unset_userdata($array_items); $this->session->sess_destroy();?>"  style="color:#390;font-size:14px;text-decoration:underline;"> Login</a></br> 
+<a href="<?php echo site_url('/index.php')?><?php $array_items = array('username' => '', 'uid' => '', 'type' => ''); $this->session->unset_userdata($array_items); $this->session->sess_destroy();?>"  style="color:#390;font-size:14px;text-decoration:underline;"> Login</a></br> 
 </p>
 <br>	
 <br>
 <p align="justify" style="margin-left:5px;margin-top: 30px;" >
 If the problem persists, please clear the temporary files from your browser and try again or contact us at 
-<a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=support@paybuks.com" style="color:#009;text-decoration:underline;">info@paybuks.com</a>
+<a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=support@viapaise.com" style="color:#009;text-decoration:underline;">info@viapaise.com</a>
 </p>
        
        

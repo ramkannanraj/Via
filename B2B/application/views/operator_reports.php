@@ -22,7 +22,7 @@
                     <div class="mobile-1">
                         <p>Retailer Reports</p>
                     </div>
-                    <form class="form-inline" action="<?=site_url('reports/operator_report')?>" method="post" name="operator_det" id="operator_det">
+                    <form class="form-inline" action="<?php echo site_url('reports/operator_report')?>" method="post" name="operator_det" id="operator_det">
  <div class="smallformoperatorreports">
  <input placeholder="Date"  type="text" id="operator_date" name="operator_date" value="" class="oddfields form-control" style="width:200px;"/> 
  		<label>   Operator </label>   <select name="operator" id="operator"  >

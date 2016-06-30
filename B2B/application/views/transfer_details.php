@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Via Paise</title>
 
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -74,7 +74,7 @@ $(document).ready(function() {
                   </div>
                   <div class="widget-body">
                     <div class="metro-nav">
-  <form action="<?=site_url('transfer/get_transfer_details')?>" method="post" name="transfer_det" id="transfer_det" class="form-inline">
+  <form action="<?php echo site_url('transfer/get_transfer_details')?>" method="post" name="transfer_det" id="transfer_det" class="form-inline">
                                     <p class="formlabel">From Date:<input placeholder="From date"  type="text" id="report_from_date" name="from_date" value=""  class="form-control"/> To Date:<input placeholder="To date" readonly type="text" id="report_to_date" name="to_date" value="" class="form-control" />
                                   &nbsp;
                                     <input class="btn btn-small btn-info" type="submit" value="Submit">

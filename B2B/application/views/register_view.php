@@ -16,7 +16,7 @@
 </div>
 <div id="innerlogin">
 
-<form action="<?=site_url('user/login')?>" method="post">
+<form action="<?php echo site_url('user/login')?>" method="post">
 <ul>
 <li><div class="one"><div class="two">User Name</div><div class="three">
 <input type="text" name="username" value="" required /></div></div></li>

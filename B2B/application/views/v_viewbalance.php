@@ -23,7 +23,7 @@
                  
                     <div class="mobile-1">
                         <p><?php   $i=0; foreach($records as $val){ ?>
-                        View Balance -<?=$type//$val->type?>
+                        View Balance -<?php echo $type//$val->type?>
                         <?php
                         $i++;
                         if($i==1) break;

@@ -189,7 +189,7 @@
                                 <div class="modal-footer">
                               
                                     <a href="<?php echo base_url()?>user/thankyou_content" class="btn btn-default">OK</a> 
-  									<a href="<?=current_url()?>" class="btn btn-danger" type="submit" />Cancel</a>   
+  									<a href="<?php echo current_url()?>" class="btn btn-danger" type="submit" />Cancel</a>   
                               
                                 </div>
                                 <!-- row ends -->

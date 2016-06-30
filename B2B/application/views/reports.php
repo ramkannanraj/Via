@@ -14,7 +14,7 @@
                      <div class=" mobile-1">
                         <p>Daily Sales Reports</p>
                     </div>
-                    <form class="form-inline" action="<?=site_url('reports/daily_report')?>" method="post" name="operator_det" id="operator_det">
+                    <form class="form-inline" action="<?php echo site_url('reports/daily_report')?>" method="post" name="operator_det" id="operator_det">
  <div class="smallformoperatorreports">
   <?php  if($this->session->userdata('type')=="admin"){ ?>
  		<label>   Distributor </label>  

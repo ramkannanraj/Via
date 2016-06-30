@@ -182,7 +182,7 @@ responsive: true
                           <tbody>
                                             <?php foreach($dth->result() as $val){?>
                                                 <tr>	
-                                                    <td><?php /*?><?= $val->name?><?php */?>
+                                                    <td><?php /*?><?php echo  $val->name?><?php */?>
                                                     <img src='<?php echo base_url(). 'images/'.$val->image?>' width='60' height="60"> <br /></td>
                                                     <?php if($this->session->userdata('type')== "distributor"
                                                     ||$this->session->userdata('type')== "super"  || 

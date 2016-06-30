@@ -84,7 +84,7 @@ $(document).ready(function() {
                   </div>
                   <div class="widget-body">
                     <div class="metro-nav prag">
-  <form action="<?=site_url('transfer/other_transfer')?>" method="post" id="other_transfer_det" class="form-inline">
+  <form action="<?php echo site_url('transfer/other_transfer')?>" method="post" id="other_transfer_det" class="form-inline">
                                     <p class="formlabel">From Date:<input placeholder="From date"  type="text" id="report_from_date" name="from_date" value=""  class="form-control"/> To Date:<input placeholder="To date" readonly type="text" id="report_to_date" name="to_date" value=""  class="form-control"/>
                                    &nbsp;
                                     <input style="margin-bottom:10px"  class="btn btn-small btn-info" type="submit" value="Submit">

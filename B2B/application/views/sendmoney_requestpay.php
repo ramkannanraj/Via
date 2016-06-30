@@ -61,7 +61,7 @@ td
                     <div class="title">Request Payment</div></div>
                     <div class="widget-body">
                     <div class="metro-nav">
-<form action="<?=site_url('sendmoney_transfer/paymentregister')?>" method="post">
+<form action="<?php echo site_url('sendmoney_transfer/paymentregister')?>" method="post">
 
 <table class="text-box">
 <tr><td>Payment Mode</td><td><select name="mode" class="form-control">

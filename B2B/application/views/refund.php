@@ -70,15 +70,15 @@
       $refund_date=$val->refund_date;
        $newrrefund_date=date('d M Y',strtotime($refund_date));  
         ?>
-                                                <td><?=$val->trans_id?> <br /></td>
-                                                <td><?=$val->by?> <br /></td>          
-                                                <td><?=$val->mobilenumber?> <br /></td>
-                                                <td><?=$val->amount?> <br /></td>
-                                                <td><?=$val->service?> <br /></td>          
-                                                <td><?=$newrdate?> <br /></td>
-                                                <td><?=$val->result?> <br /></td>
-                                                <td><?=$newrrefund_date?> <br /></td>  
-                                                <td><?=$val->cur_bal?> <br /></td>         
+                                                <td><?php echo $val->trans_id?> <br /></td>
+                                                <td><?php echo $val->by?> <br /></td>          
+                                                <td><?php echo $val->mobilenumber?> <br /></td>
+                                                <td><?php echo $val->amount?> <br /></td>
+                                                <td><?php echo $val->service?> <br /></td>          
+                                                <td><?php echo $newrdate?> <br /></td>
+                                                <td><?php echo $val->result?> <br /></td>
+                                                <td><?php echo $newrrefund_date?> <br /></td>  
+                                                <td><?php echo $val->cur_bal?> <br /></td>         
                                             </tr>
                                              <?php }?>
                                         </tbody>

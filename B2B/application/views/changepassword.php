@@ -5,7 +5,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>ViaPaise</title>
 
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -78,7 +78,7 @@ $(document).ready(function() {
                   </div>
                   <div class="widget-body">
                     <div class="metro-nav prag">
-  <form action="<?=site_url('user/updatepassword')?>" method="post" id="">
+  <form action="<?php echo site_url('user/updatepassword')?>" method="post" id="">
     <div class="form-group">
   <label for="inputEmail3" class="col-sm-2 control-label">Old Password</label>
 <div class="col-sm-6">
