@@ -2143,7 +2143,7 @@ function insert_card_topup($top_val,$card_no)
 			<br><br>
 			</p>
 			</div>
-			<a style="float:right; margin-right: 48px; text-decoration:none; color:#FFF;" href="http://paybuks.com">© paybuks.com</a>
+			<a style="float:right; margin-right: 48px; text-decoration:none; color:#FFF;" href="http://paybuks.com">© viapaise.com</a>
 			</div>';
 		
 		  $headers = 'MIME-Version: 1.0' . "\r\n";
