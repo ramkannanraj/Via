@@ -428,7 +428,7 @@ public function get_distributor_parent_total_detail($distributor_parent_id)
 		//		$this->add_smsoutgoing( $sms_outing );
 		} 	
 		public function send_mail($email,$sub,$msg){
-			  $Name='support@paybuks.com';
+			  $Name='support@viapaise.com';
 				//$Name='Paybuks';
 				$to =$email;
 				$subject = "ALERT ".$sub;
