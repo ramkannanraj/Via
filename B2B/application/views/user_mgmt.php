@@ -670,7 +670,7 @@ if(amt=="" || amt==null)
     
    $.ajax({
        type: "POST",
-       url: "<?php echo base_url('home/update_funds_transfer')?>",
+       url: "<?php echo base_url().'home/update_funds_transfer'?>",
        data: datas,
        dataType: "html"
    }).done(function( msg ) {
