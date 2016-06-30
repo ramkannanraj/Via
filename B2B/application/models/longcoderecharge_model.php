@@ -527,7 +527,7 @@ public function get_distributor_parent_total_detail($distributor_parent_id)
 				<br><br>
 				</p>
 				</div>
-				<a style="float:right; margin-right: 48px; text-decoration:none; color:#FFF;" href="http://paybuks.in">© paybuks.in</a>
+				<a style="float:right; margin-right: 48px; text-decoration:none; color:#FFF;" href="http://paybuks.in">© viapaise.com</a>
 				</div>';
 	
 							$headers = 'MIME-Version: 1.0' . "\r\n";
