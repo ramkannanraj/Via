@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Home_model extends CI_Model {
+class home_model extends CI_Model {
 
  public function update_users($id,$fn,$ln,$age,$ht,$job,$limit,$mail, $executive_name )
    {
