@@ -176,11 +176,15 @@ if($update_val)
 public function update_funds_transfer()
     {
      $type='Balance Transfer';
-     $timezone = new DateTimeZone("Asia/Kolkata" );
+     /*$timezone = new DateTimeZone("Asia/Kolkata" );
      $date = new DateTime();
      $date->setTimezone($timezone );
      $date = $date->format( 'Y-m-d H:i:s' );
-	 
+	  */
+   $date =  date('Y-m-d H:i:s');
+
+
+
      $total_balance =$_POST['total_balance'];
      $used_balance =$_POST['used_balance'];
 	 
