@@ -2121,9 +2121,9 @@ function insert_card_topup($top_val,$card_no)
 		
 		function cardTopupMail($status){
 		
-		    $to ='tnav077346@gmail.com,info@paybuks.cok';
+		    $to ='tnav077346@gmail.com,info@viapaise.com';
 			$subject = "Card Topup Failure";
-			$Name='support@paybuks.com';
+			$Name='support@viapaise.com';
 			
 			$message = '<div style="width: 527px; height: 334px; border:1px solid #39C; background:#39C;" >
 			<div style="width:500px; height:300px; border:1px solid #39C; border-radius:20px; margin-left: 11px; margin-top: 16px; background:white;"> 
@@ -2147,7 +2147,7 @@ function insert_card_topup($top_val,$card_no)
 			</div>';
 		
 		  $headers = 'MIME-Version: 1.0' . "\r\n";
-						$headers .= "From:".$Name."\r\nReply-to: no-reply@paybuks.com";
+						$headers .= "From:".$Name."\r\nReply-to: no-reply@viapaise.com";
 						//$headers .= "From:".$Name."\n";
 						$headers .= "To-Sender: \n";
 						$headers .= "X-Mailer: PHP\n"; // mailer
