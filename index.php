@@ -58,6 +58,7 @@
       <li><a href="#recharge_page">Recharge</a></li>
       <li><a href="#send_money"> Send Money</a></li>
       <li><a href="#ticket_booking">Ticket Booking</a></li>
+       <li><a href="http://dev.viapaise.com/B2B">Login</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
