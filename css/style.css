@@ -79,7 +79,7 @@ body { font-family: 'Raleway', sans-serif; }
 .content_violet { color: #735aa2; text-align:center!important; }
 .content_white { color:#fff; }
 .modal-dialog { margin: 200px auto; }
-
+.f_menu { padding:0 30px; }
 /*body ends*/
 
 /*footer*/

@@ -88,7 +88,7 @@
 <!--1st div-->
 
 <div class="col-sm-12 padding_div" id="terms_condition">
-<div class="container">
+<div class="container f_menu">
 <h1 class="heading_violet">Terms and Conditions</h1>
 <p>By clicking Terms and Condition check box while registration .you agree all the Terms and Conditions (T&C) of Viapaise.</p>
 <p>These terms and conditions shall govern your use of our website.</p>
@@ -207,36 +207,36 @@ at any time in our sole discretion without notice or explanation.</p>
 <div class="col-sm-3 footer_div">
 <p class="no_margintop"><strong>Money Transfer</strong></p> 
 <ul class="footer_menu footer_menu_gap">
-			<li><a href="#">Load Money</a></li>
-			<li><a href="#">Send Money</a></li>
-			<li><a href="#">Withdraw Money</a></li>
-            <li><a href="#">Pay Money</a></li>
+			<li><a href="load_money.php">Load Money</a></li>
+			<li><a href="send_money.php">Send Money</a></li>
+			<li><a href="withdraw_money.php">Withdraw Money</a></li>
+            <li><a href="pay_money.php">Pay Money</a></li>
 		</ul>
         
         <p class="no_margintop"><strong>Recharges </strong></p> 
 <ul class="footer_menu footer_menu_gap1">
-			<li><a href="#">Mobile Recharges</a></li>
-			<li><a href="#">DTH Recharges</a></li>
-			<li><a href="#">Data Card Recharges</a></li>
-            <li><a href="#">Shopping</a></li>
+			<li><a href="mobile_recharge.php">Mobile Recharges</a></li>
+			<li><a href="dth_recharge.php">DTH Recharges</a></li>
+			<li><a href="datacard_recharge.php">Data Card Recharges</a></li>
+            <li><a href="shopping.php">Shopping</a></li>
 		</ul>
 </div>
 
 <div class="col-sm-3">
 <p class="no_margintop"><strong>Bill Payments</strong></p> 
 <ul class="footer_menu footer_menu_gap">
-			<li><a href="#">Postpaid Bill Payments</a></li>
-			<li><a href="#">Landline Bill Payments</a></li>
-			<li><a href="#">Electricity Bill Payments</a></li>
-            <li><a href="#">Gas Bill Payments</a></li>
-			<li><a href="#">Insurance Payment</a></li>
+			<li><a href="postpaid_billpayment.php">Postpaid Bill Payments</a></li>
+			<li><a href="landline_billpayment.php">Landline Bill Payments</a></li>
+			<li><a href="electricity_billpayments.php">Electricity Bill Payments</a></li>
+            <li><a href="gas_billpayment.php">Gas Bill Payments</a></li>
+			<li><a href="insurance_payment.php">Insurance Payment</a></li>
 		</ul>
         
         <p class="no_margintop"><strong>Ticket Booking</strong></p> 
 <ul class="footer_menu footer_menu_gap1">
-			<li><a href="#">Bus Ticket Booking</a></li>
-			<li><a href="#">Air Ticket Booking</a></li>
-			<li><a href="#">Hotel Booking</a></li>
+			<<li><a href="bus_ticketbooking.php">Bus Ticket Booking</a></li>
+			<li><a href="air_ticketbooking.php">Air Ticket Booking</a></li>
+			<li><a href="hotel_booking.php">Hotel Booking</a></li>
 		</ul>
 </div>
 
@@ -253,19 +253,19 @@ at any time in our sole discretion without notice or explanation.</p>
 </ul>
 <h3 class="follow">Follow Us</h3>
 <br>
-<div class="col-sm-3 no_padding margin_left" style="display:inline-block,">
+<div class="col-sm-3 no_padding margin_left" style="display:inline-block;">
 <center><a href="#"><i class="fa fa-facebook footer_icon" aria-hidden="true"></i></a></center>
 <p class="followus_icon">Facebook</p>
 </div>
-<div class="col-sm-3 no_padding" style="display:inline-block,">
+<div class="col-sm-3 no_padding" style="display:inline-block;">
 <center><a href="#"><i class="fa fa-twitter footer_icon" aria-hidden="true"></i></a></center>
 <p class="followus_icon">Tweeter</p>
 </div>
-<div class="col-sm-3 no_padding" style="display:inline-block,">
+<div class="col-sm-3 no_padding" style="display:inline-block;">
 <center><a href="#"><i class="fa fa-linkedin footer_icon" aria-hidden="true"></i></a></center>
 <p class="followus_icon">Linked In</p>
 </div>
-<div class="col-sm-3 no_padding" style="display:inline-block,">
+<div class="col-sm-3 no_padding" style="display:inline-block;">
 <center><a href="#"><i class="fa fa-google-plus footer_icon" aria-hidden="true"></i></a></center>
 <p class="followus_icon">Google Plus</p>
 </div>

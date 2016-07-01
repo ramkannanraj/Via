@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html, charset=utf-8" />
-<title>Home</title>
+<title>Shopping</title>
  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -87,9 +87,9 @@
 
 <!--1st div-->
 
-<div class="col-sm-12 padding_div" id="privacy">
+<div class="col-sm-12 padding_div">
 <div class="container f_menu">
-<h1 class="heading_violet">Privacy</h1>
+<h1 class="heading_violet">Shopping</h1>
 <p>This policy sets out the basis on which any personal data we collect from you, or that you provide to us, will be processed by us. Please read the following carefully to understand our views and practices regarding your personal data and how we will treat it. We keep certain basic information when you visit our website and recognize the importance of keeping that information secure and letting you know what we will do with it. For the purpose of the Data Protection Act 1998 (the Act), 
 This policy only applies to our site. If you leave our site via a link or otherwise, you will be subject to the policy of that website provider. We have no control over that policy or the terms of the website and you should check their policy before continuing to access the site.
 </p>
@@ -101,93 +101,7 @@ This policy only applies to our site. If you leave our site via a link or otherw
 
 
 <!--footer-->
-<div class="footerstyle">
-<div class="container content_white">
-<a class="logo" href="index.php"><img class="img-responsive footer_logo" src="img/logo.png" alt="Via Paisa"></a>
-
-<div class="col-sm-12 footer_padding no_padding">
-<div class="col-sm-3">
-<h3 style="margin-top:0">Partner with us:</h3> 
-<p>ViaPaise is your Prepaid Stored Value Virtual Wallet. We provide a unique payment feature which makes sure that your transactions remain completely secure.</p>
-<p>ViaPaise is looking for partners: Low investment costs, minimal setup hassles, high returns, and of course, the prestige of being associated with the fastest growing telecom company in India.
-</p>
-</div>
-
-<div class="col-sm-3 footer_div">
-<p class="no_margintop"><strong>Money Transfer</strong></p> 
-<ul class="footer_menu footer_menu_gap">
-			<li><a href="load_money.php">Load Money</a></li>
-			<li><a href="send_money.php">Send Money</a></li>
-			<li><a href="withdraw_money.php">Withdraw Money</a></li>
-            <li><a href="pay_money.php">Pay Money</a></li>
-		</ul>
-        
-        <p class="no_margintop"><strong>Recharges </strong></p> 
-<ul class="footer_menu footer_menu_gap1">
-			<li><a href="mobile_recharge.php">Mobile Recharges</a></li>
-			<li><a href="dth_recharge.php">DTH Recharges</a></li>
-			<li><a href="datacard_recharge.php">Data Card Recharges</a></li>
-            <li><a href="shopping.php">Shopping</a></li>
-		</ul>
-</div>
-
-<div class="col-sm-3">
-<p class="no_margintop"><strong>Bill Payments</strong></p> 
-<ul class="footer_menu footer_menu_gap">
-			<li><a href="postpaid_billpayment.php">Postpaid Bill Payments</a></li>
-			<li><a href="landline_billpayment.php">Landline Bill Payments</a></li>
-			<li><a href="electricity_billpayments.php">Electricity Bill Payments</a></li>
-            <li><a href="gas_billpayment.php">Gas Bill Payments</a></li>
-			<li><a href="insurance_payment.php">Insurance Payment</a></li>
-		</ul>
-        
-        <p class="no_margintop"><strong>Ticket Booking</strong></p> 
-<ul class="footer_menu footer_menu_gap1">
-			<li><a href="bus_ticketbooking.php">Bus Ticket Booking</a></li>
-			<li><a href="air_ticketbooking.php">Air Ticket Booking</a></li>
-			<li><a href="hotel_booking.php">Hotel Booking</a></li>
-		</ul>
-</div>
-
-<div class="col-sm-3 follow_us">
-<p class="no_margintop"><strong>Quick Links</strong></p>
-<ul class="footer_menu">
-<li><a href="index.php#about_us">About Us</a></li>
-<li><a href="index.php#customer_services">Customer Services</a></li>
-<li><a href="terms_condition.php#terms_condition">Terms and Conditions</a></li>
-<li><a href="#privacy">Privacy</a></li>
-<li></li>
-<li></li>
-<li></li>
-</ul>
-<h3 class="follow">Follow Us</h3>
-<br>
-<div class="col-sm-3 no_padding margin_left" style="display:inline-block;">
-<center><a href="#"><i class="fa fa-facebook footer_icon" aria-hidden="true"></i></a></center>
-<p class="followus_icon">Facebook</p>
-</div>
-<div class="col-sm-3 no_padding" style="display:inline-block;">
-<center><a href="#"><i class="fa fa-twitter footer_icon" aria-hidden="true"></i></a></center>
-<p class="followus_icon">Tweeter</p>
-</div>
-<div class="col-sm-3 no_padding" style="display:inline-block;">
-<center><a href="#"><i class="fa fa-linkedin footer_icon" aria-hidden="true"></i></a></center>
-<p class="followus_icon">Linked In</p>
-</div>
-<div class="col-sm-3 no_padding" style="display:inline-block;">
-<center><a href="#"><i class="fa fa-google-plus footer_icon" aria-hidden="true"></i></a></center>
-<p class="followus_icon">Google Plus</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<footer>
-<div class="container">
-<hr style="border-color:#444,">
-    <p class="copyright">Copyright © 2016 Via Paisa. All rights reserved.</p>
-    </div>
-</footer>
+<?php include('footer.php')?>
 <!--footer end-->
 
 

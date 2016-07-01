@@ -1,6 +1,6 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-	class User extends CI_Controller {
+	class user extends CI_Controller {
 		public function __construct()
 		{
 			 
@@ -114,8 +114,15 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 					}
 					else
 					{
-					echo "<script type='text/javascript'>alert('Invalid username and password'); window.location.href = 'index'; </script>"; 
-					 $this->index();
+					  echo '<script type="text/javascript">'; 
+echo 'alert("review your answer");'; 
+echo 'window.location.href = "user";';
+echo '</script>';
+
+
+					//echo "<script type='text/javascript'>alert('Invalid username and password'); window.location.href = 'index'; </script>"; 
+					 //$this->index();
+                     
 				}	
 		 }
 		 public function consumer_login()
