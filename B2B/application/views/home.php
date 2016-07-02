@@ -977,8 +977,8 @@ $gas_post_fail = "<?php echo $dth_faile_msg; ?>";
   
  });
  
- $(document).on('submit','#sendMoneyBal',function(){
-	
+ $(document).on('submit','#sendMoneyBal',function(e){
+	e.preventDefault();
 		var amount = $('#sendMoneyAmt').val();
 	    var baseurl = '<?php echo base_url();  ?>';
 		
@@ -994,7 +994,7 @@ $gas_post_fail = "<?php echo $dth_faile_msg; ?>";
 					
 					$('#sendMoneySucc').html(html.message);
 					// alert('Successfully Updated');
-		             //window.location.reload(true);
+		             window.location.reload(true);
 					
 				}else if(html.class == 'fail'){
 				

@@ -211,7 +211,7 @@
                <ul class="pull-right list-unstyled list-inline visible-xs">
                 
                     
-                    <li><a href="#" class="gradient_btn1"><span class="profile_img "><img src="images/profile-img.png"></span></a></li>
+                    <li><a href="#" class="gradient_btn1"><span class="profile_img "><img src="<?php echo base_url();?>images/profile.png"></span></a></li>
                     <li><a href="#" class="gradient_btn1" data-toggle="modal" data-target=".bs-example-modal-lg-4"><i class="glyphicon glyphicon-log-out
 "></i></a></li>
                  </ul>

@@ -1,6 +1,6 @@
 		<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-			class User_model extends CI_Model {
+			class user_model extends CI_Model {
 
 			 
 
@@ -354,7 +354,7 @@
 			$query=$this->db->update('usermaster', $data);
                     /* echo $this->db->last_query();
 					 exit();*/
-					  $testing = "One Time Password to verify your Mobile $mobile_no on Paybuks is $auto_no.";    
+					  $testing = "One Time Password to verify your Mobile $mobile_no on ViaPaise is $auto_no.";    
                        
 		$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A96b7866cc3166b24d4c6397ef5d6d436&to=$mobile_no&sender=PAYBUK&message=$testing&format=json&custom=1,2";
 		
@@ -1223,7 +1223,7 @@ $user_id=$this->session->userdata('uid');
     
 		public function send_sms($email,$name,$usname,$pass,$mobile)
 		{
-			$testing="Welcome to Paybuks,Dear $name,your account has been activated.Your User ID: $usname and Password: $pass";
+			$testing="Welcome to ViaPaise,Dear $name,your account has been activated.Your User ID: $usname and Password: $pass";
 					//$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A96b7866cc3166b24d4c6397ef5d6d436&to=$mobile&sender=IRUPAY&message=$testing&format=json&custom=1,2";
 					$url = "http://alerts.solutionsinfini.com/api/v3/index.php?method=sms&api_key=A96b7866cc3166b24d4c6397ef5d6d436&to=$mobile&sender=PAYBUK&message=$testing&format=json&custom=1,2";
 					
@@ -1296,18 +1296,19 @@ function add_money($amount,$uid){
  if ( $result->used_balance  > 0 ){
 	 
 	
-	  $totalAmount =  $result->used_balance + $amount;
-  
+	  $totalAmount = $amount+$result->used_balance;
+      
+        
  }else{
 	 $totalAmount =  $amount;
  }
  
   
   $amountArray=array(
-      'total_balance' =>$totalAmount
+      'used_balance' =>$totalAmount
    );
  
-    //$query = $this->db->where('uid',$uid)->update('usermaster',$amountArray);
+    $query = $this->db->where('uid',$uid)->update('usermaster',$amountArray);
  
   if($this->db->where('uid',$uid)->update('usermaster',$amountArray)){
   /* echo $this->db->last_query();
