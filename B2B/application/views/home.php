@@ -29,7 +29,7 @@
   }
   
   .user-info-block .panel-heading:hover{
-    background: rgba(0, 0, 0, 0) linear-gradient(270deg,#f0ad4e,#ec971f) repeat scroll 0 0 !important;
+    background: rgba(0, 0, 0, 0) linear-gradient(270deg,#f0ad4e,#ec971f) repeat scroll 0 0 ;
   }
 .user-row .title{
 	font-size:20px;
