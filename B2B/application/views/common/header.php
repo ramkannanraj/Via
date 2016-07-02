@@ -9,9 +9,23 @@
 <meta name="author" content="Bootstrap Gallery" />
     
 <link rel="shortcut icon" href="<?php echo base_url()?>assets/paybuks/images/favicon.png">
+<?php 
+$type=$this->session->userdata('type');
+$username = $this->session->userdata('username');
+$uid = $this->session->userdata('uid');		 
+if(	$type == '' && $username == '' && $uid == '')
+{	
+	header("Location: http://64.187.228.106/dev/Via/trunk/B2B/"); 
+}?>
+<?php if($type=='admin'){ ?>
    <!-- MY STYLESHEET -->
 <link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/style.css" type="text/css" />
 <!-- BOOSTRAB STYLESHEET -->
+<?php }?>
+<?php if($type=='retailer'){   ?>
+<link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/style_retailer.css" type="text/css" />
+
+<?php }?>
 <!--<link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/bootstrap.css" type="text/css" />-->
 
 <link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/bootstrap.min.css" type="text/css" />
