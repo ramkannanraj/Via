@@ -18,7 +18,7 @@
 
     <!-- style css -->
 
-    <link href="assets/css/style_index.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url();?>assets/css/style_index.css" rel="stylesheet" type="text/css">
 
     
 
@@ -77,7 +77,7 @@
 
         
 
-        		<div class="hire-icon"><a href="career.html"><img src="assets/images/hire.png"></a></div>
+        		<div class="hire-icon"><a href="career.html"><img src="<?php echo base_url();?>assets/images/hire.png"></a></div>
 
                 <div class="acc-icon">
 
@@ -153,7 +153,7 @@
         
                                 
                                    
-                                    <a class="navbar-brand" href="/"><img class="img-responsive" src="assets/paybuks/images/logo_blue.png"></a>
+                                    <a class="navbar-brand" href="/"><img class="img-responsive" src="<?php echo base_url();?>assets/paybuks/images/logo_blue.png"></a>
         </div>
          
         
@@ -382,7 +382,7 @@
 
                    
     <div class="social">
-    <span><img src="assets/paybuks/images/logo_blue.png"></span>
+    <span><img src="<?php echo base_url();?>assets/paybuks/images/logo_blue.png"></span>
  <ul class="list-unstyled">
 
                         	<li class="fb"><a href="">fb</a></li>
