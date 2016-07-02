@@ -153,6 +153,7 @@ if (($result = curl_exec($ch)) === FALSE) {
 die('cURL error: '.curl_error($ch)."<br />\n");
 } else {
 $recharge_test=json_decode($result);
+
 $resultval=$recharge_test->ResponseStatus;
  $trans_id=$recharge_test->UserTrackId;
  $error_id=$resultval;
@@ -522,9 +523,9 @@ else if($resultval==3)
 						
 						$recharge_date=$date->format('Y-m-d H:i:s');	
 										 
-						$auto_code=$this->recharge_model->generateRandomString($length = 6);
-						$req_id="BT00".$auto_code;
-				
+						$auto_code=$this->recharge_model->generateRandomString($length = 30);
+						$req_id=time().$auto_code;
+				          $op_code=$provider->OperatorCode;
 						$rdData=array(
 						'serviceprovider'=>$provider->provider,
 						'mobilenumber'=>$mobilenumber,
@@ -541,49 +542,54 @@ else if($resultval==3)
 					
 					if($recharge_id)
 					{
-						//curl_call( $url,$provider,$user,$recharge_id); 
-						 
-						if( $serviceprovider == 32 )
-						{
-							$store_id="BLUZ500021EZPY";
-	// 	$url = "http://103.29.232.110:8089/Ezypaywebservice/postpaidpush.aspx?AuthorisationCode=de4527cfd9674f86bc&product=$serviceprovider&MobileNumber=$mobilenumber&Amount=$amount&RequestId=$req_id&Circle=null&AcountNo=null&StdCode=$std_code&StoreID=$store_id";
-
-		$url  = "https://api.myezypay.in/Ezypaywebservice/postpaidpush.aspx?AuthorisationCode=de4527cfd9674f86bc&product=$serviceprovider&MobileNumber=$mobilenumber&Amount=$amount&RequestId=$req_id&Circle=null&AcountNo=null&StdCode=null&StoreID=$store_id";					 
-						
-						} else
-						{
-						//	$url = "http://103.29.232.110:8089/Ezypaywebservice/postpaidpush.aspx?AuthorisationCode=de4527cfd9674f86bc&product=$serviceprovider&MobileNumber=$mobilenumber&Amount=$amount&RequestId=$req_id&Circle=null&AcountNo=null&StdCode=$std_code";
- 				$url = "https://api.myezypay.in/Ezypaywebservice/postpaidpush.aspx?AuthorisationCode=de4527cfd9674f86bc&product=$serviceprovider&MobileNumber=$mobilenumber&Amount=$amount&RequestId=$req_id&Circle=null&AcountNo=null&StdCode=null";
-						}
-					  
-						
-					  $ch = curl_init();
-					  curl_setopt($ch, CURLOPT_URL, $url);
-					  curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-					  curl_setopt($ch,CURLOPT_FOLLOWLOCATION,true);
-					  $data = curl_exec($ch);
-					  $reply_data = $data;
-					  curl_close($ch);
-					   
-					  $get_trans=(explode("~",$data));
-					   
-					 if(count($get_trans)  < 2  ) {  
-					  $response = array('message' => 'Please service provider not available','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>0 ,'reply'=>$reply_data );
-						  
 					 
-						header('Content-Type: application/json');
-						 echo json_encode($response); 	
-					 	 exit();
-					   } 
-					  $trans_id=$get_trans[0];
-					  $error_id=$get_trans[3];
-					  $error_description=$get_trans[4];
+						  	$auto_code=$this->recharge_model->generateRandomString($length = 30);
+						$req_id=time().$auto_code;
+						  $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
+$mySOAP = <<<EOD
+{
+"Authentication": {
+"LoginId": "Viapaise",
+"Password": "Viapaise123"
+},
+"UserTrackId": "$req_id",
+"RechargeInput": {
+"OperatorCode": "$op_code",
+"MobileNumber": "$mobilenumber",
+"Amount": $amount
+}
+}
+EOD;
+// The HTTP headers for the request (based on image above)
+$headers = array(
+'Content-Type: application/json',
+);
+// Build the cURL session
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_POST, TRUE);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $mySOAP);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+// Send the request and check the response
+if (($result = curl_exec($ch)) === FALSE) {
+die('cURL error: '.curl_error($ch)."<br />\n");
+} else {
+$recharge_test=json_decode($result);
+$resultval=$recharge_test->ResponseStatus;
+ $trans_id=$recharge_test->UserTrackId;
+ $error_id=$resultval;
+$error_description='test';
 					  
-					  $trans_date=$date->format('Y-m-d H:i:s');	
-					  
-					  if($error_id ==1 )
-					  {
-						  $error_status=1;
+$trans_date=$date->format('Y-m-d H:i:s');	
+
+}
+
+curl_close($ch);
+if($resultval==1)
+{
+   $error_status=1;
+   $error_description='success';
 						  
 						  $retail_commission =  ($provider->commission  / 100) * $amount;
 						  $dis_commission =  ($provider->dcommission  / 100) * $amount;
@@ -629,15 +635,17 @@ else if($resultval==3)
 						  header('Content-Type: application/json');
 						  $response = array('message' => 'Transaction Successful','class' => 'success','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);
 						  echo json_encode($response); 
-					  
-						  return true;
-						  
-					  }
-					   else if($error_id==100 || $error_id==200)//Transaction Pending
-					  {
-						  $error_status=2;
-						  
-						  $available_totalbalance =  ($user->total_balance - $user->used_balance )- $amount ;  
+					 
+						  return true; 
+    
+    
+    
+    
+}
+else if($resultval==0)
+{
+    $error_description='Pending';
+    $available_totalbalance =  ($user->total_balance - $user->used_balance )- $amount ;  
 						  $used_balance = $user->used_balance + $amount;
 						  $before_balance = $user->available_balance; 
 						  $after_balance = $available_totalbalance;
@@ -656,35 +664,74 @@ else if($resultval==3)
 						  $reversal_request = $this->recharge_model->add_reversal_request( array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=>$parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending' ) ); 
 						   
 						   
-						  $response = array('message' => 'Transaction Pending','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id); 
-						   
-						  
-						   
-					  }else if($error_id == -1611)//Duplicate
-					  {
-						  $send_duplicate_sms =$this->recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
-							 
-						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);
-						   
-				   
-					  } // -1605 Insufficient Balanc
-					   else if($error_id == -1605)//Insufficient Balanc
-					  {
-						$this->alert($data); 
-						
-						$response = array('message' => 'Please try after 10 minutes','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id); 
-					  }
-					  else
-					  {
-						  $error_status=0;
-						  $send_failure_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
-								
-						   $response = array('message' => 'Transaction Failure','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);//,'reply'=>$reply_data );
-						  
-					  }
-						header('Content-Type: application/json');
+						  $response = array('message' => 'Transaction Pending','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
+    
+                       	header('Content-Type: application/json');
 						 echo json_encode($response);
-					}
+    
+    
+    
+    
+    
+    
+    
+}
+else if($resultval==2)
+{
+    $error_description='Unknown';
+  $send_duplicate_sms =$this->recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
+							 
+						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+else if($resultval==3)
+{
+    
+    
+   $error_description='Failure/Refund'; 
+    
+     $send_failure_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
+								
+						   $response = array('message' => 'Transaction Failure','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id,'api'=>$data);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+				
+    
+	
+  }
 					else // recharge insertion failed
 					{
 						

@@ -872,17 +872,17 @@ var mobile = $('#pre-mobilenumber').val();
 	 
      
  
-		  //showModal();				
+		  showModal();				
 	 
 	
     $.ajax({
                 type: "POST",
                 url: "<?php echo  base_url();?>recharge/ad_recharge", 
                 data: form_data,
-				//datatype:"json",
+				datatype:"json",
 				success: function( result)  
                 { 
-		          alert(result);
+		          //alert(result.message);
                   
 				$('#trans_id').html(result.trans_id);
 				if(result.class == "fail"){
