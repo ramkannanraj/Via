@@ -16,6 +16,12 @@ if(	$type == '' && $username == '' && $uid == '')
 <!-- BOOSTRAB STYLESHEET -->
 <link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/style_retailer.css" type="text/css" />
 <?php }?>
+<?php if($type=='distributor'){ ?>
+ <link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/style_dist.css" type="text/css" />      
+<?php } ?>
+
+
+
 <link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/bootstrap.css" type="text/css" />
 
 <link rel="stylesheet" href="<?php echo base_url()?>/assets/css/bootstrap.min.css" type="text/css" />
