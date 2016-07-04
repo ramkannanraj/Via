@@ -158,13 +158,13 @@ if($type=$this->session->userdata('type')=='super'){?>
                         
                         	<div class="form-group col-lg-6">
                             <label>Firm Name</label>
-                            <input type="text" name="firmname" value="" class="form-control">
+                            <input type="text" name="firmname" value="" class="form-control" maxlength="20">
                             </div>
                             
                             
                         <div class="form-group col-lg-6">
                         <label>Email id</label>
-                        <input type="text" name="email" value="" required class="form-control">
+                        <input type="text" name="email" maxlength="40" value="" required class="form-control">
                         </div>
                         
                         
@@ -269,8 +269,8 @@ if($type=$this->session->userdata('type')=='super'){?>
                        </li>
                        	<li><p><span>Name</span><input type="text" name="name" required maxlength="40" class="in-btn1">
                         <input type="hidden" name="parent_id" value="<?php echo $data; ?>" class="form-control"></p></li>
-                        <li><p><span>Firm Name</span><input type="text" name="firmname" class="in-btn1"></p></li>
-                        <li><p><span>Email id</span><input type="email" name="email" class="in-btn1" required ></p></li>
+                        <li><p><span>Firm Name</span><input type="text" maxlength="40" name="firmname" class="in-btn1"></p></li>
+                        <li><p><span>Email id</span><input type="email" name="email" maxlength="40" class="in-btn1" required ></p></li>
                         <li><p><span>Gender</span>
                         	<table>
                                 <tr>
