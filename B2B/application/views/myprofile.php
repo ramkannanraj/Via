@@ -19,7 +19,7 @@
         			<div class="panel-body">
                 	
                       <div class="mobile-1"> 
-                      <p>Profile</p>
+                      <p class="pro">Profile</p>
                       </div>
                 <!-- col-xs-12 ends-->
                 <form action="<?php echo site_url('user/do_upload')?>" method="post" id="myform" enctype="multipart/form-data">

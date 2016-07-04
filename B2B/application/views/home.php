@@ -97,7 +97,7 @@ padding-top: 15px;
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#wallet" aria-expanded="true" aria-controls="collapseOne">
          <div class="row user-row">
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                 <i class="glyphicon glyphicon-briefcase" style="font-size:40px;"></i>
+                 <i class="glyphicon glyphicon-briefcase icon_size"></i>
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <div class="title">Wallet Balance</div>
@@ -165,7 +165,7 @@ padding-top: 15px;
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#sendmoney" aria-expanded="true" aria-controls="collapseOne">
          <div class="row user-row">
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                 <i class="glyphicon glyphicon-briefcase" style="font-size:40px;"></i>
+                 <i class="glyphicon glyphicon-briefcase icon_size"></i>
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <div class="title">Send Money</div>
@@ -234,7 +234,7 @@ padding-top: 15px;
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#transhistory" aria-expanded="true" aria-controls="collapseOne">
          <div class="row user-row">
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                 <i class="glyphicon glyphicon-tasks" style="font-size:40px;"></i>
+                 <i class="glyphicon glyphicon-tasks icon_size"></i>
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <div class="title">Transaction History</div>
@@ -274,7 +274,7 @@ padding-top: 15px;
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#savecard" aria-expanded="true" aria-controls="collapseOne">
          <div class="row user-row">
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                 <i class="glyphicon glyphicon-credit-card" style="font-size:40px;"></i>
+                 <i class="glyphicon glyphicon-credit-card icon_size"></i>
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <div class="title">Save Card</div>
@@ -326,7 +326,7 @@ padding-top: 15px;
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#addressbook" aria-expanded="true" aria-controls="collapseOne">
          <div class="row user-row">
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                 <i class="glyphicon glyphicon-book" style="font-size:40px;"></i>
+                 <i class="glyphicon glyphicon-book icon_size"></i>
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <div class="title">Address Book</div>
