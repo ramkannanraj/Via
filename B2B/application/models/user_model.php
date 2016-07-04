@@ -462,15 +462,18 @@
 		{
 
 			$id=$this->session->userdata('uid');
+			
 
-			$this->db->where('uid',$id);
-
-		//	$q = $this->db->get('usermaster');	
-        $this->db->select('uid,name,parent_id,username, password, companyname,email,mobile,state_name,address1,city_name');
-$this->db->from('usermaster');
-$this->db->join('states', 'usermaster.state = states.state_id');
-$this->db->join('cities', 'usermaster.city = cities.city_id');
-$q = $this->db->get();		
+			//$q = $this->db->get('usermaster');	
+            $this->db->select('*');
+         $this->db->from('usermaster');
+           $this->db->join('states', 'usermaster.state = states.state_id','left');
+           $this->db->join('cities', 'usermaster.city = cities.city_id','left');
+           $this->db->where('usermaster.uid', $id); 
+           $q=$query = $this->db->get();
+           
+       
+	
 
 			if($q->num_rows() > 0) 
 
