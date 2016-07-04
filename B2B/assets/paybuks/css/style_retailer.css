@@ -1379,7 +1379,7 @@ p { font-size:16px; }
 @media only screen and (max-width: 414px){
 
 .list-inline { margin-top: 0; }
-.content_wrapper { min-height: auto!important; }
+.content_wrapper { min-height: auto!important;  }
  }
 @media (min-width: 415px) and (max-width: 767px) {
 

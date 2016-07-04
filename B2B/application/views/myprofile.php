@@ -13,7 +13,7 @@
                       </div>
                       </div>
                 </div>
-          
+           
             	<div class="col-lg-12">
                 <div class="panel dashboard">
         			<div class="panel-body">
@@ -99,7 +99,7 @@ foreach ($query->result() as $row)
                     </div>
                     <div class="form-group col-lg-6">
                     	<label>State</label>
-                        <input type="text" class="form-control" value="<?php echo $member->state?>"  disabled="disabled" />
+                        <input type="text" class="form-control" value="<?php echo $member->state_name?>"  disabled="disabled" />
                     </div>
                     <div class="form-group col-lg-6">
                     	<label>City</label>
