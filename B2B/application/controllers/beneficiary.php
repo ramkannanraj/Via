@@ -45,6 +45,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 		}
 		public function addss_beneficiary()
 		{
+		 
 		$b_name=  $this->input->post('name');
 		$mobile_no=  $this->input->post('mobile_no');
 		$bank_name=  $this->input->post('bank_name');
@@ -54,7 +55,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 		$b_ifsc=  $this->input->post('ifsc');
 		$b_accno=  $this->input->post('accno');
 		$b_card_no=  $this->input->post('cardnumber');
-		$b_id=  $this->input->post('icash_user_id');
+	    $b_id=  $this->input->post('icash_user_id');
 		$trans=random_string('numeric',5);
 		$mm=random_string('numeric',6);
 					 
@@ -76,7 +77,9 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 			$this->load->view('common/menu');
 			$this->load->view('icash_home');
 			$var_code=$this->session->userdata('security_key'); 
-			$mobile_nos=$this->session->userdata('mobile_number');
+            
+		$mobile_nos=$this->session->userdata('mobile_number');
+           
 			$data['card_details'] = $this->icash_model->get_card_details($var_code,$mobile_nos);
 			$this->load->view('view_beneficiary',$data);
 			$this->load->view('common/footer');

@@ -1,7 +1,4 @@
- 
-
-
- 	<div class="panel dashboard">
+  	<div class="panel dashboard">
         	<div class="panel-body">
             <div class="mobile-1"><p>TRANSACTION HISTORY DETAILS</p></div>
             <div class="row">
@@ -36,7 +33,7 @@
 </select></div>
 <div class="form-group col-lg-2">
 
- <input type="submit" value="Submit" name="submit" class="btn btn-primary form-control" />
+ <input type="submit" value="Submit" name="submit" class="btn btn-warning form-control" />
 </div>
 		
 
@@ -58,13 +55,14 @@ $todate= $this->input->post('to_date');
 $transaction_type= $this->input->post('transaction_type');
 $transaction_mode= $this->input->post('transaction_mode');
 
-$service_url = 'http://api.icashcard.in/impsmethods.asmx/TRANSACTIONHISTORY';
+//$service_url = 'http://api.icashcard.in/impsmethods.asmx/TRANSACTIONHISTORY';
+$service_url ='http://202.54.157.77/wsnpci/impsmethods.asmx=TRANSACTIONHISTORY';
 				$ch = curl_init($service_url);
 				$curl_post_data = array(			
 				"RequestData" =>"<TRANSACTIONHISTORYREQUEST>
-				<TERMINALID>100024</TERMINALID>
-				<LOGINKEY>1982032620</LOGINKEY>
-				<MERCHANTID>24</MERCHANTID>
+				<TERMINALID>200291</TERMINALID>
+				<LOGINKEY>0211042052</LOGINKEY>
+				<MERCHANTID>291</MERCHANTID>
 				<CARDNO>$card</CARDNO>
 				<FROMDATE>$fromdate</FROMDATE>
 				<TODATE>$todate</TODATE>
@@ -82,7 +80,7 @@ $service_url = 'http://api.icashcard.in/impsmethods.asmx/TRANSACTIONHISTORY';
 				curl_setopt($ch, CURLOPT_POST, true);
 				curl_setopt($ch, CURLOPT_POSTFIELDS, $post_array_string);
 				
-$output = curl_exec($ch);  
+$output = curl_exec($ch); 
 $xml = simplexml_load_string($output);
 $xml = preg_replace("/(<\/?)(\w+):([^>]*>)/", "$1$2$3", $xml);
 $xml = simplexml_load_string($xml);

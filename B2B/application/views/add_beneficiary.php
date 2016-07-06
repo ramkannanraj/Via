@@ -9,7 +9,7 @@
              <div class="mobile-1"><p>ADD BENEFICIARY</p></div>
                     <form method="post" class="form-style-9" action="<?php echo site_url('beneficiary/addss_beneficiary') ?>"  >
 <div class="form-group col-lg-6">
-<?php //foreach($card_details as $user){ ?>
+<?php foreach($card_details as $user){ ?>
 <label >Name</label>
 
 
@@ -48,11 +48,11 @@
 <label>Account No</label>
 <input type="text" class="form-control"  name="accno" required/>
 <input type="hidden" name="cardnumber" readonly value="<?php  echo $this->session->userdata('card_no');?>"    />
-<input type="hidden" name="icash_user_id" readonly value="<?php  //echo $user->id;?>"   />
+<input type="hidden" name="icash_user_id" readonly value="<?php  echo $user->id;?>"   />
 
  <?php 
  
- //}?>
+ }?>
    </div>
    <div class="form-group col-lg-12">
 <div class=" pull-right ">
