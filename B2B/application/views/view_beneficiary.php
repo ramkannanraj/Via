@@ -1,7 +1,4 @@
 
-			
-
-
 <div class="panel dashboard">
         	<div class="panel-body">
                 <?php if(isset($error)){ ?>
@@ -92,7 +89,7 @@ while($row=mysql_fetch_array($sql))
 			 $agent_id=$row['agent_id'];
 		}
 
-$service_url = 'http://api.icashcard.in/impsmethods.asmx/VIEWBENEFICIARY';
+$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx=VIEWBENEFICIARY';
 $ch = curl_init($service_url);
 $curl_post_data = array(
 "RequestData" =>"<VIEWBENEFICIARYREQUEST>
