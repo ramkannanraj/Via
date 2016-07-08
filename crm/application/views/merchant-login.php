@@ -351,6 +351,7 @@ footer, .footerstyle { background:#2E2D36; }
 .follow_us { margin-left: -4%;padding: 0; }
 .footerstyle { color: #fff !important;font-size:14px; }
 .no_padding { padding:0; }
+.footer_menu li a { text-decoration: none; }
 /*footer ends*/    
 </style>
     
@@ -361,7 +362,7 @@ footer, .footerstyle { background:#2E2D36; }
 
 <div class="col-sm-12 footer_padding no_padding">
 <br>
-<div class="col-sm-3" style="color:#fff;">
+<div class="col-sm-3" style="color:#fff;text-align:justify;">
 <h3 style="margin-top:0">Partner with us:</h3> 
 <p>ViaPaise is your Prepaid Stored Value Virtual Wallet. We provide a unique payment feature which makes sure that your transactions remain completely secure.</p>
 <p>ViaPaise is looking for partners: Low investment costs, minimal setup hassles, high returns, and of course, the prestige of being associated with the fastest growing telecom company in India.

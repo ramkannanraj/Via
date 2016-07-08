@@ -73,51 +73,14 @@
     	<header>
 
         	
- 				 	<div class="fixed-links hidden-xs">
-
-        
-
-        		<div class="hire-icon"><a href="career.html"><img src="<?php echo base_url();?>assets/images/hire.png"></a></div>
-
-                <div class="acc-icon">
-
-                	<a class="btn-warning" href="invite-friends.html">Invite <br /> Friends</a>
-
-                    <a href="mobile-app.html">MOBILE <br /> APP</a>
-
-                </div>
-
+ 				 	
             
 
             </div> <!-- fixed-links ends -->
 
         
 
-        			<div class="top-bar">
-
-            
-
-                <div class="container">
-
-                
-
-                	<ul class="list-unstyled list-inline pull-right">
-
-                    	<li><a href="sell.html">Sell</a></li>
-
-                        <li><a href="check-transaction.html">Check transaction</a></li>
-
-                        <li><a href="#">Track order</a></li>
-
-                    </ul>
-
-                
-
-                </div> <!-- container ends -->
-
-            
-
-            </div> <!-- top-bar ends -->
+        			 <!-- top-bar ends -->
 
 
             
@@ -321,154 +284,118 @@
 
         
 
-        <footer>
-
-        	<div class="footer-top">
-
-            <div class="container">
-
-            
-
-            	<div class="row">
-<div class="col-sm-4 vline">
-
-                   
-    <div class="social">
-    <span><img src="<?php echo base_url();?>assets/paybuks/images/logo_blue.png"></span>
- <ul class="list-unstyled">
-
-                        	<li class="fb"><a href="">fb</a></li>
-
-                            <li class="tweet"><a href="">tweet</a></li>
-
-                            <li class="gplus"><a href="#">gplus</a></li>
-
-                            <li class="pin"><a href="#">pin</a></li>
-
-                        </ul>
+           <style>                   
                     
+           /*footer*/
+footer, .footerstyle { background:#2E2D36; }
+.footer_menu { list-style: outside none none;padding: 0; }
+.footer_menu li a { color:#fff; font-size:13px; }
+.footer_menu li a:hover { color: #e4a124; }
+.footer_div { padding-left: 8%;}
+.copyright { text-align:center;margin:1%;color:#fff; }
+.follow_us .fa {  font-size: 38px;color:#fff; }
+.footer_logo { padding: 3% 15px; }
+.followus_icon { font-size:12px;text-align: center; }
+.margin_left { margin-left: -5px; }
+/*.follow { margin-top:70px; }*/
+.footer_menu_gap { margin-bottom:40px; }
+.footer_icon:hover { font-size: 50px; }
+.follow_us { margin-left: -4%;padding: 0; }
+.footerstyle { color: #fff !important;font-size:14px; }
+.no_padding { padding:0; }
+.footer_menu li a { text-decoration: none; }
+/*footer ends*/    
+</style>
+    
+                    <div class="footerstyle">
+<div class="container content_white">
+<a class="logo" href="#"><span><img src="<?php echo base_url();?>assets/paybuks/images/logo_blue.png"></span></a>
+
+
+<div class="col-sm-12 footer_padding no_padding">
+<br>
+<div class="col-sm-3" style="color:#fff;text-align:justify;">
+<h3 style="margin-top:0">Partner with us:</h3> 
+<p>ViaPaise is your Prepaid Stored Value Virtual Wallet. We provide a unique payment feature which makes sure that your transactions remain completely secure.</p>
+<p>ViaPaise is looking for partners: Low investment costs, minimal setup hassles, high returns, and of course, the prestige of being associated with the fastest growing telecom company in India.
+</p>
+</div>
+
+<div class="col-sm-3 footer_div">
+<p class="no_margintop"><strong>Money Transfer</strong></p> 
+<ul class="footer_menu footer_menu_gap">
+			<li><a href="load_money.php">Load Money</a></li>
+			<li><a href="send_money.php">Send Money</a></li>
+			<li><a href="withdraw_money.php">Withdraw Money</a></li>
+            <li><a href="pay_money.php">Pay Money</a></li>
+		</ul>
+        
+        <p class="no_margintop"><strong>Recharges </strong></p> 
+<ul class="footer_menu footer_menu_gap1">
+			<li><a href="mobile_recharge.php">Mobile Recharges</a></li>
+			<li><a href="dth_recharge.php">DTH Recharges</a></li>
+			<li><a href="datacard_recharge.php">Data Card Recharges</a></li>
+            <li><a href="shopping.php">Shopping</a></li>
+		</ul>
+</div>
+
+<div class="col-sm-3">
+<p class="no_margintop"><strong>Bill Payments</strong></p> 
+<ul class="footer_menu footer_menu_gap">
+			<li><a href="postpaid_billpayment.php">Postpaid Bill Payments</a></li>
+			<li><a href="landline_billpayment.php">Landline Bill Payments</a></li>
+			<li><a href="electricity_billpayments.php">Electricity Bill Payments</a></li>
+            <li><a href="gas_billpayment.php">Gas Bill Payments</a></li>
+			<li><a href="insurance_payment.php">Insurance Payment</a></li>
+		</ul>
+        
+        <p class="no_margintop"><strong>Ticket Booking</strong></p> 
+<ul class="footer_menu footer_menu_gap1">
+			<li><a href="bus_ticketbooking.php">Bus Ticket Booking</a></li>
+			<li><a href="air_ticketbooking.php">Air Ticket Booking</a></li>
+			<li><a href="hotel_booking.php">Hotel Booking</a></li>
+		</ul>
+</div>
+
+<div class="col-sm-3 follow_us">
+<p class="no_margintop"><strong>Quick Links</strong></p>
+<ul class="footer_menu">
+<li><a href="index.php#about_us">About Us</a></li>
+<li><a href="index.php#customer_services">Customer Services</a></li>
+<li><a href="terms_condition.php#terms_condition">Terms and Conditions</a></li>
+<li><a href="privacy.php#privacy">Privacy</a></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<h3 class="follow">Follow Us</h3>
+<br>
+<div class="col-sm-3 no_padding margin_left" style="display:inline-block;">
+<center><a href="#"><i class="fa fa-facebook footer_icon" aria-hidden="true"></i></a></center>
+<p class="followus_icon">Facebook</p>
+</div>
+<div class="col-sm-3 no_padding" style="display:inline-block;">
+<center><a href="#"><i class="fa fa-twitter footer_icon" aria-hidden="true"></i></a></center>
+<p class="followus_icon">Tweeter</p>
+</div>
+<div class="col-sm-3 no_padding" style="display:inline-block;">
+<center><a href="#"><i class="fa fa-linkedin footer_icon" aria-hidden="true"></i></a></center>
+<p class="followus_icon">Linked In</p>
+</div>
+<div class="col-sm-3 no_padding" style="display:inline-block;">
+<center><a href="#"><i class="fa fa-google-plus footer_icon" aria-hidden="true"></i></a></center>
+<p class="followus_icon">Google Plus</p>
 </div>
 </div>
-
-<div class="col-sm-4 vline">
-
-                    
-
-
-<h4>Information & Services</h4>
-
-                        <ul class="list-inline">
-
-                        	<li><a href="<?php echo base_url();?>about-us.html">About Us</a></li>
-                        
-                        <li><a href="<?php echo base_url();?>what-we-do.html">What we Do</a></li>
-
-                        <li><a href="<?php echo base_url();?>partnerwithus.html">Partner with Us</a></li>
-
-                        <li><a href="<?php echo base_url();?>terms-condition.html">Terms and Conditions</a></li>
-
-                        <li><a href="<?php echo base_url();?>career.html">Career</a></li>
-
-                        <li><a href="<?php echo base_url();?>customer-care.html">Customer Care</a></li>
-
-                        <li><a href="<?php echo base_url();?>contact.html">Contact Us</a></li>
-
-                        <li><a href="<?php echo base_url();?>security.html">Security</a></li>
-
-                        </ul>      
-
-                    </div>
-                
-
-                    
-
-                    
-
-                    
-
-                    <div class="col-sm-4">
-
-                    
-
-
-
-                    	<h4>Stay Connect</h4>
-                        <div class="input-group">
-      <input type="text" class="form-control" placeholder="Email id">
-      <span class="input-group-btn">
-        <button class="btn btn-warning" type="button">Subscribe</button>
-      </span>
+</div>
+</div>
+</div>
+<footer>
+<div class="container">
+<hr style="border-color:#444,">
+    <p class="copyright">Copyright © 2016 Via Paisa. All rights reserved.</p>
     </div>
-   
-
-
-
-                    </div>
-
-                    
-
-                   
-
-                
-
-                </div> 
-
-            
-
-            </div> <!-- container ends -->
-
-</div>
-            
-
-            <div class="foot-bottom">
-
-            
-
-            	<div class="container">
-
-            
-
-            	<span><img src="<?php echo base_url();?>images/payment.jpg"></span>
-
-                <!--<div class="foot-links">
-
-                	<ul class="list-unstyled">
-
-                    	<li><a href="about-us.html">About Us</a></li>
-                        
-                        <li><a href="what-we-do.html">What we Do</a></li>
-
-                        <li><a href="partnerwithus.html">Partner with Us</a></li>
-
-                        <li><a href="terms-condition.html">Terms and Conditions</a></li>
-
-                        <li><a href="career.html">Career</a></li>
-
-                        <li><a href="customer-care.html">Customer Care</a></li>
-
-                        <li><a href="contact.html">Contact Us</a></li>
-
-                        <li><a href="security.html">Security</a></li>
-
-                    </ul>
-
-                </div>--> <!-- foot-links ends -->
-
-                <p>@Copyright 2016-Viapaisa
-
- All rights reserved.</p>
-
-                
-
-                </div> <!-- container ends -->
-
-                
-
-            </div> <!-- foot-bottom ends -->
-
-            
-
-        </footer>
+</footer>
 
     
 

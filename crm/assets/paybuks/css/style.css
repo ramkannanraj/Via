@@ -149,6 +149,7 @@ header .navbar-nav li a.logout::before {
     text-align: center;
     width: 122px;
 	float:left;
+	
    
 }
 .main_menu ul {
@@ -1002,7 +1003,7 @@ SEND MONEY LOGIN
 @media screen and (max-width: 767px) {
 
 header .navbar-brand img {
-width:100%;
+/*width:100%;*/
 
 }
 
@@ -1325,4 +1326,9 @@ PROFILE
 .pending .page-header{
 	border-bottom: 3px solid #ffb234!important;
 		margin-top:10px;
+}
+@media screen (max-width: 320px) and (max-width: 766px)
+{
+.panel {  margin-bottom: 0;}
+.dashboard { margin-top:-50px!important; }
 }
