@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-	class recharge_model extends CI_Model {
+	class Recharge_model extends CI_Model {
 	
 		public function get_Prepaid()
 		{
@@ -639,7 +639,11 @@ return $query->result();
   }
   
   public function get_balance($user_id){
-	  
+   // $this->db->select("*");
+  // $this->db->from('usermaster');    
+  // $this->db->where(array('uid' => $user_id));    
+ //  $query = $this->db->get();
+	//  return $query->row()->available_balance;
 	 return $this->db->select('total_balance,used_balance,available_balance')->where('uid',$user_id)->get('usermaster')->row();
 	  
 	  
@@ -745,8 +749,8 @@ $mySOAP = <<<EOD
 "Password": "Viapaise123"
 },
 "AccountStatementInput": {
-"FromDate": "$dateform",
-"ToDate": "$dateform"
+"FromDate": $dateform,
+"ToDate": $dateform
 }
 }
 }

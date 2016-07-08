@@ -24,7 +24,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 				
 				$user_available_balance = $this->session->userdata('available_balance');
 				
-				$esay_current_balance = $this->recharge_model->get_ezypay_balance();
+			//	$esay_current_balance = $this->Recharge_model->get_ezypay_balance();
 			
 			$data['Prepaid'] = $this->recharge_model->get_Prepaid();
 			$data['dthprovider'] = $this->recharge_model->get_dthprovider();

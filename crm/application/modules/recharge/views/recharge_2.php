@@ -6,7 +6,7 @@ $username = $this->session->userdata('username');
 $uid = $this->session->userdata('uid');		 
 if(	$type == '' && $username == '' && $uid == '')
 {	
-	header("Location: http://64.187.228.106/dev/Via/trunk/B2B/"); 
+	header('Location: ' . base_url()); 
 }?>
 <?php if($type=='admin'){ ?>
 <link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/style.css" type="text/css" />
@@ -770,12 +770,12 @@ if(	$type == '' && $username == '' && $uid == '')
                                    
                                 </div>-->
                                 <div class="modal-body">
-                                 <h4 class="text-center">You are logging out of Paybuks.com </h4>
+                                 <h4 class="text-center">You are logging out of ViaPaise.com </h4>
                                 </div>
                                 <div class="modal-footer">
                               
                                     <a href="<?php echo base_url()?>user/thankyou_content" class="btn btn-default">OK</a> 
-  									<a href="<?=current_url()?>" class="btn btn-default" type="submit" />Cancel</a>   
+  									<a href="<?php echo current_url()?>" class="btn btn-default" type="submit" />Cancel</a>   
                               
                                 </div>
                                 <!-- row ends -->
@@ -897,12 +897,12 @@ var mobile = $('#pre-mobilenumber').val();
 	
     $.ajax({
                 type: "POST",
-                url: "<?php echo  base_url();?>recharge/ad_recharge", 
+                url: "<?php echo  base_url();?>Recharge/ad_recharge", 
                 data: form_data,
 				datatype:"json",
 				success: function( result)  
                 { 
-		          //alert(result.message);
+		          alert(result.message);
                   
 				$('#trans_id').html(result.trans_id);
 				if(result.class == "fail"){

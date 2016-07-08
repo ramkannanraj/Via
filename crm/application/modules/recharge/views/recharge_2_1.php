@@ -670,7 +670,7 @@
                                    
                                 </div>-->
                                 <div class="modal-body">
-                                 <h4 class="text-center">You are logging out of Paybuks.com </h4>
+                                 <h4 class="text-center">You are logging out of ViaPaise.com </h4>
                                 </div>
                                 <div class="modal-footer">
                               
