@@ -1,0 +1,666 @@
+
+<?php
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	class user extends CI_Controller {
+		public function __construct()
+		{
+			parent::__construct();
+			$this->load->helper('url');     
+			$this->load->library('form_validation');
+			$this->load->model('user_model');
+			$this->load->model('viewuser_model');
+			$this->load->helper('string');
+			$this->load->helper('date');
+			$this->load->helper(array('form', 'url'));
+		}
+		public function index()
+		{
+			if(($this->session->userdata('uid')!=""))
+			{
+				redirect(site_url('user/home'));
+			}
+			else
+			{
+				$this->load->view("merchant-login");
+			}
+	
+		}
+		public function rolekey_exists($key) 
+		{
+			$check=$this->user_model->mailcheck($key);
+			if ($check == 'true')
+			{
+			return FALSE;
+			}
+			else
+			{
+			return TRUE;
+			}
+		}
+		public function rolekey_existed($mob) 
+		{
+			$check=$this->user_model->mobcheck($mob);
+			if ($check == 'true')
+			{
+				
+			return FALSE;
+			
+			}
+			else
+			{
+				
+			return TRUE;
+			}
+		}
+	/* 	public function topup()
+	 {
+$mobile_operator=$this->input->post('mobile_operator');
+$mobile_amount=$this->input->post('mobile_amount');
+$topup_type=$this->input->post('topup_type');
+$mobile_number=$this->input->post('mobile_number');
+$tempdata['mobile_operator']=$mobile_operator;
+$tempdata['mobile_amount']=$mobile_amount;
+$tempdata['topup_type']=$topup_type;
+$tempdata['mobile_number']=$mobile_number;
+$this->session->set_tempdata($tempdata);
+$this->load->view("consumer-login");			
+	   } */
+		public function login()
+		{
+			$username=$this->input->post('username');
+			$password=$this->input->post('password');
+			$auth=$this->user_model->login($username,$password);
+			if($auth)
+			{
+				redirect(site_url('user/home'));
+			}
+			else
+			{
+				echo "<script type='text/javascript'>alert('Invalid username and password'); window.location.href = 'index';  </script>"; 
+				$this->index();
+			}
+		 }
+		 public function consumer_login()
+		{
+			$username=$this->input->post('username');
+			$password=$this->input->post('password');
+			$auth=$this->user_model->consumerlogin($username,$password);
+			if($auth)
+			{
+				redirect(site_url('user/home'));
+				//echo $auth;
+			}
+			else
+			{
+				//echo $auth;
+				echo "<script type='text/javascript'>alert('Invalid username and password'); window.location.href = 'user_index';  </script>"; 
+				$this->user_index();
+			}
+		 }
+		
+		public function user_index()
+		{
+			if(($this->session->userdata('uid')!=""))
+			{
+				redirect(site_url('user/home'));
+			}
+			else
+			{
+				$this->load->view("consumer-login");
+			}
+	
+		}
+		public function resent()
+		{
+			$username=$this->session->userdata('username');
+			$password=$this->session->userdata('password');
+	
+			$auth=$this->user_model->login($username,$password);
+			if($auth)
+			{
+				redirect(site_url('user/resentotp'));
+			}
+			else
+			{
+				echo "<script type='text/javascript'>alert('Invalid username and password'); window.location.href = 'index';  </script>"; 
+				$this->index();
+			}
+		}
+		public function consumer_signup()
+		{
+			$type="consumer";
+			$name=$this->input->post('firstname');
+			$firmname=$this->input->post('lastname');
+			$email=$this->input->post('email');
+			$gender="";
+			$mobile=$this->input->post('mobile');
+			$d="C";
+			$usname=$mobile;
+
+			//password	
+            //$this->load->helper('string');
+            $pass= $this->input->post('password');
+             //
+            $parent_id="";
+			$address="";
+			$city="";
+			$state="";
+			$country="";
+			$pincode="";
+			$sponserid="";
+			$executivename="";
+			$limit="";
+			$secure_code=random_string('numeric',4);
+			$reg=$this->user_model->consumer_register($parent_id,$type,$name,$firmname,$email,$gender,$mobile,$address,$city,$state,$country,$pincode,$sponserid,$executivename,$pass,$usname,$limit,$secure_code);
+            
+	 
+	$testing="One Time Password to verify your Mobile $mobile on IRupaya is $secure_code.This verification code for safety of your account and must be done before you proceed.";			
+$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key= A96b7866cc3166b24d4c6397ef5d6d436&to=$mobile&sender=IRUPAY&message=$testing
+&format=json&custom=1,2";
+				$url = str_replace(" ", "%20", $url);
+				$ret = file($url);
+					$sess = explode(":",$ret[0]);
+					 if ($sess[0] == "OK") 
+					 {
+					$sess_id = trim($sess[1]); // remove any whitespace 
+					
+					 $ret = file($url);
+					 $send = explode(":",$ret[0]);
+					 if ($send[0] == "ID") 
+					 {
+					 echo "successnmessage ID: ". $send[1];
+					 } 
+					 else
+					 {
+					 echo "send message failed";
+					 }
+			 } 
+					 else
+					 {
+					 $ret[0] ;
+					 }
+					$data['type']=$type.'-'.$reg;
+					$this->load->view("common/header_securelogin");
+					$this->load->view("securelogin",$data);
+					$this->load->view("common/footer");
+		
+		}
+		
+		
+	
+		
+		public function home()
+		{
+		$dates = date('Y-m-d');
+		$mobile_no=$this->session->userdata('mobile');
+
+
+		$type=$this->session->userdata('type');
+		if($type=="consumer")
+		{
+			$type_var=$type.'_'.$this->session->userdata('uid');
+		}
+		else
+		{
+			$type_var=$type;
+		}
+
+
+		$varr=$this->session->userdata('lastlogin');
+		$var=date('Y-m-d',strtotime($varr));   
+		$secure_code=$this->session->userdata('secure_code');
+		$auto_no=random_string('numeric',4);
+		
+		if($var == $dates)
+			{
+					
+				    $data['type']=$type_var;
+					$this->load->view("common/header_securelogin");
+					$this->load->view("securelogin",$data);
+					$this->load->view("common/footer");
+			}
+			else
+			{
+				$update = $this->user_model->update_user_code($auto_no);
+				if($update)
+				{
+					
+					$testing="One Time Password to verify your Mobile $mobile_no on IRupaya is $auto_no.
+					This verification code for safety of your account and must be done before you proceed.";			
+					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A96b7866cc3166b24d4c6397ef5d6d436&to=$mobile_no&sender=IRUPAY&message=$testing
+&format=json&custom=1,2";
+					$url = str_replace(" ", "%20", $url);
+					$ret = file($url);
+					$sess = explode(":",$ret[0]);
+					 if ($sess[0] == "OK") 
+					 {
+					$sess_id = trim($sess[1]); // remove any whitespace 
+					
+					 $ret = file($url);
+					 $send = explode(":",$ret[0]);
+					 if ($send[0] == "ID") 
+					 {
+					 echo "successnmessage ID: ". $send[1];
+					 } 
+					 else
+					 {
+					 echo "send message failed";
+					 }
+					 } 
+					 else
+					 {
+					 $ret[0] ;
+					 }
+					 $data['type']=$type_var;
+					$this->load->view("common/header_securelogin");
+					$this->load->view("securelogin",$data);
+					$this->load->view("common/footer");
+				}
+			}
+		}
+			
+		public function resentotp()
+		{
+			$secure_code=$this->session->userdata('secure_code');
+			$mobile_no=$this->session->userdata('mobile');
+
+$testing="One Time Password to verify your Mobile $mobile_no on IRupaya is $secure_code.
+					This verification code for safety of your account and must be done before you proceed.";
+
+					
+				
+				//SMS CODE	
+					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A96b7866cc3166b24d4c6397ef5d6d436&to=$mobile_no&sender=IRUPAY&message=$testing
+&format=json&custom=1,2";
+					$url = str_replace(" ", "%20", $url);
+					$ret = file($url);
+					$sess = explode(":",$ret[0]);
+					 if ($sess[0] == "OK") 
+					 {
+					$sess_id = trim($sess[1]); // remove any whitespace 
+					
+					 $ret = file($url);
+					 $send = explode(":",$ret[0]);
+					 if ($send[0] == "ID") 
+					 {
+					 echo "successnmessage ID: ". $send[1];
+					 } 
+					 else
+					 {
+					 echo "send message failed";
+					 }
+					 } 
+					 else
+					 {
+					 $ret[0] ;
+					 }
+
+				  $data['type']=$type_var;
+					$this->load->view("common/header_securelogin");
+					$this->load->view("securelogin",$data);
+					$this->load->view("common/footer");
+
+}
+
+
+		
+		
+		
+		
+		
+		
+
+		public function logout()
+		{
+			$this->session->sess_destroy();
+			redirect(site_url('user/index'));
+		}
+		
+		public function thankyou_content()
+		{
+			$this->session->sess_destroy();
+			$this->load->view("common/header_securelogin");
+			$this->load->view("thankyou");
+			$this->load->view("common/footer");
+			
+		}
+		public function dashboard()
+		{
+			$var=$this->session->userdata('uid');
+			$datas = $this->session->userdata('uid');
+			$data['user_details'] = $this->user_model->get_user_details($datas);
+			$this->load->view("common/header");
+			$this->load->view("common/menu");
+			$this->load->view("home",$data);
+			$this->load->view("common/footer");
+			
+			
+		}
+		public function secure_login()
+		{
+			$secure_code=$this->input->post('secure_code');
+			$type=$this->input->post('type');
+			$type_array=explode('-',$type);
+			if($type_array[0]!='consumer')
+			{
+			$var=$this->session->userdata('uid');
+			$security=$this->user_model->secur_log_model($secure_code,$var);
+			if($security){
+			$dates = date('Y-m-d');
+			$status="S";
+			$ad = $this->user_model->update_user_secure($dates,$status);
+			$datas = $this->session->userdata('uid');
+			$data['user_details'] = $this->user_model->get_user_details($datas);
+			
+			$this->load->view("common/header");
+			$this->load->view("common/menu");
+			$this->load->view("home",$data);
+			$this->load->view("common/footer");
+			}
+			else
+			{
+				$this->index();
+			}
+			}
+			elseif($type_array[0]=='consumer')
+			{
+			$uid=$type_array[1];
+			$security=$this->user_model->secur_log_model($secure_code);
+			if($security){
+			$dates = date('Y-m-d');
+			$status="S";
+			$datas = $uid;
+			$data['user_details'] = $this->user_model->get_user_details($datas);
+			foreach($data['user_details'] as $user){
+				$userdata = array(
+		'uid'  => $user->uid,
+		'username'  => $user->username,
+		'type'  => $user->type,
+		'lastlogin'  => $user->lastlogin,
+		'secure_code'  => $user->secure_code,
+		'status'  => $user->status,
+		'mobile'  => $user->mobile,
+		'used_balance'  => $user->used_balance,
+		'total_balance'    => $user->total_balance,
+		'img_name'    => $user->img_name,
+		'password'    => $user->password,
+		);
+		
+		$this->session->set_userdata($userdata);
+			}
+			$this->load->view("common/header");
+			$this->load->view("common/menu");
+			$this->load->view("home",$data);
+			$this->load->view("common/footer");
+			}
+			else
+			{
+				$this->index();
+			}
+			}
+		}
+		public function createuser()
+		{
+			$data['Country'] = $this->user_model->getcountry();
+			
+			$this->load->view("common/header");
+			$this->load->view("common/menu");
+			$this->load->view('v_createuser',$data);
+			$this->load->view("common/footer");
+		}
+		public function register()
+		{
+		$this->load->library('form_validation');
+		$key=$this->form_validation->set_rules('email', 'Email', 'callback_rolekey_exists');
+		$mob=$this->form_validation->set_rules('mobile', 'Mobile', 'callback_rolekey_existed');
+		if ($this->form_validation->run() == FALSE)
+		{
+		$value=1;
+		}
+		else
+		{
+		$value=2;
+		}
+		if($value==2)
+		{
+			$type=$this->input->post('type');
+			$name=$this->input->post('name');
+			$firmname=$this->input->post('firmname');
+			$email=$this->input->post('email');
+			$gender=$this->input->post('gender');
+			$mobile=$this->input->post('mobile');
+			if($type=='distributor')
+			{
+			$d='D';
+			}else if($type=='super')
+			{
+				$d='S';
+			}
+			else if($type=='franchise')
+			{
+				$d='F';
+			}
+			$usname=$d. "" .$mobile;
+
+			//password	
+            $this->load->helper('string');
+            $pass= random_string('numeric',6);
+             //
+            $parent_id=$this->input->post('parent_id');
+			$address=$this->input->post('address');
+			$city=$this->input->post('city');
+			$state=$this->input->post('state');
+			$country=$this->input->post('country');
+			$pincode=$this->input->post('pin');
+			$sponserid=$this->input->post('spid');
+			$executivename=$this->input->post('executive');
+			$limit=$this->input->post('limit');
+			$reg=$this->user_model->register($parent_id,$type,$name,$firmname,$email,$gender,$mobile,$address,$city,$state,$country,$pincode,$sponserid,$executivename,$pass,$usname,$limit);
+			
+	
+			if($reg)
+			{
+				//SMS CODE	
+					$testing="Welcome to IRupaya,Dear $name,your account has been activated.Your User ID: $usname and Password: $pass";
+					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A96b7866cc3166b24d4c6397ef5d6d436&to=$mobile&sender=IRUPAY&message=$testing
+&format=json&custom=1,2";
+					$url = str_replace(" ", "%20", $url);
+					$ret = file($url);
+					$sess = explode(":",$ret[0]);
+					 if ($sess[0] == "OK") 
+					 {
+					$sess_id = trim($sess[1]); // remove any whitespace 
+					
+					 $ret = file($url);
+					 $send = explode(":",$ret[0]);
+					 if ($send[0] == "ID") 
+					 {
+					 echo "successnmessage ID: ". $send[1];
+					 } 
+					 else
+					 {
+					 echo "send message failed";
+					 }
+					 } 
+					 else
+					 {
+					  $ret[0] ;
+					 }
+		/*	echo "<script language=\"javascript\">alert('Register successfully');</script>";*/
+		 
+		$Name='support@irupaya.com';
+			//$Name='IRupaya';
+			$to =$email;
+			$subject = "Welcome to IRupaya";
+			$message = '<div style="width: 527px; height: 334px; border:1px solid #39C; background:#39C;" >
+			<div style="width:500px; height:300px; border:1px solid #39C; border-radius:20px; margin-left: 11px; margin-top: 16px; background:white;"> 
+			<h3 style="float:left; width:350px; text-align: center;color:#39C">Welcome to IRupaya,</h3>
+			<p style="width:350px; text-align: left; margin-left: 26px;word-wrap: break-word;">
+			<br><br>
+			Dear '.$name.', 
+			<br><br>
+			your account has been activated.
+			<br><br>
+			Your User ID:'.$usname.',
+			<br><br>
+			Password  :'.$pass.'
+			<br><br>
+			</p>
+			</div>
+			<a style="float:right; margin-right: 48px; text-decoration:none; color:#FFF;" href="Irupaya.in">© Irupaya.in</a>
+			</div>';
+			$headers = 'MIME-Version: 1.0' . "\r\n";
+						$headers .= "From:".$Name."\n";
+						$headers .= "To-Sender: \n";
+						$headers .= "X-Mailer: PHP\n"; // mailer
+						$headers .= "X-Priority: 1\n"; // Urgent message!
+						$headers .= "Return-Path: \n"; // Return path for errors	
+						$headers .= "Content-Type: text/html; charset=iso-8859-1\n"; // Mime type
+			//			$headers .= "bcc:".$fed."\n"; // BCCs to
+									
+			//header("location:contact.php?phid6=act");
+			$flgSend=mail($to,$subject,$message,$headers);  
+			if($flgSend)
+			{
+			 echo "Email Sent Successfully.";
+			
+			}
+			else
+			{
+			echo "Email  Can Not Send.";
+			}
+			
+			
+			$this->load->view("common/header");
+			$this->load->view("common/menu");
+			$this->session->set_flashdata('item', array('message' => 'Registered Successfully','class' => 'success'));
+			redirect(site_url('user/createuser')) ;	
+			$this->load->view('v_createuser');	
+			$this->load->view("common/footer");
+			}
+			}
+			else
+			{
+				$this->session->set_flashdata('item', array('message' => 'Either mobile Number or Mail id is already Exists','class' => 'success'));
+				redirect(site_url('user/createuser')) ;	
+				$this->load->view('v_createuser');	
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+		 public function myprofile()
+    	{  
+        $data['member'] = $this->user_model->myprofile_details(); 
+		$this->load->view("common/header");
+		$this->load->view("common/menu");
+        $this->load->view('myprofile', $data);
+		$this->load->view("common/footer");
+		}
+	
+	
+
+	
+	
+	
+	
+	
+		function do_upload()
+		{
+			
+		$config['upload_path'] ='./images/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']    = '1024';
+		$config['max_width']  = '1024';
+		$config['max_height']  = '768';
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload())
+		{
+		$error = array('error' => $this->upload->display_errors());
+		$this->load->view('myprofile', $error);
+		}
+		
+		else
+		{
+		$data=$this->upload->data();
+		
+		$file=array(
+		'img_name'=>$data['raw_name'].$data['file_ext']
+		);
+		
+		$this->user_model->add_image($file);
+		$this->session->unset_userdata('img_name');
+        $this->user_model->image_update($file);
+		$data = array('upload_data' => $this->upload->data());
+		$this->session->unset_userdata($userdata); 
+		$this->session->set_flashdata('item', array('message' => 'Profile updated successfully','class' => 'success'));
+		$this->load->view('common/header', $data);	
+		}
+		$id= $this->input->post('did');
+		if($this->input->post('password'))
+		{
+		$data = array('password' => $this->input->post('password'),);
+		$this->user_model->update_password($id,$data);
+		$this->session->set_flashdata('item', array('message' => 'Profile updated successfully','class' => 'success'));
+		}
+		
+		redirect(site_url('user/myprofile')) ;
+		
+		}
+		public function test(){
+		$url = $_SERVER['REQUEST_URI'];
+		$page = $this->uri->segment(3,0);
+		print_r($url); 
+		}
+
+		//view viewbalance
+		 public function viewbalance()
+		{ 
+		 $type_id = $this->uri->segment(3);
+		 $data['records']=$this->viewuser_model->listbalance($type_id);
+		 $this->load->view("common/header");
+		 $this->load->view("common/menu");
+         $this->load->view('v_viewbalance', $data);
+		 $this->load->view("common/footer");
+		}
+		
+		//view viewbalance
+		 public function updateactive()
+		{ 
+		 $use_id=$this->input->post('u_id');
+		 $type_id = $this->uri->segment(3);
+		 $data['records']=$this->viewuser_model->listbalance($type_id);
+		 $this->load->view("common/header");
+		 $this->load->view("common/menu");
+         $this->load->view('v_viewbalance', $data);
+		 $this->load->view("common/footer");
+		}
+		
+		
+	public function countrlist()
+    {
+       				$country = $_POST["country"];
+					$data['state'] = $this->user_model->getstate($country);           
+					$this->load->view("get_state",$data); 
+		 
+    }
+	
+	 public function ajax_city_list()
+    {
+        $state = $_POST["state"];
+	
+			$data['city'] = $this->user_model->getcity($state);           
+		$this->load->view("get_city",$data); 
+		 
+    }
+	
+	
+		
+		
+	}

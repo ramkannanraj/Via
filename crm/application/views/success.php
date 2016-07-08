@@ -1,0 +1,1 @@
+Successfully registred click <a href="<?php echo site_url()?>" >here</a> to login
