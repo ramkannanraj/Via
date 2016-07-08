@@ -102,7 +102,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 		}
 	
 		public function login()
-		{
+       		{
 			$username=$this->input->post('username');
 			$password=$this->input->post('password');
 			$auth=$this->user_model->login($username,$password);	
@@ -270,7 +270,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 			//	if ( $update == false )  echo "SMS SENDING FAILED";
 			//	$testing="One Time Password to verify your Mobile $mobile_no on Paybucks is $auto_no.This verification code for safety of your account and must be done before you proceed.";
 			
-		//	$testing = "One Time Password to verify your Mobile $mobile_no on Paybuks is $auto_no.";
+		//	$testing = "One Time Password to verify your Mobile $mobile_no on viapaise is $auto_no.";
 			
            //     $sms_data=array(
 		     //   'date' => $current_date,
@@ -579,7 +579,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
                         $result = substr($name, 0, 3);
-			$result = mb_substr($name, 0, 3);
+			$result = mb_substr($name, 0, 3,'utf-8');
 			$result1 = substr($mobile, -3);
                         $store_id="BLUZ".$result.$result1."EZPY";
 			$secure_code = random_string('numeric',4);	
@@ -618,7 +618,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
              $send =$this->user_model->send_sms($email,$name,$usname,$pass,$mobile);
 			 
             $Name='support@vaipaise.com';
-			//$Name='Paybuks';
+			//$Name='viapaise';
 			$to =$email;
 			$subject = "Welcome to ViaPaise";
 			$message = '<div style="width: 527px; height: 334px; border:1px solid #39C; background:#39C;" >

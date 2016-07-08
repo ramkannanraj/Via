@@ -215,14 +215,14 @@
                             	  <div class="form-group">
     <label class="control-label col-sm-2" for="email">Email or Mobile</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" name="username" class="form-control" id="username">
     </div>
   </div>
   <br>
   <div class="form-group">
-    <label class="control-label col-sm-2" for="pwd">Password</label>
+    <label class="control-label col-sm-2"  for="pwd">Password</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control">
+      <input type="password" name="password" class="form-control" id="password">
     </div>
   </div>
                                 <br>

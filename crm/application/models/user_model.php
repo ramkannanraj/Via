@@ -1095,8 +1095,8 @@ $user_id=$this->session->userdata('uid');
 		{
 
 
-      //   $testing="One Time Password to verify your Mobile $mobile_no on Paybuks is $secure_code.This verification code for safety of your account and must be done before you proceed.";
-		 $testing="One Time Password to verify your Mobile $mobile_no on Paybuks is $secure_code.";
+      //   $testing="One Time Password to verify your Mobile $mobile_no on viapaise is $secure_code.This verification code for safety of your account and must be done before you proceed.";
+		 $testing="One Time Password to verify your Mobile $mobile_no on viapaise is $secure_code.";
           //$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A96b7866cc3166b24d4c6397ef5d6d436&to=$mobile_no&sender=IRUPAY&message=$testing&format=json&custom=1,2";
 		                    $url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A96b7866cc3166b24d4c6397ef5d6d436&to=$mobile_no&sender=PAYBUK&message=$testing&format=json&custom=1,2";	
 			
@@ -1145,8 +1145,8 @@ $user_id=$this->session->userdata('uid');
 		{
 
 
-       //  $testing="One Time Password to verify your Mobile $mobile_no on Paybuks is $auth_code.This verification code for safety of your account and must be done before you proceed.";
-	   $testing = "One Time Password to verify your Mobile $mobile_no on Paybuks is $auto_no.";
+       //  $testing="One Time Password to verify your Mobile $mobile_no on viapaise is $auth_code.This verification code for safety of your account and must be done before you proceed.";
+	   $testing = "One Time Password to verify your Mobile $mobile_no on viapaise is $auto_no.";
          $url = "http://alerts.solutionsinfini.com/api/v3/index.php?method=sms&api_key=A96b7866cc3166b24d4c6397ef5d6d436&to=$mobile_no&sender=PAYBUK&message=$testing&format=json&custom=1,2";
 					$url = str_replace(" ", "%20", $url);
 					$ret = file($url);
@@ -1329,7 +1329,6 @@ function add_money($amount,$uid){
 	
 	function add_sendmoney_bal($amount,$uid){
 		
-	
 		$query = $this->db->select('send_money_bal')->where('uid',$uid)->get('usermaster')->row();
 		
 		$totalSendMoneyBal = $amount + $query->send_money_bal;
