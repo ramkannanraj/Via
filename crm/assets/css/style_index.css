@@ -450,6 +450,7 @@ Slide
 	float: left;
     margin-right: 9px;
 }
+
 .slidesjs-pagination li a{
 	color: #fff;
 }
@@ -1157,6 +1158,7 @@ Index 1
 	width:50%;
 	display: inline-table;
 	height:100%;
+
 }
 .top-up-type p span{
 	display: table-cell;
@@ -1727,6 +1729,7 @@ Product Details Page
 }
 .product_detail .egift_voucher h3{
 	font-size:14px;
+
 	color:#3c3c3c;
 }
 .product_detail .egift_voucher p{
@@ -2079,6 +2082,8 @@ body.login .head-inner h1{
     margin-top: -80px;
     position: relative;
     z-index: 9;
+	width: 950px;
+	 margin-left: 9%!important;
 }
 .login-details h1{
 	background: url(../images/login-icon1.png) no-repeat 0 center;
@@ -2097,7 +2102,7 @@ body.login .head-inner h1{
 }
 
 .login-form p{
-	float:right;
+	text-align: center;
 	clear:both;
 	color:#fff;
 	font-size:14px;
@@ -2112,11 +2117,10 @@ body.login .head-inner h1{
 .login-form input[type="text"], .login-form input[type="password"]{
 
 
-    height: 40px;
+    height: auto;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
-
 	color:#000;
 }
 .login-form .login-btn{

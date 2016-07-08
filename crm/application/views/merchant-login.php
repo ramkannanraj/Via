@@ -25,20 +25,20 @@
     <!-- bootsrap css -->
 
    
-    <link href="<?php echo base_url();?>assets/viapaisa/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="http://www.paybuks.com/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 
     <!-- jquery -->
 
-    <script type="text/javascript" src="<?php echo base_url();?>js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="http://www.paybuks.com/js/jquery-1.11.3.min.js"></script>
 
     
 
     <!-- bootsrap -->
 
-    <script type="text/javascript" src="<?php echo base_url();?>js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://www.paybuks.com/js/bootstrap.min.js"></script>
 
     
 
@@ -79,51 +79,14 @@
 
         		<!--<div class="hire-icon"><a href="career.html"><img src="<?php echo base_url();?>assets/images/hire.png"></a></div>-->
 
-                <div class="acc-icon">
-
-                	<a class="btn-warning" href="invite-friends.html">Invite <br /> Friends</a>
-
-                    <a href="mobile-app.html">MOBILE <br /> APP</a>
-
-                </div>
-
+               
             
 
             </div> <!-- fixed-links ends -->
 
         
 
-        			<div class="top-bar">
-
-            
-
-                <div class="container">
-
-                
-
-                	<ul class="list-unstyled list-inline pull-right">
-
-                    	
-
-                        	<a href="#"><i class="fa fa-facebook footer_icon" aria-hidden="true"></i></a>
-
-                           <a href="#"> <i class="fa fa-twitter footer_icon" aria-hidden="true"></i></a>
-
-                           <a href="#"> <i class="fa fa-linkedin footer_icon" aria-hidden="true"></i></a>
-
-                            <a href="#"> <i class="fa fa-google-plus footer_icon" aria-hidden="true"></i></a>
-
-                      
-
-                    </ul>
-
-                
-
-                </div> <!-- container ends -->
-
-            
-
-            </div> <!-- top-bar ends -->
+        			 <!-- top-bar ends -->
 
 
             
@@ -159,7 +122,7 @@
         
                                 
                                    
-                                    <a class="navbar-brand" href="/"><img class="img-responsive" src="<?php echo base_url();?>assets/viapaisa/images/logo_blue.png"></a>
+                                    <a class="navbar-brand" href="/"><img class="img-responsive" src="<?php echo base_url();?>assets/paybuks/images/logo_blue.png"></a>
         </div>
          
         
@@ -244,31 +207,25 @@
                 
 
                 	<div class="login-details row">
-
-                    	
-					<div class="col-lg-4">
-
-                       <h1 class="hidden-xs">Merchant Login</h1>
-
-                	</div>
-                    
-                    <div class="col-lg-8">        
+                    <div class="col-lg-12">        
 
 
 							<form class="login-form" action="<?php echo base_url(); ?>user/login"  method="post" id="form-signin">
                             
-                            	<div class="form-group col-lg-6">
-
-                            	<input type="text" class="form-control" placeholder="Email or Mobile"  name="username" id="username">
-                                
-                                </div>
-                                
-                                <div class="form-group col-lg-6">
-
-                                <input type="password" class="form-control" placeholder="Password"  id="password" name="password"  >
-                                
-                                </div>
-                                
+                            	  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Email or Mobile</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="email">
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="pwd">
+    </div>
+  </div>
+                                <br>
                                 <div class="form-group  col-lg-12">
 
                                 <p>By Logging in you agree to our <a href="#">T&C </a> and that you have read our <a href="#">Privacy Policy</a></p>
@@ -277,7 +234,7 @@
                                 
                                 
 
-                                <div class="form-group col-lg-offset-6 col-lg-6 col-xs-12 login-btn">
+                                <div class="form-group col-lg-offset-3 col-lg-6 col-xs-12 login-btn">
                                 <div class="col-lg-6 no-padding text-center">
 
                                 	<a class=" btn btn-link forgot-link" href="#">forgot Password?</a>
@@ -375,35 +332,7 @@
 
         
 
-<<<<<<< HEAD:crm/application/views/merchant-login.php
-        <footer>
-
-        	<div class="footer-top">
-
-            <div class="container">
-
-            
-
-            	<div class="row">
-<div class="col-sm-4 vline">
-
-                   
-    <div class="social">
-    <span><img src="<?php echo base_url();?>assets/viapaisa/images/logo_blue.png"></span>
- <ul class="list-unstyled">
-
-                        	<li class="fb"><a href="">fb</a></li>
-
-                            <li class="tweet"><a href="">tweet</a></li>
-
-                            <li class="gplus"><a href="#">gplus</a></li>
-
-                            <li class="pin"><a href="#">pin</a></li>
-
-                        </ul>
-=======
          <style>                   
->>>>>>> origin/master:B2B/application/views/merchant-login.php
                     
            /*footer*/
 footer, .footerstyle { background:#2E2D36; }
@@ -418,10 +347,10 @@ footer, .footerstyle { background:#2E2D36; }
 .margin_left { margin-left: -5px; }
 /*.follow { margin-top:70px; }*/
 .footer_menu_gap { margin-bottom:40px; }
+.footer_icon:hover { font-size: 50px; }
 .follow_us { margin-left: -4%;padding: 0; }
 .footerstyle { color: #fff !important;font-size:14px; }
 .no_padding { padding:0; }
-.footer_icon { color:#fff!important; }
 /*footer ends*/    
 </style>
     
@@ -432,7 +361,7 @@ footer, .footerstyle { background:#2E2D36; }
 
 <div class="col-sm-12 footer_padding no_padding">
 <br>
-<div class="col-sm-3" style="text-align:justify;">
+<div class="col-sm-3" style="color:#fff;">
 <h3 style="margin-top:0">Partner with us:</h3> 
 <p>ViaPaise is your Prepaid Stored Value Virtual Wallet. We provide a unique payment feature which makes sure that your transactions remain completely secure.</p>
 <p>ViaPaise is looking for partners: Low investment costs, minimal setup hassles, high returns, and of course, the prestige of being associated with the fastest growing telecom company in India.
