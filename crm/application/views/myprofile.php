@@ -1,5 +1,5 @@
 <div class="container-fluid">
-        <button class="toggle-menu menu-left push-body gradient_btn1">Menu</button>
+        <!--<button class="toggle-menu menu-left push-body gradient_btn1">Menu</button>-->
     	<div class="admin-page2">
         
         	<div class="row">
