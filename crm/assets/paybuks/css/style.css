@@ -1327,8 +1327,75 @@ PROFILE
 	border-bottom: 3px solid #ffb234!important;
 		margin-top:10px;
 }
-@media screen (max-width: 320px) and (max-width: 766px)
-{
-.panel {  margin-bottom: 0;}
-.dashboard { margin-top:-50px!important; }
+
+
+
+/*responsive code*/
+@media (min-width: 320px) and (max-width: 767px) {
+
+.icon_size { font-size: 35px; }
+.user-row .title { font-size: 15px !important; }
+.testBlock {  height: auto !important; }
+.panel { margin-bottom: 0 !important; }
+
+
+ }
+ 
+ 
+@media (min-width: 240px) and (max-width: 319px) {
+.col-lg-12 { padding:0; }
+ img { height: 50px; width: 60px; }
+.list-inline { margin-top: -60px!important; }
+.icon_size { font-size: 26px; }
+.user-row .title { font-size: 13px !important; }
+.testBlock {  height: auto; }
+p { font-size:16px; }
+.testBlock { height:auto!important; width:auto!important;text-align: left; }
+.admin-page2 { margin-top: -20%; }
+.content_wrapper { min-height: auto; margin: 8% 0; }
+
+
+ }
+ @media (min-width: 320px) and (max-width:374px) {
+.list-inline { margin-top: 0!important; }
+.admin-page2 { margin-top: -20%; }
+.content_wrapper { min-height: auto!important; margin: 8% 0; }
+.panel-body { padding: 0 !important; }
+.panel-body .btn-warning { margin: 2px 0; }
+.admin-page2 .btn-warning { margin: 2px 0; }
+.table-responsive { padding-top: 15px; }
+}
+
+}
+@media (min-width: 375px) and (max-width:413px) {
+.content_wrapper { min-height: auto !important; margin: 23% 0!important; }
+.list-inline { margin-top: 0!important; }
+.admin-page2 { margin-top: -20%; }
+.panel-body { padding: 0 !important; }
+.panel-body .btn-warning { margin: 2px 0; }
+.admin-page2 .btn-warning { margin: 2px 0; }
+.table-responsive { padding-top: 15px; }
+}
+@media only screen and (max-width: 414px){
+
+.list-inline { margin-top: -60px !important; }
+.content_wrapper { min-height: auto!important;  }
+ }
+@media (min-width: 415px) and (max-width: 767px) {
+
+.list-inline { margin-top: 3%; margin-right: 3%; }
+.main_menu { display:none; }
+label {  display: block; }
+.content_wrapper { min-height: auto !important; }
+
+
+ }
+@media (min-width: 768px) and (max-width: 1023px) {
+.pro { margin-top: -165%;}
+label {  display: block; }
+.content_wrapper { min-height: auto; }
+
+ }
+ @media (min-width: 1024px) and (max-width: 1199px) {
+.pro { margin-top: -90%;}
 }
