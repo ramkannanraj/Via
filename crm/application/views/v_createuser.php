@@ -22,7 +22,7 @@ $(document).ready(function(){
     });
 });
 
-$(document).on('change','.state',function(){
+$(document).on('change','#state',function(){
 	
 	var state_id = $(this).val(); 	
 			
@@ -179,7 +179,7 @@ if($type=$this->session->userdata('type')=='super'){?>
                         
                         <div class="form-group col-lg-6">
                         <label>Mobile no.</label>
-                        <input type="text" name="mobile" value="" class="form-control">
+                        <input type="text" name="mobile" value="" required maxlength="10" minlength="10" number="true" onKeyPress="return isNumber(event)" class="form-control">
                         </div>
                         
                         
@@ -199,7 +199,7 @@ if($type=$this->session->userdata('type')=='super'){?>
                             
                        <div class="form-group col-lg-6">
                         <label>State</label>
-                         <select class="form-control" name="state" required>
+                         <select class="form-control" name="state" id="state" required>
                             <option value="">Select</option>
                             <?php foreach($State as $get_state) { ?>
                             <option value="<?php echo $get_state->state_id; ?>"><?php echo $get_state->state_name;?></option>

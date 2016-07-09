@@ -532,6 +532,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 		{
 			$data['Country'] = $this->user_model->getcountry();
 			$data['State'] = $this->user_model->getstate();
+            
             $this->load->view("common/header");
 		    $this->load->view("common/menu");			
 			$this->load->view('v_createuser',$data);
