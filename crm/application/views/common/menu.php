@@ -156,7 +156,7 @@ if($type === "admin" || $type === "retailer" ||$type === "distributor" ||$type =
 			</li>
         </ul>
     </div>
- <script src="<?php echo base_url()?>/assets/paybuks/js/jPushMenu.js"></script>
+ <script src="<?php echo base_url()?>/assets/vaipaisa/js/jPushMenu.js"></script>
 <script>
 jQuery(document).ready(function($) {
 	$('.toggle-menu').jPushMenu();

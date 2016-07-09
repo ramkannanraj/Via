@@ -4,11 +4,11 @@
 
 
 <footer id="footer" class="main_footer">
-<a href="#" class="footerp"><img src="<?php echo base_url()?>/assets/paybuks/images/logo_blue.png" /></a>
+<a href="#" class="footerp"><img src="<?php echo base_url()?>/assets/viapaisa/images/logo_blue.png" /></a>
 <p>@ Copyright 2016 - 2017  |  ViaPiase All rights reserved</p>
 </footer> 
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/paybuks/css/sticky-footer-navbar.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/viapaisa/css/sticky-footer-navbar.css" />
 <style>
 
 .main_footer{

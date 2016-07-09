@@ -8,7 +8,7 @@
 <meta name="keywords" content="Notifications, Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Wrapbootstrap, Bootstrap, bootstrap.gallery" />
 <meta name="author" content="Bootstrap Gallery" />
     
-<link rel="shortcut icon" href="<?php echo base_url()?>assets/paybuks/images/favicon.png">
+<link rel="shortcut icon" href="<?php echo base_url()?>assets/viapaisa/images/favicon.png">
 <?php 
 $type=$this->session->userdata('type');
 $username = $this->session->userdata('username');
@@ -19,23 +19,23 @@ if(	$type == '' && $username == '' && $uid == '')
 }?>
 <?php if($type=='admin'){ ?>
    <!-- MY STYLESHEET -->
-<link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/style.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo base_url()?>/assets/viapaisa/css/style.css" type="text/css" />
 <!-- BOOSTRAB STYLESHEET -->
 <?php }?>
 <?php if($type=='retailer'){   ?>
-<link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/style_retailer.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo base_url()?>/assets/viapaisa/css/style_retailer.css" type="text/css" />
 
 <?php }?>
 <?php if($type=='distributor'){ ?>
- <link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/style_dist.css" type="text/css" />      
+ <link rel="stylesheet" href="<?php echo base_url()?>/assets/viapaisa/css/style_dist.css" type="text/css" />      
 <?php } ?>
-<!--<link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/bootstrap.css" type="text/css" />-->
+<!--<link rel="stylesheet" href="<?php echo base_url()?>/assets/viapaisa/css/bootstrap.css" type="text/css" />-->
 
-<link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo base_url()?>/assets/viapaisa/css/bootstrap.min.css" type="text/css" />
 <!-- MENU CSS -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/paybuks/css/jPushMenu.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/viapaisa/css/jPushMenu.css" />
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/paybuks/css/jquery.fancybox.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/viapaisa/css/jquery.fancybox.css" media="screen" />
 <!-- FANCYBOX CSS -->
 
 
@@ -48,9 +48,9 @@ if(	$type == '' && $username == '' && $uid == '')
 
 <link href="<?php echo base_url()?>/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-<!--<script type="text/jscript" src="<?php echo base_url()?>/assets/paybuks/js/jquery-1.11.3.js"></script>
+<!--<script type="text/jscript" src="<?php echo base_url()?>/assets/viapaisa/js/jquery-1.11.3.js"></script>
 
-<script type="text/javascript" src="<?php echo base_url()?>/assets/paybuks/js/bootstrap.min.js"></script>-->
+<script type="text/javascript" src="<?php echo base_url()?>/assets/viapaisa/js/bootstrap.min.js"></script>-->
  
  
 <script src="<?php echo base_url()?>/bower_components/jquery/dist/jquery.min.js"></script>
@@ -146,7 +146,7 @@ if(	$type == '' && $username == '' && $uid == '')
 }
 .check-mail span:before{
 	content:"";
-	background:url(http://paybuks.com/images/information-before.png) no-repeat;
+	background:url(http://viapaisa.com/images/information-before.png) no-repeat;
 	float: left;
     height: 38px;
     width: 38px;
@@ -223,7 +223,7 @@ if(	$type == '' && $username == '' && $uid == '')
             <div class="navbar-header">
         
                <a class="toggle-menu menu-left gradient_btn1"><i class=" glyphicon glyphicon-menu-hamburger"></i></a>
-              <a class="navbar-brand" href="http://viapaise.com"><img class="img-responsive" src="<?php echo base_url()?>/assets/paybuks/images/logo_blue.png"></a>
+              <a class="navbar-brand" href="http://viapaise.com"><img class="img-responsive" src="<?php echo base_url()?>/assets/viapaisa/images/logo_blue.png"></a>
               
                <ul class="pull-right list-unstyled list-inline visible-xs">
                 

@@ -25,20 +25,20 @@
     <!-- bootsrap css -->
 
    
-    <link href="http://www.paybuks.com/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url();?>assets/viapaisa/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 
     <!-- jquery -->
 
-    <script type="text/javascript" src="http://www.paybuks.com/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>/js/jquery-1.11.3.min.js"></script>
 
     
 
     <!-- bootsrap -->
 
-    <script type="text/javascript" src="http://www.paybuks.com/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>/js/bootstrap.min.js"></script>
 
     
 
@@ -122,7 +122,7 @@
         
                                 
                                    
-                                    <a class="navbar-brand" href="/"><img class="img-responsive" src="<?php echo base_url();?>assets/paybuks/images/logo_blue.png"></a>
+                                    <a class="navbar-brand" href="/"><img class="img-responsive" src="<?php echo base_url();?>assets/viapaisa/images/logo_blue.png"></a>
         </div>
          
         
@@ -357,7 +357,7 @@ footer, .footerstyle { background:#2E2D36; }
     
                     <div class="footerstyle">
 <div class="container content_white">
-<a class="logo" href="#"><span><img src="<?php echo base_url();?>assets/paybuks/images/logo_blue.png"></span></a>
+<a class="logo" href="#"><span><img src="<?php echo base_url();?>assets/viapaisa/images/logo_blue.png"></span></a>
 
 
 <div class="col-sm-12 footer_padding no_padding">

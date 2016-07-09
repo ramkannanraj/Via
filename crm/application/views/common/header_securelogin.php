@@ -7,21 +7,21 @@
     <meta name="author" content="Bootstrap Gallery" />
     
     
-    <link rel="shortcut icon" href="<?php echo base_url()?>/assets/paybuks/css/images/favicon_square.png">
+    <link rel="shortcut icon" href="<?php echo base_url()?>/assets/viapaisa/css/images/favicon_square.png">
    <!-- MY STYLESHEET -->
-<link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/style.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo base_url()?>/assets/viapaisa/css/style.css" type="text/css" />
 
 <!-- BOOSTRAB STYLESHEET -->
-<link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo base_url()?>/assets/viapaisa/css/bootstrap.min.css" type="text/css" />
 
 <!-- MENU CSS -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/paybuks/css/jPushMenu.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/viapaisa/css/jPushMenu.css" />
 
 <!-- DEFAULT SCRIPT -->
-<script type="text/jscript" src="<?php echo base_url()?>/assets/paybuks/js/jquery-1.11.3.js"></script>
+<script type="text/jscript" src="<?php echo base_url()?>/assets/viapaisa/js/jquery-1.11.3.js"></script>
 
 <!-- BOOSTRAB SCRIPT -->
-<script type="text/javascript" src="<?php echo base_url()?>/assets/paybuks/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>/assets/viapaisa/js/bootstrap.min.js"></script>
   
      </head>
      
@@ -39,7 +39,7 @@
                 <span class="icon-bar"></span>
               </button>-->
                <a class="toggle-menu menu-left gradient_btn1"><i class=" glyphicon glyphicon-menu-hamburger"></i></a>
-              <a class="navbar-brand" href="http://paybuks.com"><img class="img-responsive" src="<?php echo base_url()?>/assets/paybuks/images/logo_blue.png"></a>
+              <a class="navbar-brand" href="http://viapaisa.com"><img class="img-responsive" src="<?php echo base_url()?>/assets/viapaisa/images/logo_blue.png"></a>
               
                <ul class="pull-right list-unstyled list-inline visible-xs">
                 
