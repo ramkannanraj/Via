@@ -21,7 +21,7 @@
                     </div>
                     
                     
-                     <form action="<?=site_url('sms/get_outgoing_details')?>" method="post" name="transfer_det" id="transfer_det" class="form-inline pull-right">
+                     <form action="<?=site_url('sms/get_outgoing_details')?>" method="post" name="transfer_det" id="transfer_det" class="form-inline pull-right outgoing_date">
                      	<div class="form-group">
                        	  <label>From date</label><input class="form-control" placeholder="From date"  type="text" id="report_from_date" name="from_date" value="" />
                           </div>

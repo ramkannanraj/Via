@@ -5,7 +5,7 @@
 <div class="container">
        
     	<div class="admin-page">
-        	<div class="row">
+        	<div class="row  service_row">
             	<div class="col-md-offset-2 col-md-8 ">
                 <div class="panel dashboard">
                 	<div class="panel-body">

@@ -2082,8 +2082,6 @@ body.login .head-inner h1{
     margin-top: -80px;
     position: relative;
     z-index: 9;
-	width: 950px;
-	 margin-left: 9%!important;
 }
 .login-details h1{
 	background: url(../images/login-icon1.png) no-repeat 0 center;

@@ -1,7 +1,7 @@
 <div class="container">
         <button class="toggle-menu menu-left push-body gradient_btn1">Menu</button>
     	<div class="admin-page2">
-        	<div class="row">
+        	<div class="row service_row">
             	<div class="col-xs-12 profile-btn">
                 <div class="form-group">
                      	<?php $type=$this->session->userdata('type');

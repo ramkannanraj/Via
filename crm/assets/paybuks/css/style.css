@@ -1337,7 +1337,10 @@ PROFILE
 .user-row .title { font-size: 15px !important; }
 .testBlock {  height: auto !important; }
 .panel { margin-bottom: 0 !important; }
-
+.panel-body .btn-warning { margin: 2px 0; }
+.admin-page2 .btn-warning { margin: 2px 0; }
+.table-responsive { padding-top: 15px!important; }
+.outgoing_date { float: unset !important;  }
 
  }
  
@@ -1357,32 +1360,21 @@ p { font-size:16px; }
 
  }
  @media (min-width: 320px) and (max-width:374px) {
-.list-inline { margin-top: 0!important; }
-.admin-page2 { margin-top: -20%; }
+.list-inline { margin-top: -60!important; }
 .content_wrapper { min-height: auto!important; margin: 8% 0; }
 .panel-body { padding: 0 !important; }
-.panel-body .btn-warning { margin: 2px 0; }
-.admin-page2 .btn-warning { margin: 2px 0; }
-.table-responsive { padding-top: 15px; }
 }
 
 }
 @media (min-width: 375px) and (max-width:413px) {
 .content_wrapper { min-height: auto !important; margin: 23% 0!important; }
-.list-inline { margin-top: 0!important; }
 .admin-page2 { margin-top: -20%; }
 .panel-body { padding: 0 !important; }
-.panel-body .btn-warning { margin: 2px 0; }
-.admin-page2 .btn-warning { margin: 2px 0; }
-.table-responsive { padding-top: 15px; }
 }
 @media only screen and (max-width: 414px){
-
-.list-inline { margin-top: 0px !important; }
 .content_wrapper { min-height: auto!important;  }
  }
 @media (min-width: 415px) and (max-width: 767px) {
-
 .list-inline { margin-top: 3%; margin-right: 3%; }
 .main_menu { display:none; }
 label {  display: block; }
@@ -1391,9 +1383,10 @@ label {  display: block; }
 
  }
 @media (min-width: 768px) and (max-width: 1023px) {
-.pro { margin-top: -165%;}
+.pro { margin-top: -190%;}
 label {  display: block; }
 .content_wrapper { min-height: auto; }
+.service_row { margin-right: 120px!important; }
 
  }
  @media (min-width: 1024px) and (max-width: 1199px) {
