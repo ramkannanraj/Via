@@ -897,11 +897,12 @@ var mobile = $('#pre-mobilenumber').val();
 	
     $.ajax({
                 type: "POST",
-                url: "<?php echo  base_url();?>Recharge/ad_recharge", 
+                url: "<?php echo  base_url();?>recharge/ad_recharge", 
                 data: form_data,
 				datatype:"json",
 				success: function( result)  
                 { 
+                    
 		          alert(result.message);
                   
 				$('#trans_id').html(result.trans_id);

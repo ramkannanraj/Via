@@ -333,7 +333,7 @@ public function get_distributor_parent_total_detail($distributor_parent_id)
 		{
 			
 			$testing="RECHARGE FAIL. Mobile Number: $mobilenumber, Amount: $amount. Your bal: Rs. $avaliable_amount";
-					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=PAYBUK&message=$testing&format=json&custom=1,2";
+					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=&message=$testing&format=json&custom=1,2";
 					$url = str_replace(" ", "%20", $url);
 					$ret = file($url);
 					$sess = explode(":",$ret[0]);
@@ -882,9 +882,9 @@ public function update_temp_transaction()
 							
 						  $total_balance = $user->total_balance + $retail_commission ;	
 							
-								$this->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date,'transaction_status'=>'Pending' ) );
+								$this->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date ) );
 								//Distributor Commission
-						$this->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$d_commission,'created_date'=>$trans_date,'transaction_status'=>'Pending' ) );
+						$this->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$d_commission,'created_date'=>$trans_date ) );
 						
 						
 										

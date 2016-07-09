@@ -96,7 +96,7 @@ $curl_post_data = array(
 <TERMINALID>$terminal_id</TERMINALID>
 <LOGINKEY>$login_key</LOGINKEY>
 <MERCHANTID>$merchant_id</MERCHANTID>
-<CARDNO>$cards</CARDNO>
+<CARDNO>3333007036741901</CARDNO>
 <AGENTID>$agent_id</AGENTID>
 <PARAM1></PARAM1>
 <PARAM2></PARAM2>
@@ -117,6 +117,7 @@ curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_array_string);
 
 $output = curl_exec($ch);  
+print_r($output);die;
 $xml = simplexml_load_string($output);
 $xml = preg_replace("/(<\/?)(\w+):([^>]*>)/", "$1$2$3", $xml);
 $xml = simplexml_load_string($xml);
