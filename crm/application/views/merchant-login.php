@@ -372,46 +372,46 @@ footer, .footerstyle { background:#2E2D36; }
 <div class="col-sm-3 footer_div">
 <p class="no_margintop"><strong>Money Transfer</strong></p> 
 <ul class="footer_menu footer_menu_gap">
-			<li><a href="load_money.php">Load Money</a></li>
-			<li><a href="send_money.php">Send Money</a></li>
-			<li><a href="withdraw_money.php">Withdraw Money</a></li>
-            <li><a href="pay_money.php">Pay Money</a></li>
+			<li><a href="http://viapaise.com/load_money.php">Load Money</a></li>
+			<li><a href="http://viapaise.com/send_money.php">Send Money</a></li>
+			<li><a href="http://viapaise.com/withdraw_money.php">Withdraw Money</a></li>
+            <li><a href="http://viapaise.com/pay_money.php">Pay Money</a></li>
 		</ul>
         
         <p class="no_margintop"><strong>Recharges </strong></p> 
 <ul class="footer_menu footer_menu_gap1">
-			<li><a href="mobile_recharge.php">Mobile Recharges</a></li>
-			<li><a href="dth_recharge.php">DTH Recharges</a></li>
-			<li><a href="datacard_recharge.php">Data Card Recharges</a></li>
-            <li><a href="shopping.php">Shopping</a></li>
+			<li><a href="http://viapaise.com/mobile_recharge.php">Mobile Recharges</a></li>
+			<li><a href="http://viapaise.com/dth_recharge.php">DTH Recharges</a></li>
+			<li><a href="http://viapaise.com/datacard_recharge.php">Data Card Recharges</a></li>
+            <li><a href="http://viapaise.com/shopping.php">Shopping</a></li>
 		</ul>
 </div>
 
 <div class="col-sm-3">
 <p class="no_margintop"><strong>Bill Payments</strong></p> 
 <ul class="footer_menu footer_menu_gap">
-			<li><a href="postpaid_billpayment.php">Postpaid Bill Payments</a></li>
-			<li><a href="landline_billpayment.php">Landline Bill Payments</a></li>
-			<li><a href="electricity_billpayments.php">Electricity Bill Payments</a></li>
-            <li><a href="gas_billpayment.php">Gas Bill Payments</a></li>
-			<li><a href="insurance_payment.php">Insurance Payment</a></li>
+			<li><a href="http://viapaise.com/postpaid_billpayment.php">Postpaid Bill Payments</a></li>
+			<li><a href="http://viapaise.com/landline_billpayment.php">Landline Bill Payments</a></li>
+			<li><a href="http://viapaise.com/electricity_billpayments.php">Electricity Bill Payments</a></li>
+            <li><a href="http://viapaise.com/gas_billpayment.php">Gas Bill Payments</a></li>
+			<li><a href="http://viapaise.com/insurance_payment.php">Insurance Payment</a></li>
 		</ul>
         
         <p class="no_margintop"><strong>Ticket Booking</strong></p> 
 <ul class="footer_menu footer_menu_gap1">
-			<li><a href="bus_ticketbooking.php">Bus Ticket Booking</a></li>
-			<li><a href="air_ticketbooking.php">Air Ticket Booking</a></li>
-			<li><a href="hotel_booking.php">Hotel Booking</a></li>
+			<li><a href="http://viapaise.com/bus_ticketbooking.php">Bus Ticket Booking</a></li>
+			<li><a href="http://viapaise.com/air_ticketbooking.php">Air Ticket Booking</a></li>
+			<li><a href="http://viapaise.com/hotel_booking.php">Hotel Booking</a></li>
 		</ul>
 </div>
 
 <div class="col-sm-3 follow_us">
 <p class="no_margintop"><strong>Quick Links</strong></p>
 <ul class="footer_menu">
-<li><a href="index.php#about_us">About Us</a></li>
-<li><a href="index.php#customer_services">Customer Services</a></li>
-<li><a href="terms_condition.php#terms_condition">Terms and Conditions</a></li>
-<li><a href="privacy.php#privacy">Privacy</a></li>
+<li><a href="http://viapaise.com/index.php#about_us">About Us</a></li>
+<li><a href="http://viapaise.com/index.php#customer_services">Customer Services</a></li>
+<li><a href="http://viapaise.com/terms_condition.php#terms_condition">Terms and Conditions</a></li>
+<li><a href="http://viapaise.com/privacy.php#privacy">Privacy</a></li>
 <li></li>
 <li></li>
 <li></li>

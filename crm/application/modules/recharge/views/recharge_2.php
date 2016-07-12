@@ -897,12 +897,12 @@ var mobile = $('#pre-mobilenumber').val();
 	
     $.ajax({
                 type: "POST",
-                url: "<?php echo  base_url();?>recharge/ad_recharge", 
+                url: "<?php echo  base_url();?>Recharge/ad_recharge", 
                 data: form_data,
 				datatype:"json",
 				success: function( result)  
                 { 
-                    
+                    console.log(result);
 		          alert(result.message);
                   
 				$('#trans_id').html(result.trans_id);
@@ -987,7 +987,7 @@ showModal();
 
     $.ajax({
                 type: "POST",
-                url: "<?php echo  base_url();?>recharge/ad_postpaid_recharge", 
+                url: "<?php echo  base_url();?>Recharge/ad_postpaid_recharge", 
                 data: form_data,
                 
 				datatype:"json",
@@ -1068,7 +1068,7 @@ $(document).on('submit','.dthRecharge',function(){
 	
 	 $.ajax({
                 type: "POST",
-                url: "<?php echo  base_url();?>recharge/ad_dth_recharge", 
+                url: "<?php echo  base_url();?>Recharge/ad_dth_recharge", 
                 data: form_data,
 				datatype:"json",
 				success: function( result )  
@@ -1134,7 +1134,7 @@ $(document).on('submit','.dthRecharge',function(){
 // $('#billSucc').html("Bill payment processing please wait");
     $.ajax({
                 type: "POST",
-                url: "<?php echo  base_url();?>recharge/ad_bill", 
+                url: "<?php echo  base_url();?>Recharge/ad_bill", 
                 data: form_data,
 				datatype:"json",
 				success: function( result )  

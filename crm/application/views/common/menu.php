@@ -35,7 +35,7 @@ if($type === "admin" || $type === "retailer" ||$type === "distributor" ||$type =
             <?php }	if( $type === "retailer" ){?>
             
             <li>
-			<a href="<?php echo site_url('recharge/index') ?>">
+			<a href="<?php echo site_url('Recharge/index') ?>">
 			<i class="flaticon-multiple25"></i>
 			<span>Recharge</span>
 			</a>
@@ -156,7 +156,7 @@ if($type === "admin" || $type === "retailer" ||$type === "distributor" ||$type =
 			</li>
         </ul>
     </div>
- <script src="<?php echo base_url()?>/assets/vaipaisa/js/jPushMenu.js"></script>
+ <script src="<?php echo base_url()?>assets/viapaisa/js/jPushMenu.js"></script>
 <script>
 jQuery(document).ready(function($) {
 	$('.toggle-menu').jPushMenu();

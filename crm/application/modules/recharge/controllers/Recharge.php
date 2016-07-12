@@ -1,15 +1,16 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-	class Recharge extends MX_Controller {
+	class Recharge extends CI_Controller {
 		
 		public function __construct()
 		{
 			parent::__construct();
 			$this->load->helper('url');			 
-			$this->load->model('recharge_model');
+			$this->load->model('Recharge_model');
 			$this->load->helper('string');
 			$this->load->helper('date');
 			$this->load->helper(array('form', 'url'));
+            
 		}
  
 
@@ -24,12 +25,13 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 				
 				$user_available_balance = $this->session->userdata('available_balance');
 				
-			//	$esay_current_balance = $this->Recharge_model->get_ezypay_balance();
+			//	$esay_current_balance =  $this->Recharge_model->get_ezypay_balance();
 			
-			$data['Prepaid'] = $this->recharge_model->get_Prepaid();
-			$data['dthprovider'] = $this->recharge_model->get_dthprovider();
-			$data['Postpaid'] = $this->recharge_model->get_postpaid();
-			$data['details'] = $this->recharge_model->get_details();
+			$data['Prepaid'] =  $this->Recharge_model->get_Prepaid();
+			$data['dthprovider'] =  $this->Recharge_model->get_dthprovider();
+			$data['Postpaid'] =  $this->Recharge_model->get_postpaid();
+			$data['details'] =  $this->Recharge_model->get_details();
+           
 			$this->load->view("common/header");
 		    $this->load->view("common/menu");
 			$this->load->view('recharge_2',$data);
@@ -47,48 +49,60 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 		{
 			redirect('user/home');
 		} 
-public function ad_recharge()
-  {  
-     
-  	if($this->session->userdata('uid')!='')
+        
+        
+        public function ad_recharge()
+  	
+	{
+	
+   	if($this->session->userdata('uid')!='')
 	{
 		//  Get the value from the FORM
-                
-	            $serviceprovider = $this->input->post('serviceprovider');
-              
-				$mobilenumber =  $this->input->post('mobilenumber');
-				$amount = $this->input->post('amount');
-		  		$type_ser=$this->input->post('service_type');
-				
-				
-				
+		
+		$serviceprovider = $this->input->post('serviceprovider');
+		$mobilenumber =  $this->input->post('post-mobilenumber');
+		$amount = $this->input->post('post-amount');
+		$type_ser=$this->input->post('post-service_type'); 
+			 
 				// Get the retailer logged in details from session
 				$by_id=$this->session->userdata('uid');
+                   
+         
 				$by=$this->session->userdata('username');
 				$parent_id=$this->session->userdata('parent_id');
 				$user_mobile=$this->session->userdata('mobile');
-
-		
+                
+                
+                $userbal = $this->Recharge_model->get_master_balz22($by_id);
+                $provider = $this->Recharge_model->get_commission_by_providers($serviceprovider);
+               	//$userbal2 = $this->Recharge_model->get_x_total_detail($by_id);
+		        
 				//  Get the user balance from usermaster
-
-				$user = $this->recharge_model->get_balance($by_id);
-			    
-				$avaliable_amount =$user->available_balance;
- 		        
-				if ( $amount >= 1000 ){
+                // print_r($userbal); 
+                 
+			
+             
+               //   print_r($userbal2); die;
+              
+			      
+			//	$avaliable_amount =$user->available_balance;
+                $avaliable_amount =$this->session->userdata('available_balance');
+ 		      	if ( $amount >= 5000 ){
 					$trans_id=0;
 					$error_id=-999999; 
-					$send_insufficient_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
+				//	$send_insufficient_sms = $this->Recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
 			  	       header('Content-Type: application/json');
 					   $response = array('message' => 'Failure due to exceed the recharge limit amount','class' => 'fail');
 					   echo json_encode($response);	
 					   exit();	
-				}
-				
-				if($amount <= $avaliable_amount && $amount != 0  )  
+				}  
+               
+
+			    if($amount <= $avaliable_amount && $amount!= 0 )  
 					{
+					  
 				//  Get the commission details from provider tables
-						$provider = $this->recharge_model->get_commission_by_providers($serviceprovider);
+					$provider = $this->Recharge_model->get_commission_by_providers($serviceprovider);
 						
 						$timezone = new DateTimeZone("Asia/Kolkata");
 						$date = new DateTime();
@@ -96,9 +110,10 @@ public function ad_recharge()
 						
 						$recharge_date=$date->format('Y-m-d H:i:s');	
 										 
-						$auto_code=$this->recharge_model->generateRandomString($length = 30);
+						$auto_code= $this->Recharge_model->generateRandomString($length = 30);
 						$req_id=time().$auto_code;
 				        $op_code=$provider->OperatorCode;
+				
 						$rdData=array(
 						'serviceprovider'=>$provider->provider,
 						'mobilenumber'=>$mobilenumber,
@@ -111,16 +126,12 @@ public function ad_recharge()
 						'req_id' =>$req_id,'recharge_type' =>'web',						
 					);
 		
-					$recharge_id =$this->recharge_model->insert_recharge_details($rdData);
-                   
+					$recharge_id = $this->Recharge_model->insert_recharge_details($rdData);
 					
 					if($recharge_id)
 					{
-						//curl_call( $url,$provider,$user,$recharge_id);
-						// if($serviceprovider== 1)
-                        if($serviceprovider)
-						{ 
-						  	$auto_code=$this->recharge_model->generateRandomString($length = 30);
+					 
+						  	$auto_code= $this->Recharge_model->generateRandomString($length = 30);
 						$req_id=time().$auto_code;
 						  $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
 $mySOAP = <<<EOD
@@ -153,7 +164,6 @@ if (($result = curl_exec($ch)) === FALSE) {
 die('cURL error: '.curl_error($ch)."<br />\n");
 } else {
 $recharge_test=json_decode($result);
-
 $resultval=$recharge_test->ResponseStatus;
  $trans_id=$recharge_test->UserTrackId;
  $error_id=$resultval;
@@ -185,28 +195,28 @@ if($resultval==1)
 							'available_balance'=>$after_balance, 
 						);
 						 
-						$this->recharge_model->update_balance($data);
+						 $this->Recharge_model->update_balance($data);
 						
 						// update dcommission
-						$parent=$this->recharge_model->get_parent_total_detail($parent_id);
+						$parent= $this->Recharge_model->get_parent_total_detail($parent_id);
 						$dis_total_balance = $parent->total_balance + $dis_commission;
 						$dis_available_balance =  $parent->available_balance + $dis_commission;
 						 $parent_data=array('total_balance'=>$dis_total_balance, 
 							'available_balance'=>$dis_available_balance, 
 						);
-							$this->recharge_model->update_balance_with_id($parent_data,$parent_id);
+							 $this->Recharge_model->update_balance_with_id($parent_data,$parent_id);
 						
 						 
 						  //Update the recharge details
 						  $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_balance,'commission'=>$retail_commission,'dcommission'=>$dis_commission,'result'=>$error_description,'error_status_code'=>$error_status,'trans_id'=>$trans_id);
-						  $update_RD_error_status = $this->recharge_model->update_recharge_error_status($error_datas,$recharge_id);
+						  $update_RD_error_status = $this->Recharge_model->update_recharge_error_status($error_datas,$recharge_id);
 				   
 						  // SEND SMS
-						  $send_success_sms=$this->recharge_model->send_success_sms($mobilenumber,$after_balance,$error_id,$amount,$trans_id,$user_mobile);  		 
+						  $send_success_sms= $this->Recharge_model->send_success_sms($mobilenumber,$after_balance,$error_id,$amount,$trans_id,$user_mobile);  		 
 					  
-							   $this->recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date,  ) );
+							   $this->Recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date,  ) );
 											  //Distributor Commission
-								$this->recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$dis_commission,'created_date'=>$trans_date , ) );
+								 $this->Recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$dis_commission,'created_date'=>$trans_date , ) );
 					  
 					  
 					  
@@ -235,11 +245,11 @@ else if($resultval==0)
 						);
 						
 						   
-						  $send_pending_sms =$this->recharge_model->send_pending_sms($mobilenumber,$available_totalbalance,$error_id,$amount,$trans_id,$user_mobile);							
+						  $send_pending_sms = $this->Recharge_model->send_pending_sms($mobilenumber,$available_totalbalance,$error_id,$amount,$trans_id,$user_mobile);							
 						   
 						   $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_balance,'commission'=>0,'dcommission'=>0,'result'=>$error_description,'error_status_code'=>$error_status,'trans_id'=>$trans_id);
 						   
-						  $reversal_request = $this->recharge_model->add_reversal_request( array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=>$parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending' ) ); 
+						  $reversal_request = $this->Recharge_model->add_reversal_request( array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=>$parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending' ) ); 
 						   
 						   
 						  $response = array('message' => 'Transaction Pending','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
@@ -257,7 +267,7 @@ else if($resultval==0)
 else if($resultval==2)
 {
     $error_description='Unknown';
-  $send_duplicate_sms =$this->recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
+  $send_duplicate_sms = $this->Recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
 							 
 						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
     
@@ -285,7 +295,7 @@ else if($resultval==3)
     
    $error_description='Failure/Refund'; 
     
-     $send_failure_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
+     $send_failure_sms = $this->Recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
 								
 						   $response = array('message' => 'Transaction Failure','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id,'api'=>$data);
     
@@ -306,28 +316,47 @@ else if($resultval==3)
 }
 
 
-						 //$store_id="BLUZ500021EZPY";
-				//	$url = "http://103.29.232.110:8089/Ezypaywebservice/PushRequest.aspx?AuthorisationCode=de4527cfd9674f86bc&product=$serviceprovider&MobileNumber=$mobilenumber&Amount=$amount&StoreID=$store_id&RequestId=$req_id";	
-				//	$url = "https://api.myezypay.in/Ezypaywebservice/PushRequest.aspx?AuthorisationCode=de4527cfd9674f86bc&product=$serviceprovider&MobileNumber=$mobilenumber&Amount=$amount&StoreID=$store_id&RequestId=$req_id";
-					//	$url = "https://api.myezypay.in/Ezypaywebservice/PushRequest.aspx?AuthorisationCode=de4527cfd9674f86bc&product=$serviceprovider&MobileNumber=$mobilenumber&Amount=$amount&StoreID=$store_id&RequestId=$req_id";	 
-					//	}
-					//	else
-					//	{
+				
+    
+	
+  }	//curl_call( $url,$provider,$user,$recharge_id);
+					/*	
+						
+						 
+						if($serviceprovider== 32)
+						{
+							$store_id="BLUZ500021EZPY";
+	 					//	$url = "http://103.29.232.110:8089/Ezypaywebservice/postpaidpush.aspx?AuthorisationCode=de4527cfd9674f86bc&product=$serviceprovider&MobileNumber=$mobilenumber&Amount=$amount&RequestId=$req_id&Circle=null&AcountNo=null&StdCode=null&StoreID=$store_id";
+						$url  = "https://api.myezypay.in/Ezypaywebservice/postpaidpush.aspx?AuthorisationCode=de4527cfd9674f86bc&product=$serviceprovider&MobileNumber=$mobilenumber&Amount=$amount&RequestId=$req_id&Circle=null&AcountNo=null&StdCode=null&StoreID=$store_id";	
+						}
+						else
+						{
+							/* https://api.myezypay.in/ Ezypaywebservice/postpaidpush.aspx?AuthorisationCode=xxxxxx&product=xx&MobileNumber=xxxxxxxxxx&Amount=xx&RequestId=xxxxx&Circle=kolkata&AcountNo=xxxxxxxxx&StdCode=xxxx
+ */
 							
-							// $url = "https://api.myezypay.in/Ezypaywebservice/PushRequest.aspx?AuthorisationCode=de4527cfd9674f86bc&product=$serviceprovider&MobileNumber=$mobilenumber&Amount=$amount&RequestId=$req_id";
-							
-							// $url = "http://103.29.232.110:8089/Ezypaywebservice/PushRequest.aspx?AuthorisationCode=de4527cfd9674f86bc&product=$serviceprovider&MobileNumber=$mobilenumber&Amount=$amount&RequestId=$req_id";
-					//	} 
-					//	
-					 // $ch = curl_init();
-					 // curl_setopt($ch, CURLOPT_URL, $url);
-					 // curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-					//  curl_setopt($ch,CURLOPT_FOLLOWLOCATION,true);
-					 // $data = curl_exec($ch);
-					 // curl_close($ch);
-                      
-					  /*$get_trans=(explode("~",$data));
-
+	//						 $url = "http://103.29.232.110:8089/Ezypaywebservice/postpaidpush.aspx?AuthorisationCode=de4527cfd9674f86bc&product=$serviceprovider&MobileNumber=$mobilenumber&Amount=$amount&RequestId=$req_id&Circle=null&AcountNo=null&StdCode=null";
+/* $url = "https://api.myezypay.in/Ezypaywebservice/postpaidpush.aspx?AuthorisationCode=de4527cfd9674f86bc&product=$serviceprovider&MobileNumber=$mobilenumber&Amount=$amount&RequestId=$req_id&Circle=null&AcountNo=null&StdCode=null";
+						}
+						
+						
+					  $ch = curl_init();
+					  curl_setopt($ch, CURLOPT_URL, $url);
+					  curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+					  curl_setopt($ch,CURLOPT_FOLLOWLOCATION,true);
+					  $data = curl_exec($ch);
+					  $reply_data = $data;
+					  curl_close($ch);
+					   
+					  $get_trans=(explode("~",$data));
+					   
+					 if(count($get_trans)  < 2  ) {  
+					  $response = array('message' => 'Please service provider not available','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>0 ,'reply'=>$reply_data );
+						  
+					 
+						header('Content-Type: application/json');
+						 echo json_encode($response); 	
+					 	 exit();
+					   } 
 					  $trans_id=$get_trans[0];
 					  $error_id=$get_trans[3];
 					  $error_description=$get_trans[4];
@@ -354,35 +383,35 @@ else if($resultval==3)
 							'available_balance'=>$after_balance, 
 						);
 						 
-						$this->recharge_model->update_balance($data);
+						 $this->Recharge_model->update_balance($data);
 						
 						// update dcommission
-						$parent=$this->recharge_model->get_parent_total_detail($parent_id);
+						$parent= $this->Recharge_model->get_parent_total_detail($parent_id);
 						$dis_total_balance = $parent->total_balance + $dis_commission;
 						$dis_available_balance =  $parent->available_balance + $dis_commission;
 						 $parent_data=array('total_balance'=>$dis_total_balance, 
 							'available_balance'=>$dis_available_balance, 
 						);
-							$this->recharge_model->update_balance_with_id($parent_data,$parent_id);
+							 $this->Recharge_model->update_balance_with_id($parent_data,$parent_id);
 						
 						 
 						  //Update the recharge details
 						  $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_balance,'commission'=>$retail_commission,'dcommission'=>$dis_commission,'result'=>$error_description,'error_status_code'=>$error_status,'trans_id'=>$trans_id);
-						  $update_RD_error_status = $this->recharge_model->update_recharge_error_status($error_datas,$recharge_id);
+						  $update_RD_error_status = $this->Recharge_model->update_recharge_error_status($error_datas,$recharge_id);
 				   
 						  // SEND SMS
-						  $send_success_sms=$this->recharge_model->send_success_sms($mobilenumber,$after_balance,$error_id,$amount,$trans_id,$user_mobile);  		 
+						  $send_success_sms= $this->Recharge_model->send_success_sms($mobilenumber,$after_balance,$error_id,$amount,$trans_id,$user_mobile);  		 
 					  
-							   $this->recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date,  ) );
+							   $this->Recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date, ) );
 											  //Distributor Commission
-								$this->recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$dis_commission,'created_date'=>$trans_date , ) );
+								 $this->Recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$dis_commission,'created_date'=>$trans_date , ) );
 					  
 					  
 					  
 						  header('Content-Type: application/json');
 						  $response = array('message' => 'Transaction Successful','class' => 'success','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);
 						  echo json_encode($response); 
-					 
+					  
 						  return true;
 						  
 					  }
@@ -402,44 +431,43 @@ else if($resultval==3)
 						);
 						
 						   
-						  $send_pending_sms =$this->recharge_model->send_pending_sms($mobilenumber,$available_totalbalance,$error_id,$amount,$trans_id,$user_mobile);							
+						  $send_pending_sms = $this->Recharge_model->send_pending_sms($mobilenumber,$available_totalbalance,$error_id,$amount,$trans_id,$user_mobile);							
 						   
 						   $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_balance,'commission'=>0,'dcommission'=>0,'result'=>$error_description,'error_status_code'=>$error_status,'trans_id'=>$trans_id);
 						   
-						  $reversal_request = $this->recharge_model->add_reversal_request( array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=>$parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending' ) ); 
+						  $reversal_request = $this->Recharge_model->add_reversal_request( array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=>$parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending' ) ); 
 						   
 						   
 						  $response = array('message' => 'Transaction Pending','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id); 
 						   
 						  
 						   
-					  }
-                      
-                      else if($error_id == -1611)//Duplicate
+					  }else if($error_id == -1611)//Duplicate
 					  {
-						  $send_duplicate_sms =$this->recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
+						  $send_duplicate_sms = $this->Recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
 							 
-						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);
+						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);
 						   
 				   
 					  } // -1605 Insufficient Balanc
-					  else if($error_id == -1605)//Insufficient Balanc
+					   else if($error_id == -1605)//Insufficient Balanc
 					  {
 						$this->alert($data); 
 						
-						$response = array('message' => 'Please try after 10 minutes','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id); 
+						$response = array('message' => 'Please try after 10 minutes','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id); 
 					  }
 					  else
 					  {
 						  $error_status=0;
-						  $send_failure_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
+						  $send_failure_sms = $this->Recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
 								
-						   $response = array('message' => 'Transaction Failure','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id,'api'=>$data);
+						   $response = array('message' => 'Transaction Failure','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);//,'reply'=>$reply_data );
 						  
 					  }
 						header('Content-Type: application/json');
-						 echo json_encode($response);
-					}
+						 echo json_encode($response);*/
+					
+                    
 					else // recharge insertion failed
 					{
 						
@@ -451,29 +479,29 @@ else if($resultval==3)
 				
 				  		 $trans_id=0;
 						 $error_id=-999999;
+
 			
 			
-					$send_insufficient_sms =$this->recharge_model->send_insufficient_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
+				//	$send_insufficient_sms = $this->Recharge_model->send_insufficient_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
 			  	       header('Content-Type: application/json');
-					   $response = array('message' => 'Insufficient Balance','class' => 'fail');
+					   $response = array('message' => 'Insufficient Balance '.$amount ,'class' => 'fail');
 					   echo json_encode($response);		
 				
 				}
 	
 	
-	}*/
-    
-	
-  }
-  }
-  }
-  
-  }
-  else
+	}
+	else
 	{
 		redirect(site_url('user/index'));
 	}
-  }
+  	
+	
+  	
+
+		
+	
+}
   public function ad_bill()
 {		 
 			
@@ -498,14 +526,14 @@ else if($resultval==3)
 		
 				//  Get the user balance from usermaster
 
-				$user = $this->recharge_model->get_balance($by_id);
+			//	$user = $this->Recharge_model->get_balance($by_id);
 			
-				$avaliable_amount =$user->available_balance;
-				
+			//	$avaliable_amount =$user->available_balance;
+				$avaliable_amount=$this->session->userdata('available_balance');
 				if ( $amount >= 1000 ){
 					$trans_id=0;
 					$error_id=-999999; 
-					$send_insufficient_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
+				//	$send_insufficient_sms = $this->Recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
 			  	       header('Content-Type: application/json');
 					   $response = array('message' => 'Failure due to exceed the recharge limit amount','class' => 'fail');
 					   echo json_encode($response);	
@@ -515,7 +543,7 @@ else if($resultval==3)
 				if($amount <= $avaliable_amount && $amount != 0 )  
 					{
 				//  Get the commission details from provider tables
-						$provider = $this->recharge_model->get_commission_by_provider($serviceprovider,'landlineprovider');
+						$provider = $this->Recharge_model->get_commission_by_provider($serviceprovider,'landlineprovider');
 						
 						$timezone = new DateTimeZone("Asia/Kolkata");
 						$date = new DateTime();
@@ -523,7 +551,7 @@ else if($resultval==3)
 						
 						$recharge_date=$date->format('Y-m-d H:i:s');	
 										 
-						$auto_code=$this->recharge_model->generateRandomString($length = 30);
+						$auto_code= $this->Recharge_model->generateRandomString($length = 30);
 						$req_id=time().$auto_code;
 				          $op_code=$provider->OperatorCode;
 						$rdData=array(
@@ -538,12 +566,12 @@ else if($resultval==3)
 						'req_id' =>$req_id,'recharge_type' =>'web',						
 					);
 		
-					$recharge_id =$this->recharge_model->insert_recharge_details($rdData);
+					$recharge_id = $this->Recharge_model->insert_recharge_details($rdData);
 					
 					if($recharge_id)
 					{
 					 
-						  	$auto_code=$this->recharge_model->generateRandomString($length = 30);
+						  	$auto_code= $this->Recharge_model->generateRandomString($length = 30);
 						$req_id=time().$auto_code;
 						  $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
 $mySOAP = <<<EOD
@@ -607,28 +635,28 @@ if($resultval==1)
 							'available_balance'=>$after_balance, 
 						);
 						 
-						$this->recharge_model->update_balance($data);
+						 $this->Recharge_model->update_balance($data);
 						
 						// update dcommission
-						$parent=$this->recharge_model->get_parent_total_detail($parent_id);
+						$parent= $this->Recharge_model->get_parent_total_detail($parent_id);
 						$dis_total_balance = $parent->total_balance + $dis_commission;
 						$dis_available_balance =  $parent->available_balance + $dis_commission;
 						 $parent_data=array('total_balance'=>$dis_total_balance, 
 							'available_balance'=>$dis_available_balance, 
 						);
-							$this->recharge_model->update_balance_with_id($parent_data,$parent_id);
+							 $this->Recharge_model->update_balance_with_id($parent_data,$parent_id);
 						
 						 
 						  //Update the recharge details
 						  $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_balance,'commission'=>$retail_commission,'dcommission'=>$dis_commission,'result'=>$error_description,'error_status_code'=>$error_status,'trans_id'=>$trans_id);
-						  $update_RD_error_status = $this->recharge_model->update_recharge_error_status($error_datas,$recharge_id);
+						  $update_RD_error_status = $this->Recharge_model->update_recharge_error_status($error_datas,$recharge_id);
 				   
 						  // SEND SMS
-						  $send_success_sms=$this->recharge_model->send_success_sms($mobilenumber,$after_balance,$error_id,$amount,$trans_id,$user_mobile);  		 
+						  $send_success_sms= $this->Recharge_model->send_success_sms($mobilenumber,$after_balance,$error_id,$amount,$trans_id,$user_mobile);  		 
 					  
-							   $this->recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date,  ) );
+							   $this->Recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date,  ) );
 											  //Distributor Commission
-								$this->recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$dis_commission,'created_date'=>$trans_date , ) );
+								 $this->Recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$dis_commission,'created_date'=>$trans_date , ) );
 					  
 					  
 					  
@@ -657,11 +685,11 @@ else if($resultval==0)
 						);
 						
 						   
-						  $send_pending_sms =$this->recharge_model->send_pending_sms($mobilenumber,$available_totalbalance,$error_id,$amount,$trans_id,$user_mobile);							
+						  $send_pending_sms = $this->Recharge_model->send_pending_sms($mobilenumber,$available_totalbalance,$error_id,$amount,$trans_id,$user_mobile);							
 						   
 						   $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_balance,'commission'=>0,'dcommission'=>0,'result'=>$error_description,'error_status_code'=>$error_status,'trans_id'=>$trans_id);
 						   
-						  $reversal_request = $this->recharge_model->add_reversal_request( array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=>$parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending' ) ); 
+						  $reversal_request = $this->Recharge_model->add_reversal_request( array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=>$parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending' ) ); 
 						   
 						   
 						  $response = array('message' => 'Transaction Pending','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
@@ -679,7 +707,7 @@ else if($resultval==0)
 else if($resultval==2)
 {
     $error_description='Unknown';
-  $send_duplicate_sms =$this->recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
+  $send_duplicate_sms = $this->Recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
 							 
 						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
     
@@ -707,7 +735,7 @@ else if($resultval==3)
     
    $error_description='Failure/Refund'; 
     
-     $send_failure_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
+     $send_failure_sms = $this->Recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
 								
 						   $response = array('message' => 'Transaction Failure','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id,'api'=>$data);
     
@@ -746,7 +774,7 @@ else if($resultval==3)
 
 			
 			
-					$send_insufficient_sms =$this->recharge_model->send_insufficient_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
+					$send_insufficient_sms = $this->Recharge_model->send_insufficient_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
 			  	       header('Content-Type: application/json');
 					   $response = array('message' => 'Insufficient Balance '.$amount ,'class' => 'fail');
 					   echo json_encode($response);		
@@ -809,14 +837,14 @@ public function ad_dth_recharge()
 		
 				//  Get the user balance from usermaster
 
-				$user = $this->recharge_model->get_balance($by_id);
+				$user = $this->Recharge_model->get_balance($by_id);
 			
 				$avaliable_amount =$user->available_balance;
  		        
 				if ( $amount >= 3000 ){
 					$trans_id=0;
 					$error_id=-999999; 
-					$send_insufficient_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
+					$send_insufficient_sms = $this->Recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
 			  	       header('Content-Type: application/json');
 					   $response = array('message' => 'Failure due to exceed the recharge limit amount','class' => 'fail');
 					   echo json_encode($response);	
@@ -827,7 +855,7 @@ public function ad_dth_recharge()
 				if($amount <= $avaliable_amount && $amount != 0 )  
 					{
 				//  Get the commission details from provider tables
-						$provider = $this->recharge_model->get_all_dth_details($serviceprovider);
+						$provider = $this->Recharge_model->get_all_dth_details($serviceprovider);
 						
 						$timezone = new DateTimeZone("Asia/Kolkata");
 						$date = new DateTime();
@@ -835,7 +863,7 @@ public function ad_dth_recharge()
 						
 						$recharge_date=$date->format('Y-m-d H:i:s');	
 										 
-						$auto_code=$this->recharge_model->generateRandomString($length = 30);
+						$auto_code= $this->Recharge_model->generateRandomString($length = 30);
 						$req_id=time().$auto_code;
 				        $op_code=$provider->OperatorCode;
 						$rdData=array(
@@ -850,12 +878,12 @@ public function ad_dth_recharge()
 						'req_id' =>$req_id,'recharge_type' =>'web',						
 					);
 		
-					$recharge_id =$this->recharge_model->insert_recharge_details($rdData);
+					$recharge_id = $this->Recharge_model->insert_recharge_details($rdData);
 					
 					if($recharge_id)
                     {
 					 
-						  	$auto_code=$this->recharge_model->generateRandomString($length = 30);
+						  	$auto_code= $this->Recharge_model->generateRandomString($length = 30);
 						$req_id=time().$auto_code;
 						  $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
 $mySOAP = <<<EOD
@@ -919,28 +947,28 @@ if($resultval==1)
 							'available_balance'=>$after_balance, 
 						);
 						 
-						$this->recharge_model->update_balance($data);
+						 $this->Recharge_model->update_balance($data);
 						
 						// update dcommission
-						$parent=$this->recharge_model->get_parent_total_detail($parent_id);
+						$parent= $this->Recharge_model->get_parent_total_detail($parent_id);
 						$dis_total_balance = $parent->total_balance + $dis_commission;
 						$dis_available_balance =  $parent->available_balance + $dis_commission;
 						 $parent_data=array('total_balance'=>$dis_total_balance, 
 							'available_balance'=>$dis_available_balance, 
 						);
-							$this->recharge_model->update_balance_with_id($parent_data,$parent_id);
+							 $this->Recharge_model->update_balance_with_id($parent_data,$parent_id);
 						
 						 
 						  //Update the recharge details
 						  $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_balance,'commission'=>$retail_commission,'dcommission'=>$dis_commission,'result'=>$error_description,'error_status_code'=>$error_status,'trans_id'=>$trans_id);
-						  $update_RD_error_status = $this->recharge_model->update_recharge_error_status($error_datas,$recharge_id);
+						  $update_RD_error_status = $this->Recharge_model->update_recharge_error_status($error_datas,$recharge_id);
 				   
 						  // SEND SMS
-						  $send_success_sms=$this->recharge_model->send_success_sms($mobilenumber,$after_balance,$error_id,$amount,$trans_id,$user_mobile);  		 
+						  $send_success_sms= $this->Recharge_model->send_success_sms($mobilenumber,$after_balance,$error_id,$amount,$trans_id,$user_mobile);  		 
 					  
-							   $this->recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date,  ) );
+							   $this->Recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date,  ) );
 											  //Distributor Commission
-								$this->recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$dis_commission,'created_date'=>$trans_date , ) );
+								 $this->Recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$dis_commission,'created_date'=>$trans_date , ) );
 					  
 					  
 					  
@@ -969,11 +997,11 @@ else if($resultval==0)
 						);
 						
 						   
-						  $send_pending_sms =$this->recharge_model->send_pending_sms($mobilenumber,$available_totalbalance,$error_id,$amount,$trans_id,$user_mobile);							
+						  $send_pending_sms = $this->Recharge_model->send_pending_sms($mobilenumber,$available_totalbalance,$error_id,$amount,$trans_id,$user_mobile);							
 						   
 						   $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_balance,'commission'=>0,'dcommission'=>0,'result'=>$error_description,'error_status_code'=>$error_status,'trans_id'=>$trans_id);
 						   
-						  $reversal_request = $this->recharge_model->add_reversal_request( array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=>$parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending' ) ); 
+						  $reversal_request = $this->Recharge_model->add_reversal_request( array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=>$parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending' ) ); 
 						   
 						   
 						  $response = array('message' => 'Transaction Pending','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
@@ -991,7 +1019,7 @@ else if($resultval==0)
 else if($resultval==2)
 {
     $error_description='Unknown';
-  $send_duplicate_sms =$this->recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
+  $send_duplicate_sms = $this->Recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
 							 
 						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
     
@@ -1019,7 +1047,7 @@ else if($resultval==3)
     
    $error_description='Failure/Refund'; 
     
-     $send_failure_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
+     $send_failure_sms = $this->Recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
 								
 						   $response = array('message' => 'Transaction Failure','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id,'api'=>$data);
     
@@ -1111,28 +1139,28 @@ else if($resultval==3)
 							'available_balance'=>$after_balance, 
 						);
 						 
-						$this->recharge_model->update_balance($data);
+						 $this->Recharge_model->update_balance($data);
 						
 						// update dcommission
-						$parent=$this->recharge_model->get_parent_total_detail($parent_id);
+						$parent= $this->Recharge_model->get_parent_total_detail($parent_id);
 						$dis_total_balance = $parent->total_balance + $dis_commission;
 						$dis_available_balance =  $parent->available_balance + $dis_commission;
 						 $parent_data=array('total_balance'=>$dis_total_balance, 
 							'available_balance'=>$dis_available_balance, 
 						);
-							$this->recharge_model->update_balance_with_id($parent_data,$parent_id);
+							 $this->Recharge_model->update_balance_with_id($parent_data,$parent_id);
 						
 						 
 						  //Update the recharge details
 						  $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_balance,'commission'=>$retail_commission,'dcommission'=>$dis_commission,'result'=>$error_description,'error_status_code'=>$error_status,'trans_id'=>$trans_id);
-						  $update_RD_error_status = $this->recharge_model->update_recharge_error_status($error_datas,$recharge_id);
+						  $update_RD_error_status = $this->Recharge_model->update_recharge_error_status($error_datas,$recharge_id);
 				   
 						  // SEND SMS
-						  $send_success_sms=$this->recharge_model->send_success_sms($mobilenumber,$after_balance,$error_id,$amount,$trans_id,$user_mobile);  		 
+						  $send_success_sms= $this->Recharge_model->send_success_sms($mobilenumber,$after_balance,$error_id,$amount,$trans_id,$user_mobile);  		 
 					  
-							   $this->recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date,  ) );
+							   $this->Recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date,  ) );
 											  //Distributor Commission
-								$this->recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$dis_commission,'created_date'=>$trans_date , ) );
+								 $this->Recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$dis_commission,'created_date'=>$trans_date , ) );
 					  
 					  
 					  
@@ -1159,11 +1187,11 @@ else if($resultval==3)
 						);
 						
 						   
-						  $send_pending_sms =$this->recharge_model->send_pending_sms($mobilenumber,$available_totalbalance,$error_id,$amount,$trans_id,$user_mobile);							
+						  $send_pending_sms = $this->Recharge_model->send_pending_sms($mobilenumber,$available_totalbalance,$error_id,$amount,$trans_id,$user_mobile);							
 						   
 						   $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_balance,'commission'=>0,'dcommission'=>0,'result'=>$error_description,'error_status_code'=>$error_status,'trans_id'=>$trans_id);
 						   
-						  $reversal_request = $this->recharge_model->add_reversal_request( array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=>$parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending' ) ); 
+						  $reversal_request = $this->Recharge_model->add_reversal_request( array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=>$parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending' ) ); 
 						   
 						   
 						  $response = array('message' => 'Transaction Pending','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id); 
@@ -1172,7 +1200,7 @@ else if($resultval==3)
 						   
 					  }else if($error_id == -1611)//Duplicate
 					  {
-						  $send_duplicate_sms =$this->recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
+						  $send_duplicate_sms = $this->Recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
 							 
 						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);
 						   
@@ -1187,7 +1215,7 @@ else if($resultval==3)
 					  else
 					  {
 						  $error_status=0;
-						  $send_failure_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
+						  $send_failure_sms = $this->Recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
 								
 						   $response = array('message' => 'Transaction Failure','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);//,'reply'=>$reply_data );
 						  
@@ -1210,7 +1238,7 @@ else if($resultval==3)
 
 			
 			
-					$send_insufficient_sms =$this->recharge_model->send_insufficient_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
+					$send_insufficient_sms = $this->Recharge_model->send_insufficient_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
 			  	       header('Content-Type: application/json');
 					   $response = array('message' => 'Insufficient Balance','class' => 'fail');
 					   echo json_encode($response);		
@@ -1251,13 +1279,14 @@ public function ad_postpaid_recharge()
 		
 				//  Get the user balance from usermaster
 
-				$user = $this->recharge_model->get_balance($by_id);
-			
-				$avaliable_amount =$user->available_balance;
+				//$user = $this->Recharge_model->get_balance($by_id);
+			    
+				//$avaliable_amount =$user->available_balance;
+                $avaliable_amount=$this->session->userdata('available_balance');
  		      	if ( $amount >= 5000 ){
 					$trans_id=0;
 					$error_id=-999999; 
-					$send_insufficient_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
+					$send_insufficient_sms = $this->Recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
 			  	       header('Content-Type: application/json');
 					   $response = array('message' => 'Failure due to exceed the recharge limit amount','class' => 'fail');
 					   echo json_encode($response);	
@@ -1268,7 +1297,7 @@ public function ad_postpaid_recharge()
 				if($amount <= $avaliable_amount && $amount != 0 )  
 					{
 				//  Get the commission details from provider tables
-						$provider = $this->recharge_model->get_all_post_paid_details($serviceprovider);
+						$provider = $this->Recharge_model->get_all_post_paid_details($serviceprovider);
 						
 						$timezone = new DateTimeZone("Asia/Kolkata");
 						$date = new DateTime();
@@ -1276,7 +1305,7 @@ public function ad_postpaid_recharge()
 						
 						$recharge_date=$date->format('Y-m-d H:i:s');	
 										 
-						$auto_code=$this->recharge_model->generateRandomString($length = 30);
+						$auto_code= $this->Recharge_model->generateRandomString($length = 30);
 						$req_id=time().$auto_code;
 				        $op_code=$provider->OperatorCode;
 				
@@ -1292,12 +1321,12 @@ public function ad_postpaid_recharge()
 						'req_id' =>$req_id,'recharge_type' =>'web',						
 					);
 		
-					$recharge_id =$this->recharge_model->insert_recharge_details($rdData);
+					$recharge_id = $this->Recharge_model->insert_recharge_details($rdData);
 					
 					if($recharge_id)
 					{
 					 
-						  	$auto_code=$this->recharge_model->generateRandomString($length = 30);
+						  	$auto_code= $this->Recharge_model->generateRandomString($length = 30);
 						$req_id=time().$auto_code;
 						  $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
 $mySOAP = <<<EOD
@@ -1361,28 +1390,28 @@ if($resultval==1)
 							'available_balance'=>$after_balance, 
 						);
 						 
-						$this->recharge_model->update_balance($data);
+						 $this->Recharge_model->update_balance($data);
 						
 						// update dcommission
-						$parent=$this->recharge_model->get_parent_total_detail($parent_id);
+						$parent= $this->Recharge_model->get_parent_total_detail($parent_id);
 						$dis_total_balance = $parent->total_balance + $dis_commission;
 						$dis_available_balance =  $parent->available_balance + $dis_commission;
 						 $parent_data=array('total_balance'=>$dis_total_balance, 
 							'available_balance'=>$dis_available_balance, 
 						);
-							$this->recharge_model->update_balance_with_id($parent_data,$parent_id);
+							 $this->Recharge_model->update_balance_with_id($parent_data,$parent_id);
 						
 						 
 						  //Update the recharge details
 						  $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_balance,'commission'=>$retail_commission,'dcommission'=>$dis_commission,'result'=>$error_description,'error_status_code'=>$error_status,'trans_id'=>$trans_id);
-						  $update_RD_error_status = $this->recharge_model->update_recharge_error_status($error_datas,$recharge_id);
+						  $update_RD_error_status = $this->Recharge_model->update_recharge_error_status($error_datas,$recharge_id);
 				   
 						  // SEND SMS
-						  $send_success_sms=$this->recharge_model->send_success_sms($mobilenumber,$after_balance,$error_id,$amount,$trans_id,$user_mobile);  		 
+						  $send_success_sms= $this->Recharge_model->send_success_sms($mobilenumber,$after_balance,$error_id,$amount,$trans_id,$user_mobile);  		 
 					  
-							   $this->recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date,  ) );
+							   $this->Recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date,  ) );
 											  //Distributor Commission
-								$this->recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$dis_commission,'created_date'=>$trans_date , ) );
+								 $this->Recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$dis_commission,'created_date'=>$trans_date , ) );
 					  
 					  
 					  
@@ -1411,11 +1440,11 @@ else if($resultval==0)
 						);
 						
 						   
-						  $send_pending_sms =$this->recharge_model->send_pending_sms($mobilenumber,$available_totalbalance,$error_id,$amount,$trans_id,$user_mobile);							
+						  $send_pending_sms = $this->Recharge_model->send_pending_sms($mobilenumber,$available_totalbalance,$error_id,$amount,$trans_id,$user_mobile);							
 						   
 						   $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_balance,'commission'=>0,'dcommission'=>0,'result'=>$error_description,'error_status_code'=>$error_status,'trans_id'=>$trans_id);
 						   
-						  $reversal_request = $this->recharge_model->add_reversal_request( array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=>$parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending' ) ); 
+						  $reversal_request = $this->Recharge_model->add_reversal_request( array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=>$parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending' ) ); 
 						   
 						   
 						  $response = array('message' => 'Transaction Pending','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
@@ -1433,7 +1462,7 @@ else if($resultval==0)
 else if($resultval==2)
 {
     $error_description='Unknown';
-  $send_duplicate_sms =$this->recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
+  $send_duplicate_sms = $this->Recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
 							 
 						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
     
@@ -1461,7 +1490,7 @@ else if($resultval==3)
     
    $error_description='Failure/Refund'; 
     
-     $send_failure_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
+     $send_failure_sms = $this->Recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
 								
 						   $response = array('message' => 'Transaction Failure','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id,'api'=>$data);
     
@@ -1549,28 +1578,28 @@ else if($resultval==3)
 							'available_balance'=>$after_balance, 
 						);
 						 
-						$this->recharge_model->update_balance($data);
+						 $this->Recharge_model->update_balance($data);
 						
 						// update dcommission
-						$parent=$this->recharge_model->get_parent_total_detail($parent_id);
+						$parent= $this->Recharge_model->get_parent_total_detail($parent_id);
 						$dis_total_balance = $parent->total_balance + $dis_commission;
 						$dis_available_balance =  $parent->available_balance + $dis_commission;
 						 $parent_data=array('total_balance'=>$dis_total_balance, 
 							'available_balance'=>$dis_available_balance, 
 						);
-							$this->recharge_model->update_balance_with_id($parent_data,$parent_id);
+							 $this->Recharge_model->update_balance_with_id($parent_data,$parent_id);
 						
 						 
 						  //Update the recharge details
 						  $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_balance,'commission'=>$retail_commission,'dcommission'=>$dis_commission,'result'=>$error_description,'error_status_code'=>$error_status,'trans_id'=>$trans_id);
-						  $update_RD_error_status = $this->recharge_model->update_recharge_error_status($error_datas,$recharge_id);
+						  $update_RD_error_status = $this->Recharge_model->update_recharge_error_status($error_datas,$recharge_id);
 				   
 						  // SEND SMS
-						  $send_success_sms=$this->recharge_model->send_success_sms($mobilenumber,$after_balance,$error_id,$amount,$trans_id,$user_mobile);  		 
+						  $send_success_sms= $this->Recharge_model->send_success_sms($mobilenumber,$after_balance,$error_id,$amount,$trans_id,$user_mobile);  		 
 					  
-							   $this->recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date, ) );
+							   $this->Recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date, ) );
 											  //Distributor Commission
-								$this->recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$dis_commission,'created_date'=>$trans_date , ) );
+								 $this->Recharge_model->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$dis_commission,'created_date'=>$trans_date , ) );
 					  
 					  
 					  
@@ -1597,11 +1626,11 @@ else if($resultval==3)
 						);
 						
 						   
-						  $send_pending_sms =$this->recharge_model->send_pending_sms($mobilenumber,$available_totalbalance,$error_id,$amount,$trans_id,$user_mobile);							
+						  $send_pending_sms = $this->Recharge_model->send_pending_sms($mobilenumber,$available_totalbalance,$error_id,$amount,$trans_id,$user_mobile);							
 						   
 						   $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_balance,'commission'=>0,'dcommission'=>0,'result'=>$error_description,'error_status_code'=>$error_status,'trans_id'=>$trans_id);
 						   
-						  $reversal_request = $this->recharge_model->add_reversal_request( array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=>$parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending' ) ); 
+						  $reversal_request = $this->Recharge_model->add_reversal_request( array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=>$parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending' ) ); 
 						   
 						   
 						  $response = array('message' => 'Transaction Pending','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id); 
@@ -1610,7 +1639,7 @@ else if($resultval==3)
 						   
 					  }else if($error_id == -1611)//Duplicate
 					  {
-						  $send_duplicate_sms =$this->recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
+						  $send_duplicate_sms = $this->Recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
 							 
 						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);
 						   
@@ -1625,7 +1654,7 @@ else if($resultval==3)
 					  else
 					  {
 						  $error_status=0;
-						  $send_failure_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
+						  $send_failure_sms = $this->Recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
 								
 						   $response = array('message' => 'Transaction Failure','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);//,'reply'=>$reply_data );
 						  
@@ -1648,7 +1677,7 @@ else if($resultval==3)
 
 			
 			
-					$send_insufficient_sms =$this->recharge_model->send_insufficient_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
+					$send_insufficient_sms = $this->Recharge_model->send_insufficient_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);
 			  	       header('Content-Type: application/json');
 					   $response = array('message' => 'Insufficient Balance '.$amount ,'class' => 'fail');
 					   echo json_encode($response);		
@@ -1696,9 +1725,9 @@ else if($resultval==3)
 
 	public function rechargeplan()
   { 
-   $data['Prepaid'] = $this->recharge_model->get_Prepaid();
-   $data['Circle'] = $this->recharge_model->get_circle();
-   $data['OperatorPlan'] = $this->recharge_model->get_plan();  
+   $data['Prepaid'] = $this->Recharge_model->get_Prepaid();
+   $data['Circle'] = $this->Recharge_model->get_circle();
+   $data['OperatorPlan'] = $this->Recharge_model->get_plan();  
    $operator_id = $this->input->post('serviceprovider');
    $circle_id = $this->input->post('circle');
    $plan_id = $this->input->post('plan');
@@ -1708,7 +1737,7 @@ else if($resultval==3)
    $circle_id = 1;
    $plan_id = 1;
    }
-   $data['plandetails']=$this->recharge_model->get_planDetails($operator_id,$circle_id,$plan_id);
+   $data['plandetails']= $this->Recharge_model->get_planDetails($operator_id,$circle_id,$plan_id);
    $this->load->view("common/header");
       $this->load->view("common/menu");
    $this->load->view('rechargeplan',$data);
@@ -1719,7 +1748,7 @@ else if($resultval==3)
   { 
    $type = 2;
    $number=1;
-   $data['rechargestatus']=$this->recharge_model->get_rechargestatus($type,$number);   
+   $data['rechargestatus']= $this->Recharge_model->get_rechargestatus($type,$number);   
    $this->load->view("common/header");
       $this->load->view("common/menu");
    $this->load->view('rechargestatus',$data);
@@ -1730,7 +1759,7 @@ else if($resultval==3)
   { 
    $type = $this->input->post('radio');
    $number=$this->input->post('txtnumber');
-   $data['rechargestatus']=$this->recharge_model->get_rechargestatus($type,$number); 
+   $data['rechargestatus']= $this->Recharge_model->get_rechargestatus($type,$number); 
    $this->load->view("common/header");
    $this->load->view("common/menu");
    $this->load->view('rechargestatus',$data);
@@ -1740,8 +1769,8 @@ else if($resultval==3)
   	 
 	 	public function background()
 		{
-			$this->load->model('recharge_model'); 
-			$code = $this->recharge_model->update_temp_transaction();
+			$this->load->model('Recharge_model'); 
+			$code = $this->Recharge_model->update_temp_transaction();
 			if($code == true)
 			{
 				echo "Sucess Code";	
@@ -1753,8 +1782,8 @@ else if($resultval==3)
 		
 		public function revoke()
 		{
-			$this->load->model('recharge_model'); 
-			$code = $this->recharge_model->revoke();
+			$this->load->model('Recharge_model'); 
+			$code = $this->Recharge_model->revoke();
 			if($code == true)
 			{
 				echo "Sucess Code";	
@@ -1765,20 +1794,20 @@ else if($resultval==3)
 		}
 	public function alert( $data  ){
 		//$data = "Test";
-	 $admin = $this->recharge_model->get_admin_detail();
+	 $admin = $this->Recharge_model->get_admin_detail();
 						
 						
 	  $mail = $admin->alert_mail;
 	  $mobilenumber = $admin->alert_sms1;
 	  if($mobilenumber !=""){
-		  $alert =$this->recharge_model->send_sms($mobilenumber,"TEST Insufficient Balance in your esypay account");
+		  $alert = $this->Recharge_model->send_sms($mobilenumber,"TEST Insufficient Balance in your esypay account");
 	  }
 	  $mobilenumber = $admin->alert_sms2;
 	  if($mobilenumber !=""){
-		  $alert =$this->recharge_model->send_sms($mobilenumber,"TEST Insufficient Balance in your esypay account");
+		  $alert = $this->Recharge_model->send_sms($mobilenumber,"TEST Insufficient Balance in your esypay account");
 	  }
 	  if($mail !=""){
-		 $alert =$this->recharge_model->send_mail( $mail,'TEST Insufficient Balance in your esypay account','Alert from Prepaid Recharge .., '.$data);
+		 $alert = $this->Recharge_model->send_mail( $mail,'TEST Insufficient Balance in your esypay account','Alert from Prepaid Recharge .., '.$data);
 	  }  		 	
 	}
 	

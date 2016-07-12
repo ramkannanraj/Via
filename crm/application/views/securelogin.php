@@ -3,12 +3,12 @@
     	<div class="admin-otp">
         	<div class="row">
             	<div class="col-sm-5 col-xs-12">
-                	<span><img src="<?php echo base_url()?>assets/paybuks/images/otp-icon.png" /></span>
-                    <h2>Pay with Paybuks</h2>
+                	<span><img src="<?php echo base_url()?>assets/viapaisa/images/otp-icon.png" /></span>
+                    <h2>Pay with ViaPaise</h2>
                     <ul>
-                    	<li>Pay your bills using Paybuks wallet</li>
+                    	<li>Pay your bills using ViaPaise wallet</li>
                         <li>In case of refund, money will be credited to your wallet instantaneously</li>
-                        <li>Use Paybuks wallet on other websites</li>
+                        <li>Use viapaise wallet on other websites</li>
                     </ul>
                 </div>
 				

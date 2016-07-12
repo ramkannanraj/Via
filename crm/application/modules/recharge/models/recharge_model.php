@@ -1,6 +1,29 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	class Recharge_model extends CI_Model {
-	
+	    
+        
+        function __construct()
+        {
+            parent::__construct();
+             $this->load->database();
+        }
+        
+        
+           public function get_master_balz22()
+   {
+    
+        $id=$this->session->userdata('uid');
+           $this->db->select("*");
+           $this->db->from('usermaster');    
+           $this->db->where(array('uid' => $id));    
+           $query = $this->db->get();
+       	//$query = $this->db->get_where('usermaster', array('uid' => $user_id));
+           		
+		
+				return $query->row();
+		
+  }
+        
 		public function get_Prepaid()
 		{
 			$this->db->select('*');
@@ -75,6 +98,23 @@
 		
 		
 		public function get_parent_total_detail($loginuser_parent_id)
+		{
+			
+			$query = $this->db->get_where('usermaster', array('uid' => $loginuser_parent_id));		
+			if($query)
+			{
+				//return $query->result();
+				return $query->row();
+			}
+			else
+			{
+			return false;
+			}
+	  
+		
+		}
+        
+        	public function get_x_total_detail($loginuser_parent_id)
 		{
 			
 			$query = $this->db->get_where('usermaster', array('uid' => $loginuser_parent_id));		
@@ -638,16 +678,8 @@ $testing="Dear $user_name, Your current balance is Rs. $availablebal/-";
 return $query->result();
   }
   
-  public function get_balance($user_id){
-   // $this->db->select("*");
-  // $this->db->from('usermaster');    
-  // $this->db->where(array('uid' => $user_id));    
- //  $query = $this->db->get();
-	//  return $query->row()->available_balance;
-	 return $this->db->select('total_balance,used_balance,available_balance')->where('uid',$user_id)->get('usermaster')->row();
-	  
-	  
-  }
+
+  
    public function update_user_balanz($tot,$ids)
    {
 		 
