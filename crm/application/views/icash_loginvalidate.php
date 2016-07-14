@@ -19,7 +19,7 @@
 </div>
 
 <div class="form-group">
-<input type="submit" value="Login Validate" class="btn btn-primary"  />
+<input type="submit" value="Login Validate" class="btn btn-warning"  />
 </div>
 
 

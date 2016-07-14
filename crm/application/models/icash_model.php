@@ -257,8 +257,8 @@
 			$query=$this->db->get();
 			return  $query->result();  
 		}	
-
 		function icash_card_register($username,$fname,$lname,$motname,$dateob,$mailss,$mobile_no,$usestate,$usecity,$useaddress,$pinscode,$tran,$created_by,$created_by_name)
+
 		{ 
 		$sql=mysql_query("SELECT * FROM tbl_icash_credential   ")or die(mysql_error());
 		
@@ -304,6 +304,7 @@ while($row=mysql_fetch_array($sql))
 			
 			if($status_code==0)
 			{
+				
 				$query = $this->icash_model->insert($username,$fname,$lname,$motname,$dateob,$mailss,$mobile_no,$usestate,$usecity,$useaddress,
 				$pinscode,$tran,$created_by,$created_by_name);		
 				$_SESSION["favcolor"] = $tran;
@@ -323,6 +324,7 @@ while($row=mysql_fetch_array($sql))
 			} 
 			else if($status_code==20)
 			{
+				
 				$transaction_cod=$responseArray['STATUS'];
 				$_SESSION["tran"] = $transaction_cod;
 				$var_trans=$_SESSION["tran"];

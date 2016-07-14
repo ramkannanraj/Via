@@ -299,15 +299,15 @@ public function test()
 		       
 				
 				$var_trans=$_POST["tran"];
-				$service_url = 'http://api.icashcard.in/impsmethods.asmx/SENDERRESENDOTP';
+				$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/SENDERRESENDOTP';
 				$ch = curl_init($service_url);
 				$curl_post_data = array(			
 				"RequestData" =>"<SENDERRESENDOTPREQUEST>
-				<TERMINALID>100024</TERMINALID>
-				<LOGINKEY>1982032620</LOGINKEY>
-				<MERCHANTID>24</MERCHANTID>
+				<TERMINALID>200291</TERMINALID>
+				<LOGINKEY>0211042052</LOGINKEY>
+				<MERCHANTID>291</MERCHANTID>
 				<TRANSACTIONID>$var_trans</TRANSACTIONID>
-				<AGENTID>WallTech</AGENTID>
+				<AGENTID>ViaPaise</AGENTID>
 				<PARAM1></PARAM1>
 				<PARAM2></PARAM2>
 				<PARAM3></PARAM3>
@@ -349,13 +349,13 @@ public function test()
 			
 
                 $mobile=$_POST["mobile"];
-				$service_url = 'http://api.icashcard.in/impsmethods.asmx/FORGOTPIN';
+				$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/FORGOTPIN';
 				$ch = curl_init($service_url);
 				$curl_post_data = array(			
 				"RequestData" =>"<FORGOTPINREQUEST>
-							<TERMINALID>100024</TERMINALID>
-							<LOGINKEY>1982032620</LOGINKEY>
-							<MERCHANTID>24</MERCHANTID>
+							<TERMINALID>200291</TERMINALID>
+							<LOGINKEY>0211042052</LOGINKEY>
+							<MERCHANTID>291</MERCHANTID>
 							<USERMOBILENO>$mobile</USERMOBILENO>
 							</FORGOTPINREQUEST>");
 							
@@ -409,9 +409,9 @@ public function test()
 		$ch = curl_init($service_url);
 		$curl_post_data = array(
 		"RequestData" =>"<TRANSACTION_V3REQUEST>
-		<TERMINALID>100024</TERMINALID>
-		<LOGINKEY>1982032620</LOGINKEY>
-		<MERCHANTID>24</MERCHANTID>
+		<TERMINALID>200291</TERMINALID>
+		<LOGINKEY>0211042052</LOGINKEY>
+		<MERCHANTID>291</MERCHANTID>
 		<CARDNO>3333001052003477</CARDNO>
 		<TRANSTYPE>8</TRANSTYPE>
 		<TRANSTYPEDESC>32627693542</TRANSTYPEDESC>
