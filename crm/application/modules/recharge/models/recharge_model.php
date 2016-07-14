@@ -1,29 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-	class Recharge_model extends CI_Model {
-	    
-        
-        function __construct()
-        {
-            parent::__construct();
-             $this->load->database();
-        }
-        
-        
-           public function get_master_balz22()
-   {
-    
-        $id=$this->session->userdata('uid');
-           $this->db->select("*");
-           $this->db->from('usermaster');    
-           $this->db->where(array('uid' => $id));    
-           $query = $this->db->get();
-       	//$query = $this->db->get_where('usermaster', array('uid' => $user_id));
-           		
-		
-				return $query->row();
-		
-  }
-        
+	class recharge_model extends CI_Model {
+	
 		public function get_Prepaid()
 		{
 			$this->db->select('*');
@@ -98,23 +75,6 @@
 		
 		
 		public function get_parent_total_detail($loginuser_parent_id)
-		{
-			
-			$query = $this->db->get_where('usermaster', array('uid' => $loginuser_parent_id));		
-			if($query)
-			{
-				//return $query->result();
-				return $query->row();
-			}
-			else
-			{
-			return false;
-			}
-	  
-		
-		}
-        
-        	public function get_x_total_detail($loginuser_parent_id)
 		{
 			
 			$query = $this->db->get_where('usermaster', array('uid' => $loginuser_parent_id));		
@@ -338,7 +298,7 @@ public function get_distributor_parent_total_detail($distributor_parent_id)
 		public function send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile)
 		{
 			
-			$testing="viapaisa -Already this number recharged please try after 10 minutes";
+			$testing="PAYBUKS -Already this number recharged please try after 10 minutes";
 					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=PAYBUK&message=$testing&format=json&custom=1,2";
 					$url = str_replace(" ", "%20", $url);
 					$ret = file($url);
@@ -373,7 +333,7 @@ public function get_distributor_parent_total_detail($distributor_parent_id)
 		{
 			
 			$testing="RECHARGE FAIL. Mobile Number: $mobilenumber, Amount: $amount. Your bal: Rs. $avaliable_amount";
-					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=&message=$testing&format=json&custom=1,2";
+					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=PAYBUK&message=$testing&format=json&custom=1,2";
 					$url = str_replace(" ", "%20", $url);
 					$ret = file($url);
 					$sess = explode(":",$ret[0]);
@@ -469,19 +429,19 @@ public function get_distributor_parent_total_detail($distributor_parent_id)
 		} 	
 		public function send_mail($email,$sub,$msg){
 			  $Name='support@viapaise.com';
-				//$Name='viapaisa';
+				//$Name='Paybuks';
 				$to =$email;
 				$subject = "ALERT ".$sub;
 				$message = '<div style="width: 527px; height: 334px; border:1px solid #39C; background:#39C;" >
 				<div style="width:500px; height:300px; border:1px solid #39C; border-radius:20px; margin-left: 11px; margin-top: 16px; background:white;"> 
-				<h3 style="float:left; width:350px; text-align: center;color:#39C">viapaisa ALERT,</h3>
+				<h3 style="float:left; width:350px; text-align: center;color:#39C">PAYBUCKS ALERT,</h3>
 				<p style="width:350px; text-align: left; margin-left: 26px;word-wrap: break-word;">
 				<br><br> 
 				 '.$msg.'
 				<br><br>
 				</p>
 				</div>
-				<a style="float:right; margin-right: 48px; text-decoration:none; color:#FFF;" href="http://viapaisa.in">© viapaise.com</a>
+				<a style="float:right; margin-right: 48px; text-decoration:none; color:#FFF;" href="http://paybuks.in">© viapaise.com</a>
 				</div>';
 	
 							$headers = 'MIME-Version: 1.0' . "\r\n";
@@ -678,8 +638,12 @@ $testing="Dear $user_name, Your current balance is Rs. $availablebal/-";
 return $query->result();
   }
   
-
-  
+  public function get_balance($user_id){
+	  
+	 return $this->db->select('total_balance,used_balance,available_balance')->where('uid',$user_id)->get('usermaster')->row();
+	  
+	  
+  }
    public function update_user_balanz($tot,$ids)
    {
 		 
@@ -781,8 +745,8 @@ $mySOAP = <<<EOD
 "Password": "Viapaise123"
 },
 "AccountStatementInput": {
-"FromDate": $dateform,
-"ToDate": $dateform
+"FromDate": "$dateform",
+"ToDate": "$dateform"
 }
 }
 }
@@ -914,9 +878,9 @@ public function update_temp_transaction()
 							
 						  $total_balance = $user->total_balance + $retail_commission ;	
 							
-								$this->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date ) );
+								$this->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$by_id,'commission'=>$retail_commission,'created_date'=>$trans_date,'transaction_status'=>'Pending' ) );
 								//Distributor Commission
-						$this->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$d_commission,'created_date'=>$trans_date ) );
+						$this->add_recharge_commission( array('recharge_id'=>$recharge_id,'transaction_status'=>'Success','user_id'=>$parent_id,'commission'=>$d_commission,'created_date'=>$trans_date,'transaction_status'=>'Pending' ) );
 						
 						
 										
@@ -938,7 +902,7 @@ $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_bal
 						 }else if($error_id == -1611) //Duplicate transaction
 						{     
 							  $error_status= -1611;
-							  $sms_msg = "viapaisa -Already this number recharged please try after 10 minutes";
+							  $sms_msg = "PAYBUKS -Already this number recharged please try after 10 minutes";
 						  
 							 $revesal_data =  array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=> $user->parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending'  );
 							 $reversal_request = $this->add_reversal_request( $revesal_data  );	

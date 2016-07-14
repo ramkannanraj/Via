@@ -1,20 +1,20 @@
 
-<link rel="shortcut icon" href="<?php echo base_url()?>/assets/viapaisa/images/favicon_square.png"> 
+<link rel="shortcut icon" href="<?php echo base_url()?>/assets/paybuks/images/favicon_square.png"> 
    <!-- MY STYLESHEET -->
-<link rel="stylesheet" href="<?php echo base_url()?>/assets/viapaisa/css/style.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/style.css" type="text/css" />
 <!-- BOOSTRAB STYLESHEET -->
-<link rel="stylesheet" href="<?php echo base_url()?>/assets/viapaisa/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/bootstrap.css" type="text/css" />
 
 <link rel="stylesheet" href="<?php echo base_url()?>/assets/css/bootstrap.min.css" type="text/css" />
 <!-- MENU CSS -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/viapaisa/css/jPushMenu.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/paybuks/css/jPushMenu.css" />
 <!-- DEFAULT SCRIPT -->
-<script type="text/jscript" src="<?php echo base_url()?>/assets/viapaisa/js/jquery-1.11.3.js"></script>
+<script type="text/jscript" src="<?php echo base_url()?>/assets/paybuks/js/jquery-1.11.3.js"></script>
 <!-- BOOSTRAB SCRIPT -->
-<script type="text/javascript" src="<?php echo base_url()?>/assets/viapaisa/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>/assets/paybuks/js/bootstrap.min.js"></script>
 
 <!-- EASY RESPONSIVE CSS -->
-<link rel="stylesheet" href="<?php echo base_url()?>/assets/viapaisa/css/easy-responsive-tabs.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo base_url()?>/assets/paybuks/css/easy-responsive-tabs.css" type="text/css" />
 
 
 <style>
@@ -78,7 +78,7 @@
   border: transparent;
 
   /*animation: spin 1s linear infinite;*/
-  background-image:url(http://viapaisa.com/images/paybuck_logo.png);
+  background-image:url(http://paybuks.com/images/paybuck_logo.png);
   background-position: center center;
   background-repeat:no-repeat;
 }
@@ -242,7 +242,7 @@
 <div class="row">
 
 <div class="col-lg-4">
-    <img src="<?php echo base_url()?>assets/viapaisa/images/success-stamp.png" style="width:100%;">
+    <img src="<?php echo base_url()?>assets/paybuks/images/success-stamp.png" style="width:100%;">
 </div>
 
 <div class="col-lg-8">
@@ -312,7 +312,7 @@
                                     		<div class="row">
                                             
                                             	<div class="col-lg-4">
-                                                	<img src="<?php echo base_url()?>assets/viapaisa/images/failure-stamp.png" style="width:100%;">
+                                                	<img src="<?php echo base_url()?>assets/paybuks/images/failure-stamp.png" style="width:100%;">
                                                 </div>
                                                 
                                                 <div class="col-lg-8">
@@ -670,7 +670,7 @@
                                    
                                 </div>-->
                                 <div class="modal-body">
-                                 <h4 class="text-center">You are logging out of ViaPaise.com </h4>
+                                 <h4 class="text-center">You are logging out of Paybuks.com </h4>
                                 </div>
                                 <div class="modal-footer">
                               
@@ -725,7 +725,7 @@ $(document).ready(function(){
 </script>
 
 <!-- EASY RESPONSIVE STARTS -->
-<script src="<?php echo base_url()?>/assets/viapaisa/js/easy-responsive-tabs.js"></script>
+<script src="<?php echo base_url()?>/assets/paybuks/js/easy-responsive-tabs.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
 		$('#parentHorizontalTab').easyResponsiveTabs({

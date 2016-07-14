@@ -6,7 +6,7 @@ $username = $this->session->userdata('username');
 $uid = $this->session->userdata('uid');		 
 if(	$type == '' && $username == '' && $uid == '')
 {	
-	header('Location: ' . base_url()); 
+	header('Location: ' . base_url() . ''); 
 }?>
 <?php if($type=='admin'){ ?>
 <link rel="stylesheet" href="<?php echo base_url()?>/assets/viapaisa/css/style.css" type="text/css" />
@@ -72,8 +72,8 @@ if(	$type == '' && $username == '' && $uid == '')
   left: 15%;
   width: 70%;
   height: 70%;
-   border-bottom-color:#DD017F;
-  border-top-color:#009CE1;
+   border-bottom-color:#EC9720;
+  border-top-color:#615299;
   border-left-color: transparent;
   border-right-color: transparent;
   animation: spin 2s linear reverse infinite;
@@ -83,8 +83,8 @@ if(	$type == '' && $username == '' && $uid == '')
   left: 18%;
   width: 64%;
   height: 64%;
-  border-left-color:#009CE1;
-  border-right-color:#DD017F;
+  border-left-color:#615299;
+  border-right-color:#EC9720;
   border-top-color: transparent;
   border-bottom-color: transparent;
   animation: spin 2s linear infinite;
@@ -97,7 +97,7 @@ if(	$type == '' && $username == '' && $uid == '')
   border: transparent;
 
   /*animation: spin 1s linear infinite;*/
-  background-image:url(http://viapaisa.com/images/paybuck_logo.png);
+ 
   background-position: center center;
   background-repeat:no-repeat;
 }
@@ -562,8 +562,10 @@ if(	$type == '' && $username == '' && $uid == '')
                     <div>
                         <div class="ChildVerticalTab_1">
                             <ul class="resp-tabs-list ver_1" id="dthUl">
-                                <li class="dth-1">airtel</li>
+                                <!--
+<li class="dth-1">airtel</li>
                                 <li class="dth-2">tatasky</li>
+-->
                                 <li class="dth-3">bigtv</li>
                                 <li class="dth-4">dishtv</li>
                                 <li class="dth-5">videcon</li>
@@ -572,7 +574,8 @@ if(	$type == '' && $username == '' && $uid == '')
                             <div class="resp-tabs-container ver_1">
                                 <span id="dthError" style="color:red;"> </span>
                                 <span id="dthSucc" style="color:green;"> </span>
-                                <div>
+                               <!--
+ <div>
                                 <form id="airtel" action="javascript:void(0);" class="dthRecharge" method="post">
                                     <label>Customer ID</label>
                                     <input type="text" placeholder="Enter your ID" id="airtelNumber" name="mobilenumber" />
@@ -592,6 +595,7 @@ if(	$type == '' && $username == '' && $uid == '')
                                     <input type="submit" class="gradient_btn" value="Pay Bill" />
                                      </form>
                                 </div>
+-->
                                 <div>
                                 <form id="bigtv" action="javascript:void(0);" class="dthRecharge" method="post">
                                     <label>Smart Card</label>
@@ -640,9 +644,11 @@ if(	$type == '' && $username == '' && $uid == '')
                          <div class="ChildVerticalTab_1">
                             <ul class="resp-tabs-list ver_1" id="billUl">
                                 <li class="bill-1">landline</li>
-                                <li class="bill-2">electricity</li>
+                                <!--
+<li class="bill-2">electricity</li>
                                 <li class="bill-3">insurance</li>
                                 <li class="bill-4">gas</li>
+-->
                                 <li class="bill-5">datacard</li>
                             </ul>
                             <div class="resp-tabs-container ver_1">
@@ -653,11 +659,16 @@ if(	$type == '' && $username == '' && $uid == '')
                                     
                                 	<label>Provider</label>
                                     <select name="serviceprovider" id="bill_serviceprovider" >
-                                    	<option value="48">Airtel Landline</option>
+                                    <!--
+	<option value="48">Airtel Landline</option>
+-->
                                         <option value="56">BSNL Landline</option>
                                         <option value="51">MTNL Delhi</option>
-                                        <option value="49">Reliance Communication</option>
+                                         <option value="0">MTNL Mumbai</option>
+                                      <!--
+  <option value="49">Reliance Communication</option>
                                         <option value="53">Tata Tele Service(CDMA)</option>
+-->
                                     </select><label>STD Code</label><input type="text" placeholder="Std Code" name="std_code" id="std_code" />
                                     <label>Telephone No</label>
                                     <input type="text" placeholder="Enter Number" id="telephone" name="telephone" />
@@ -668,7 +679,8 @@ if(	$type == '' && $username == '' && $uid == '')
                                     </form>
                                 </div>
                                 
-                                <div>
+                               <!--
+ <div>
                                     <label>Provider</label>
                                     <select>
                                     	<option value="BSES Rejdhani">BSES Rejdhani</option>
@@ -682,8 +694,10 @@ if(	$type == '' && $username == '' && $uid == '')
                                     <input type="text" placeholder="Enter your amount" />
                                     <input type="submit" class="gradient_btn" value="Pay Now" />
                                 </div>
+-->
                                 
-                                <div>
+                               <!--
+ <div>
                                     <label>Provider</label>
                                     <select>
                                     	<option value="Birla Sun Life Insurnce">Birla Sun Life Insurnce</option>
@@ -701,8 +715,10 @@ if(	$type == '' && $username == '' && $uid == '')
                                     <input type="text" placeholder="Enter your amount" />
                                     <input type="submit" class="gradient_btn" value="Pay Now" />
                                 </div>
+-->
                                 
-                                <div>
+                                <!--
+<div>
                                     <label>Provider</label>
                                     <select>
                                     	<option value="Mahanagar Gas Ltd">Mahanagar Gas Ltd</option>
@@ -713,6 +729,7 @@ if(	$type == '' && $username == '' && $uid == '')
                                     <input type="text" placeholder="Enter your amount" />
                                     <input type="submit" class="gradient_btn" value="Pay Now" />
                                 </div>
+-->
                                 
                                 <div>
                                 	<div class="ChildVerticalTab_2">
@@ -770,7 +787,7 @@ if(	$type == '' && $username == '' && $uid == '')
                                    
                                 </div>-->
                                 <div class="modal-body">
-                                 <h4 class="text-center">You are logging out of ViaPaise.com </h4>
+                                 <h4 class="text-center">You are logging out of viapaise.com </h4>
                                 </div>
                                 <div class="modal-footer">
                               
@@ -902,8 +919,9 @@ var mobile = $('#pre-mobilenumber').val();
 				datatype:"json",
 				success: function( result)  
                 { 
-                    console.log(result);
-		          alert(result.message);
+			    console.log(result);
+		        alert(result.message);
+				 
                   
 				$('#trans_id').html(result.trans_id);
 				if(result.class == "fail"){
@@ -1124,10 +1142,10 @@ $(document).on('submit','.dthRecharge',function(){
  var service_type = $('#billUl>li.resp-tab-active').html();;	
  
  
- if(service_type != "landline" ){
+ //if(service_type != "landline" ){
 	 
-	alert('Sorry this Service is not available now.'); 
- }
+//	alert('Sorry this Service is not available now.'); 
+ // }
  
 // return false;
  
