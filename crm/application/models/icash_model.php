@@ -271,6 +271,7 @@ while($row=mysql_fetch_array($sql))
 			 $merchant_id=$row['merchant_id'];
 			 $agent_id=$row['agent_id'];
 		}
+		
 			$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/REGISTRATION';
 			$ch = curl_init($service_url);
 			$curl_post_data = array(
@@ -2145,7 +2146,7 @@ function insert_card_topup($top_val,$card_no)
 			<br><br>
 			</p>
 			</div>
-			<a style="float:right; margin-right: 48px; text-decoration:none; color:#FFF;" href="http://paybuks.com">© viapaise.com</a>
+			<a style="float:right; margin-right: 48px; text-decoration:none; color:#FFF;" href="http://viapaise.com">© viapaise.com</a>
 			</div>';
 		
 		  $headers = 'MIME-Version: 1.0' . "\r\n";

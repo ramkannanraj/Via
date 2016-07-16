@@ -74,9 +74,9 @@
 </tr>
 </thead>
 		<tbody>
-         <?php include('icash_credential.php');?>
+         
 <?php 
-
+$card = $this->session->userdata('card_no');
 $sql=mysql_query("SELECT * FROM tbl_icash_credential   ")or die(mysql_error());
 
  
@@ -89,15 +89,15 @@ while($row=mysql_fetch_array($sql))
 			 $agent_id=$row['agent_id'];
 		}
 
-$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx=VIEWBENEFICIARY';
+$service_url = 'http://202.54.157.77/wsnpci/impsmethods.asmx/VIEWBENEFICIARY';
 $ch = curl_init($service_url);
 $curl_post_data = array(
 "RequestData" =>"<VIEWBENEFICIARYREQUEST>
-<TERMINALID>$terminal_id</TERMINALID>
-<LOGINKEY>$login_key</LOGINKEY>
-<MERCHANTID>$merchant_id</MERCHANTID>
-<CARDNO>3333007036741901</CARDNO>
-<AGENTID>$agent_id</AGENTID>
+<TERMINALID>200291</TERMINALID>
+<LOGINKEY>0211042052</LOGINKEY>
+<MERCHANTID>291</MERCHANTID>
+<CARDNO>$card</CARDNO>
+<AGENTID>ViaPaise</AGENTID>
 <PARAM1></PARAM1>
 <PARAM2></PARAM2>
 <PARAM3></PARAM3>
@@ -117,7 +117,7 @@ curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_array_string);
 
 $output = curl_exec($ch);  
-print_r($output);die;
+
 $xml = simplexml_load_string($output);
 $xml = preg_replace("/(<\/?)(\w+):([^>]*>)/", "$1$2$3", $xml);
 $xml = simplexml_load_string($xml);
@@ -226,7 +226,7 @@ $city= $item->CITY;
         <input type="hidden" name="bank_name"     value="<?php echo  $bank_name?>">
         <input type="hidden" name="branch_name"     value="<?php echo  $branch_name?>">
     
-		<input type="submit" id="gobutton" class="btn btn-primary" value="Pay Now">
+		<input type="submit" id="gobutton" class="btn btn-warning" value="Pay Now">
 		</form>
 		
 		<?php //}?>
@@ -252,7 +252,7 @@ $city= $item->CITY;
         <input type="hidden" name="bene_name"     value="<?php echo  $benename?>">
         <input type="hidden" name="bank_name"     value="<?php echo  $bank_name?>">
         <input type="hidden" name="branch_name"     value="<?php echo  $branch_name?>">
-		<input type="submit" id="gobutton" class="btn btn-primary" value="Pay Now">
+		<input type="submit" id="gobutton" class="btn btn-warning" value="Pay Now">
 		</form>
 		
 </td>
@@ -277,7 +277,7 @@ $city= $item->CITY;
         <input type="hidden" name="bene_name"     value="<?php echo  $benename?>">
         <input type="hidden" name="bank_name"     value="<?php echo  $bank_name?>">
         <input type="hidden" name="branch_name"     value="<?php echo  $branch_name?>">
-		<input type="submit" id="gobutton" class="btn btn-primary" value="Pay Now">
+		<input type="submit" id="gobutton" class="btn btn-warning" value="Pay Now">
 		</form>
 		
 		

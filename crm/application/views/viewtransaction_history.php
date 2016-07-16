@@ -56,7 +56,7 @@ $transaction_type= $this->input->post('transaction_type');
 $transaction_mode= $this->input->post('transaction_mode');
 
 //$service_url = 'http://api.icashcard.in/impsmethods.asmx/TRANSACTIONHISTORY';
-$service_url ='http://202.54.157.77/wsnpci/impsmethods.asmx=TRANSACTIONHISTORY';
+$service_url ='http://202.54.157.77/wsnpci/impsmethods.asmx/TRANSACTIONHISTORY';
 				$ch = curl_init($service_url);
 				$curl_post_data = array(			
 				"RequestData" =>"<TRANSACTIONHISTORYREQUEST>
