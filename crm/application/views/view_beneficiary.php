@@ -123,6 +123,7 @@ $xml = preg_replace("/(<\/?)(\w+):([^>]*>)/", "$1$2$3", $xml);
 $xml = simplexml_load_string($xml);
 $json = json_encode($xml);
 $responseArray = json_decode($json,true);
+
 $status_code=$responseArray['STATUSCODE'];
 $status=$responseArray['STATUS'];
 
@@ -133,6 +134,7 @@ $status=$responseArray['STATUS'];
 <?php
 if($status_code == 0 ){
  $i=1; 
+ 
 foreach ($xml->ITEM as $item) {
  
 $beneid=   $item->BENEID;
@@ -151,6 +153,7 @@ $state= $item->STATE;
 $city= $item->CITY;
 
 ?>
+
 		<tr>  
         <td>      
                            

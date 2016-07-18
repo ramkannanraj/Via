@@ -2218,6 +2218,11 @@ $this->session->set_userdata($session_data);
 		$this->db->insert('icash_money_transfer_commision',$data);
 		
 	}
+	function get_bank_details(){
+	
+	return $this->db->select('*')->get('banks')->result();	
+				
+	}
 		
 
 

@@ -9,7 +9,8 @@
              <div class="mobile-1"><p>ADD BENEFICIARY</p></div>
                     <form method="post" class="form-style-9" action="<?php echo site_url('beneficiary/addss_beneficiary') ?>"  >
 <div class="form-group col-lg-6">
-<?php foreach($card_details as $user){ ?>
+
+
 <label >Name</label>
 
 
@@ -20,11 +21,17 @@
 <label>Mobile No</label>
 <input type="text" class="form-control"  name="mobile_no"  required  />
   </div>
-   <div class="form-group col-lg-6">
-
-<label>Bank Name</label>
-<input type="text" class="form-control"  name="bank_name"  required   />
-  </div>
+   
+  <div class="form-group col-lg-6">
+                                    	<label >Bank Name</label>
+                                        <select  name="bank_name" class="form-control" required>
+                                        <option value="">Select Bank</option> 
+										<?php foreach($banks as $get_bank) { ?>
+                                        <option value="<?php echo $get_bank->bank_name; ?>"><?php echo $get_bank->bank_name;?></option>
+                                        <?php }?>
+                                     
+                                        </select>
+                                    </div>
    <div class="form-group col-lg-6">
 <label>Branch Name</label>
 <input type="text" class="form-control" name="branch_name" required  />
@@ -44,6 +51,7 @@
 <label>IFSC Code</label>
 <input type="text" class="form-control" name="ifsc" onkeypress="return IsAlphaNumeric(event);" ondrop="return false;"onpaste="return false;" required/>
   </div>
+  <?php foreach($card_details as $user){ ?>
    <div class="form-group col-lg-6">
 <label>Account No</label>
 <input type="text" class="form-control"  name="accno" required/>

@@ -40,6 +40,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 			$var_code=$this->session->userdata('security_key');
 			$mobile_nos=$this->session->userdata('mobile_number');
 			$data['card_details'] = $this->icash_model->get_card_details($var_code,$mobile_nos);
+			$data['banks']=$this->icash_model->get_bank_details();
 			$this->load->view('add_beneficiary',$data);
 			$this->load->view('common/footer');
 		}
