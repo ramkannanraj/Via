@@ -33,7 +33,7 @@
 </select>
 </div>
 <div class="form-group">
-<input type="submit" class="btn btn-primary" value="Delete Otp"  />
+<input type="submit" class="btn btn-warning" value="Delete Otp"  />
 </div>
 
 </form> 

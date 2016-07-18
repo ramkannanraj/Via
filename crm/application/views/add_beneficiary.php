@@ -42,11 +42,20 @@
 <label >City</label>
 <input type="text" class="form-control"  name="b_city"/>
   </div>
-   <div class="form-group col-lg-6">
-<label>State</label>
-<input type="text" class="form-control"  name="b_state"     />
-
-  </div>
+   
+  <div class="form-group col-lg-6">
+                                    	<label>State</label>
+                                        <select name="b_state" class="form-control" required>
+                                        <option value="">Select State</option> 
+										<?php foreach($State as $get_state) { ?>
+                                        <option value="<?php echo $get_state->state_name; ?>"><?php echo $get_state->state_name;?></option>
+                                        <?php }?>
+                                      <!--  <option value="Tamilnadu">Tamilnadu</option>
+                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Kerala">Kerala</option>-->
+                                        </select>
+                                    </div>
    <div class="form-group col-lg-6">
 <label>IFSC Code</label>
 <input type="text" class="form-control" name="ifsc" onkeypress="return IsAlphaNumeric(event);" ondrop="return false;"onpaste="return false;" required/>
