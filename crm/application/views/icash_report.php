@@ -29,14 +29,15 @@
                             </tr>
                             </thead>
                             <tbody>
+							
                                         <?php if( isset( $card )  ){ $i=1;		foreach($card as $val){?>
                                             <tr>
-										    <td><?=$i;?> <br /></td> 
-                                            <td><?=$val->user_name?> <br /></td>
-                                                <td><?=$val->mail_id?> <br /></td>          
-                                                <td><?=$val->card_no?> <br /></td>
-                                                <td><?=$val->topup_amount?> <br /></td>
-                                                <td><?=$val->expiry_date?> <br /></td>              
+										    <td><?php echo $i;?> <br /></td> 
+                                            <td><?php echo $val->user_name?> <br /></td>
+                                                <td><?php echo $val->mail_id?> <br /></td>          
+                                                <td><?php echo $val->card_no?> <br /></td>
+                                                <td><?php echo $val->topup_amount?> <br /></td>
+                                                <td><?php echo $val->expiry_date?> <br /></td>              
                                             </tr>
                                         <?php $i++;} } ?>
                                         </tbody>

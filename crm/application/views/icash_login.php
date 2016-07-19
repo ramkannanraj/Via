@@ -1,4 +1,13 @@
-
+ <script>
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+</script>	
 
 <div class="container-fluid">
      <div class="admin-page2">
@@ -75,7 +84,7 @@
                                      
                                      <div class="form-group">
     <label for="Mobile No">Mobile No</label>
-    <input type="text" name="mobile" value="" id="mobile" class="form-control">
+    <input type="text" maxlength="10" minlength="10" required onkeypress="return isNumber(event)" name="mobile" value="" id="mobile" class="form-control">
     
   </div>
   
@@ -119,7 +128,7 @@
                                      
                                      <div class="form-group">
     <label for="Mobile No">Mobile No</label>
-    <input type="text" name="mobile" value="" class="form-control">
+    <input type="text" maxlength="10" minlength="10"required onkeypress="return isNumber(event)" name="mobile" value="" class="form-control">
     
   </div>
   <div class="form-group">

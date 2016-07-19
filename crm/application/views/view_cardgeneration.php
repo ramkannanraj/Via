@@ -18,6 +18,7 @@ function isNumber(evt) {
                 
                 <div class="panel dashboard"> 
             <div class="panel-body">
+			
                 <?php if(isset($error)){ ?>
      <div class="alert alert-warning alert-dismissible"  role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -141,6 +142,8 @@ function isNumber(evt) {
                              
                              <input type="text" name="pin_code" maxlength="6" required   minlength="6" onkeypress="return isNumber(event)" value="" class="form-control">
                             <input type="hidden" class="form-control" name="trans_code" />
+							<?php $u_id=$this->session->userdata('uid');?>
+                            <input type="hidden" class="form-control" name="created_by" value="<?php echo $u_id;?>" />
                             
                             </div>
                         

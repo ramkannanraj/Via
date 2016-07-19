@@ -1,4 +1,13 @@
- 	
+ <script>
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+</script>	
     
     <div class="panel dashboard">
         	<div class="panel-body">
@@ -19,7 +28,7 @@
   </div>
    <div class="form-group col-lg-6">
 <label>Mobile No</label>
-<input type="text" class="form-control"  name="mobile_no"  required  />
+<input type="text" maxlength="10" minlength="10"required onkeypress="return isNumber(event)" name="mobile_no" class="form-control"/>
   </div>
    
   <div class="form-group col-lg-6">

@@ -48,7 +48,7 @@ recharge_details.mobilenumber,recharge_details.type,recharge_details.service,use
 	
 	if($this->session->userdata('type')=="retailer")
 	{
-		$success="Transaction Successful";
+		$success="success";
 $this->db->select("recharge_details.id,recharge_details.result,recharge_details.rdate,recharge_details.amount,
 recharge_details.commission ,recharge_details.by_id,recharge_details.dcommission,
 recharge_details.mobilenumber,recharge_details.type,recharge_details.service,usermaster.uid,usermaster.parent_id,usermaster.username");
@@ -57,7 +57,7 @@ recharge_details.mobilenumber,recharge_details.type,recharge_details.service,use
   $this->db->where(array('by_id' => $this->session->userdata('uid'), 'recharge_details.result' => $success));
   
  $this->db->order_by("recharge_details.id","desc");
-  //$this->db->where('by_id',$this->session->userdata('uid'));
+  $this->db->where('by_id',$this->session->userdata('uid'));
   $query = $this->db->get();
   return $query->result();
 		
