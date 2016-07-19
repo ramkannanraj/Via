@@ -230,7 +230,7 @@ public function get_distributor_parent_total_detail($distributor_parent_id)
 			$testing = "RECHARGE SUCCESS. Mobile Number: $mobilenumber, Amount: $amount, Txn ID: $trans_id. Your bal: Rs. $current_available_bal/-";
 			 
 			
-		$url ="http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=PAYBUK&message=$testing&format=json&custom=1,2";
+		$url ="http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=VIAPAISE&message=$testing&format=json&custom=1,2";
 					$url = str_replace(" ", "%20", $url);
 					$ret = file($url);
 					$sess = explode(":",$ret[0]);
@@ -266,7 +266,7 @@ public function get_distributor_parent_total_detail($distributor_parent_id)
 			$testing="RECHARGE PENDING. Mobile Number: $mobilenumber, Amount: $amount, Txn ID: $trans_id. Your bal: $current_available_bal";
 			
 			
-					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=PAYBUK&message=$testing&format=json&custom=1,2";
+					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=VIAPAISE&message=$testing&format=json&custom=1,2";
 					$url = str_replace(" ", "%20", $url);
 					$ret = file($url);
 					$sess = explode(":",$ret[0]);
@@ -299,7 +299,7 @@ public function get_distributor_parent_total_detail($distributor_parent_id)
 		{
 			
 			$testing="VIAPAISE -Already this number recharged please try after 10 minutes";
-					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=PAYBUK&message=$testing&format=json&custom=1,2";
+					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=VIAPAISE&message=$testing&format=json&custom=1,2";
 					$url = str_replace(" ", "%20", $url);
 					$ret = file($url);
 					$sess = explode(":",$ret[0]);
@@ -333,7 +333,7 @@ public function get_distributor_parent_total_detail($distributor_parent_id)
 		{
 			
 			$testing="RECHARGE FAIL. Mobile Number: $mobilenumber, Amount: $amount. Your bal: Rs. $avaliable_amount";
-					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=PAYBUK&message=$testing&format=json&custom=1,2";
+					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=VIAPAISE&message=$testing&format=json&custom=1,2";
 					$url = str_replace(" ", "%20", $url);
 					$ret = file($url);
 					$sess = explode(":",$ret[0]);
@@ -366,7 +366,7 @@ public function get_distributor_parent_total_detail($distributor_parent_id)
 		{
 			$rd_aval_amount=round($avaliable_amount,2);
 			$testing="Your balance is not enough for this recharge, Your Balance is RS $rd_aval_amount";
-					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=PAYBUK&message=$testing&format=json&custom=1,2";
+					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=VIAPAISE&message=$testing&format=json&custom=1,2";
 					$url = str_replace(" ", "%20", $url);
 					$ret = file($url);
 					$sess = explode(":",$ret[0]);
@@ -399,7 +399,7 @@ public function get_distributor_parent_total_detail($distributor_parent_id)
 		{
 			
 			 
-					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$mobilenumber&sender=PAYBUK&message=$msg&format=json&custom=1,2";
+					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$mobilenumber&sender=VIAPAISE&message=$msg&format=json&custom=1,2";
 					$url = str_replace(" ", "%20", $url);
 					$ret = file($url);
 					$sess = explode(":",$ret[0]);
@@ -545,7 +545,7 @@ public function balance_sms($mobilenumber_sender,$user_name,$availablebal)
 		{			
 		
 $testing="Dear $user_name, Your current balance is Rs. $availablebal/-";
-					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$mobilenumber_sender&sender=PAYBUK&message=$testing&format=json&custom=1,2";
+					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$mobilenumber_sender&sender=VIAPAISE&message=$testing&format=json&custom=1,2";
   
  $url = str_replace(" ", "%20", $url);
 					$ret = file($url);
@@ -580,7 +580,7 @@ public function hist_sms($mobilenumber_sender,$user_name,$availablebal)
 		
 
 $testing="Dear $user_name, Your current balance is Rs. $availablebal/-";
-					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$mobilenumber_sender&sender=PAYBUK&message=$testing&format=json&custom=1,2";
+					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$mobilenumber_sender&sender=VIAPAISE&message=$testing&format=json&custom=1,2";
   
  $url = str_replace(" ", "%20", $url);
 					$ret = file($url);
