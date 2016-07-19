@@ -742,25 +742,27 @@ if(	$type == '' && $username == '' && $uid == '')
                                                 <p>Quick Recharge</p>
                                                 <input type="text" placeholder="+91" />
                                                 <input type="text" placeholder="Rs" />
-                                                <select>
+                                                <select name="serviceprovider">
                                                     <option value="airtel">Airtel</option>
                                                     <option value="Aircel">Aircel</option>
-                                                    <option value="Reliance gsm">Reliance GSM</option>
+                                                    <option value="18">Reliance GSM</option>
                                                     <option value="Reliance cdma">Reliance CDMA</option>
                                                 </select>
                                                 <input type="submit" class="gradient_btn" value="Submit" id="prepaid_btn" />
+												<input type="hidden" name="bill_service_type" value="DTH" />
                                             </div>
                                             <div>
                                                 <p>Quick Recharge</p>
                                                 <input type="text" placeholder="+91" />
                                                 <input type="text" placeholder="Rs" />
-                                                <select>
+                                                <select name="serviceprovider">
                                                     <option value="airtel">Airtel</option>
                                                     <option value="Aircel">Aircel</option>
                                                     <option value="Reliance gsm">Reliance GSM</option>
                                                     <option value="Reliance cdma">Reliance CDMA</option>
                                                 </select>
                                                 <input type="submit" class="gradient_btn" value="Pay Bill" id="postpaid_btn" />
+												<input type="hidden" name="bill_service_type" value="DTH" />
                                             </div>
                                         </div>
                                     </div>

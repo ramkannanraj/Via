@@ -298,7 +298,7 @@ public function get_distributor_parent_total_detail($distributor_parent_id)
 		public function send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile)
 		{
 			
-			$testing="PAYBUKS -Already this number recharged please try after 10 minutes";
+			$testing="VIAPAISE -Already this number recharged please try after 10 minutes";
 					$url = "http://alerts.solutionsinfini.com//api/v3/index.php?method=sms&api_key=A9d7a78becd6133a3145c8c73a4ad75c6&to=$user_mobile&sender=PAYBUK&message=$testing&format=json&custom=1,2";
 					$url = str_replace(" ", "%20", $url);
 					$ret = file($url);
@@ -429,7 +429,7 @@ public function get_distributor_parent_total_detail($distributor_parent_id)
 		} 	
 		public function send_mail($email,$sub,$msg){
 			  $Name='support@viapaise.com';
-				//$Name='Paybuks';
+				//$Name='VIAPAISE';
 				$to =$email;
 				$subject = "ALERT ".$sub;
 				$message = '<div style="width: 527px; height: 334px; border:1px solid #39C; background:#39C;" >
@@ -441,7 +441,7 @@ public function get_distributor_parent_total_detail($distributor_parent_id)
 				<br><br>
 				</p>
 				</div>
-				<a style="float:right; margin-right: 48px; text-decoration:none; color:#FFF;" href="http://paybuks.in">© viapaise.com</a>
+				<a style="float:right; margin-right: 48px; text-decoration:none; color:#FFF;" href="http://VIAPAISE.in">© viapaise.com</a>
 				</div>';
 	
 							$headers = 'MIME-Version: 1.0' . "\r\n";
@@ -902,7 +902,7 @@ $error_datas=array('after_balance'=>$after_balance,'before_balance'=>$before_bal
 						 }else if($error_id == -1611) //Duplicate transaction
 						{     
 							  $error_status= -1611;
-							  $sms_msg = "PAYBUKS -Already this number recharged please try after 10 minutes";
+							  $sms_msg = "VIAPAISE -Already this number recharged please try after 10 minutes";
 						  
 							 $revesal_data =  array('recharge_id'=>$recharge_id,'requester_id'=>$by_id,'to_id'=> $user->parent_id,'requested_date'=>$trans_date,'request_status'=>'Pending'  );
 							 $reversal_request = $this->add_reversal_request( $revesal_data  );	

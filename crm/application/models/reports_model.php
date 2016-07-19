@@ -8,7 +8,7 @@ class reports_model extends CI_Model
 {
 	if($this->session->userdata('type')=="admin")
 	{
- 	$success="Transaction Successful";
+ 	$success="success";
 $this->db->select("*");
  $this->db->order_by("id","desc");
 $this->db->from('recharge_details');
@@ -23,7 +23,7 @@ $this->db->join('usermaster','usermaster.uid = recharge_details.by_id');
 	{
 
 	
-		$success="Transaction Successful";
+		$success="success";
 $this->db->select("recharge_details.id,recharge_details.result,recharge_details.rdate,recharge_details.amount,
 recharge_details.commission ,recharge_details.by_id,recharge_details.dcommission,
 recharge_details.mobilenumber,recharge_details.type,recharge_details.service,usermaster.uid,usermaster.parent_id,usermaster.username");
