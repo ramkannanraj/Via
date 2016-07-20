@@ -1,4 +1,14 @@
 <link rel="shortcut icon" href="<?php echo base_url()?>/assets/viapaisa/images/favicon_square.png"> 
+ <script>
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+</script>
    <!-- MY STYLESHEET -->
 <?php 
 $type=$this->session->userdata('type');
@@ -493,9 +503,9 @@ if(	$type == '' && $username == '' && $uid == '')
                                 <span id="preSucc" style="color:green;"> </span>
                                     <p>Quick Recharge</p>
                                     <form action="javascript:void(0);" method="post" id="prepaidForm">
-                                    <input type="text" placeholder="+91" maxlength="10" pattern="[0-9]{10}" name="mobilenumber" id="pre-mobilenumber" required /> 
-                                    <input type="text" placeholder="Rs" name="amount" id="pre-amount" required  />
-                                    <select name="serviceprovider" id="pre-service_type" >
+                                    <input type="text" placeholder="+91" maxlength="10" pattern="[0-9]{10}" name="mobilenumber" onkeypress="return isNumber(event)" id="pre-mobilenumber" required /> 
+                                    <input type="text" placeholder="Rs" name="amount" onkeypress="return isNumber(event)" id="pre-amount" required  />
+                                    <select name="serviceprovider" id="pre-service_type" required >
                                     	
                                        <!--
  <option value="">Aircel</option>
@@ -535,9 +545,9 @@ if(	$type == '' && $username == '' && $uid == '')
                                  <span id="postSucc" style="color:green;"> </span>
                                     <p>Quick Recharge</p>
                                     <form action="javascript:void(0);" method="post" id="postpaidForm">
-                                    <input type="text" placeholder="+91" name="post-mobilenumber" id="post-mobilenumber" />
-                                    <input type="text" placeholder="Rs" name="post-amount" id="post-amount"  />
-                                    <select name="serviceprovider" id="post-service_type" >
+                                    <input type="text" placeholder="+91" name="post-mobilenumber"  maxlength="10" minlength="10" required onkeypress="return isNumber(event)" id="post-mobilenumber" />
+                                    <input type="text" placeholder="Rs" onkeypress="return isNumber(event)" name="post-amount" id="post-amount" required  />
+                                    <select name="serviceprovider" id="post-service_type" required >
                                     	<option value="32">Airtel</option>
                                         <option value="54">Aircel</option>
                                         <option value="31">BSNL</option>
@@ -599,40 +609,40 @@ if(	$type == '' && $username == '' && $uid == '')
                                 <div>
                                 <form id="bigtv" action="javascript:void(0);" class="dthRecharge" method="post">
                                     <label>Smart Card</label>
-                                    <input type="text" placeholder="Enter your ID" id="bigtvNumber" name="mobilenumber2" />
+                                    <input type="text" placeholder="Enter your ID" id="bigtvNumber" name="mobilenumber2" required />
                                     <input type="hidden" name="serviceprovider" value="20"/>
                                     <label>Amount</label>
-                                    <input type="text" placeholder="Enter your amount" id="bigtvAmount" name="amount" />
+                                    <input type="text" placeholder="Enter your amount" onkeypress="return isNumber(event)" id="bigtvAmount" name="amount" required />
                                     <input type="submit" class="gradient_btn" value="Pay Bill" />
                                      </form>
                                 </div>
                                 <div>
                                 <form id="dishtv" action="javascript:void(0);" class="dthRecharge" method="post">
                                     <label>View Card</label>
-                                    <input type="text" placeholder="Enter your ID" id="dishtvNumber" name="mobilenumber3" />
+                                    <input type="text" placeholder="Enter your ID" id="dishtvNumber" name="mobilenumber3" required />
                                     <input type="hidden" name="serviceprovider" value="7"/>
                                     <label>Amount</label>
-                                    <input type="text" placeholder="Enter your amount" id="dishtvAmount" name="amount" />
+                                    <input type="text" placeholder="Enter your amount" onkeypress="return isNumber(event)" id="dishtvAmount" name="amount" required />
                                     <input type="submit" class="gradient_btn" value="Pay Bill" />
                                      </form>
                                 </div>
                                 <div>
                                 <form id="videcon" action="javascript:void(0);" class="dthRecharge" method="post">
                                     <label>Customer ID</label>
-                                    <input type="text" placeholder="Enter your ID" id="videconNumber" name="mobilenumber4" />
+                                    <input type="text" placeholder="Enter your ID" id="videconNumber" name="mobilenumber4" required />
                                     <input type="hidden" name="serviceprovider" value="13"/>
                                     <label>Amount</label>
-                                    <input type="text" placeholder="Enter your amount" id="videconAmount" name="amount" />
+                                    <input type="text" placeholder="Enter your amount" onkeypress="return isNumber(event)" id="videconAmount" name="amount" required />
                                     <input type="submit" class="gradient_btn" value="Pay Bill" />
                                      </form>
                                 </div>
                                 <div>
                                 <form id="sundirect" action="javascript:void(0);" class="dthRecharge" method="post">
                                     <label>Smart Card</label>
-                                    <input type="text" placeholder="Enter your ID" id="sundirectNumber" name="mobilenumber5" />
+                                    <input type="text" placeholder="Enter your ID" id="sundirectNumber" name="mobilenumber5"required />
                                     <input type="hidden" name="serviceprovider" value="4"/>
                                     <label>Amount</label>
-                                    <input type="text" placeholder="Enter your amount" id="sundirectAmount" name="amount" />
+                                    <input type="text" placeholder="Enter your amount" onkeypress="return isNumber(event)" id="sundirectAmount" name="amount" required />
                                     <input type="submit" class="gradient_btn" value="Pay Bill" />
                                      </form>
                                 </div>
@@ -669,11 +679,11 @@ if(	$type == '' && $username == '' && $uid == '')
   <option value="49">Reliance Communication</option>
                                         <option value="53">Tata Tele Service(CDMA)</option>
 -->
-                                    </select><label>STD Code</label><input type="text" placeholder="Std Code" name="std_code" id="std_code" />
+                                    </select><label>STD Code</label><input type="text" placeholder="Std Code" onkeypress="return isNumber(event)" name="std_code" id="std_code" />
                                     <label>Telephone No</label>
-                                    <input type="text" placeholder="Enter Number" id="telephone" name="telephone" />
+                                    <input type="text" placeholder="Enter Number" maxlength="10" minlength="10" onkeypress="return isNumber(event)" id="telephone" name="telephone" />
                                     <label>Amount</label>
-                                    <input type="text" placeholder="Enter your amount" id="landlineAmount" name="amount" />
+                                    <input type="text" placeholder="Enter your amount" onkeypress="return isNumber(event)" required id="landlineAmount" name="amount" />
                                     <input type="submit" class="gradient_btn" value="Pay Now" />
                                     <input type="hidden" name="bill_service_type" value="landline" />
                                    </form>
@@ -741,8 +751,8 @@ if(	$type == '' && $username == '' && $uid == '')
                                             <div>
 											<form id="predataform" action="javascript:void(0);" method="post">
                                                 <p>Quick Recharge</p>
-                                                <input type="text" placeholder="+91" id="datacard" name="mobile" />
-                                                <input type="text" placeholder="Rs" id="pre_data_amount" name="amount" />
+                                                <input type="text" placeholder="+91" id="datacard" name="mobile" required />
+                                                <input type="text" placeholder="Rs" onkeypress="return isNumber(event)"  id="pre_data_amount" name="amount" required />
                                                 <select id="prepaid_datacard" name="serviceprovider">
                                                     <option value="61">Aircel</option>
                                                     <option value="62">IDEA</option>
@@ -758,8 +768,8 @@ if(	$type == '' && $username == '' && $uid == '')
                                             <div>
 											<form id="postdataform" action="javascript:void(0);" method="post">
                                                 <p>Quick Recharge</p>
-                                                <input type="text" id="post_datacard" name="mobile" placeholder="+91" />
-                                                <input type="text" placeholder="Rs" id="post_data_amount" name="amount" />
+                                                <input type="text" id="post_datacard" name="mobile" placeholder="+91" required />
+                                                <input type="text" placeholder="Rs" onkeypress="return isNumber(event)" id="post_data_amount" name="amount" required />
                                                 <select id="postpaid_datacard" name="serviceprovider">
                                                     <option value="61">Aircel</option>
                                                     <option value="62">IDEA</option>
