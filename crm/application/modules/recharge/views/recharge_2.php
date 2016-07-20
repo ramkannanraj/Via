@@ -676,7 +676,7 @@ if(	$type == '' && $username == '' && $uid == '')
                                     <input type="text" placeholder="Enter your amount" id="landlineAmount" name="amount" />
                                     <input type="submit" class="gradient_btn" value="Pay Now" />
                                     <input type="hidden" name="bill_service_type" value="landline" />
-                                    </form>
+                                   </form>
                                 </div>
                                 
                                <!--
@@ -739,34 +739,43 @@ if(	$type == '' && $username == '' && $uid == '')
                                         </ul>
                                         <div class="resp-tabs-container ver_2">
                                             <div>
+											<form id="predataform" action="javascript:void(0);" method="post">
                                                 <p>Quick Recharge</p>
-                                                <input type="text" placeholder="+91" />
-                                                <input type="text" placeholder="Rs" />
-                                                <select name="serviceprovider">
-                                                    <option value="airtel">Airtel</option>
-                                                    <option value="Aircel">Aircel</option>
-                                                    <option value="18">Reliance GSM</option>
-                                                    <option value="Reliance cdma">Reliance CDMA</option>
+                                                <input type="text" placeholder="+91" id="datacard" name="mobile" />
+                                                <input type="text" placeholder="Rs" id="pre_data_amount" name="amount" />
+                                                <select id="prepaid_datacard" name="serviceprovider">
+                                                    <option value="61">Aircel</option>
+                                                    <option value="62">IDEA</option>
+                                                    <option value="63">MTS</option>
+                                                    <option value="64">Reliance</option>
+													<option value="65">TATA PHOTON PLUS</option>
+													 <option value="66">Vodafone</option>
                                                 </select>
                                                 <input type="submit" class="gradient_btn" value="Submit" id="prepaid_btn" />
-												<input type="hidden" name="bill_service_type" value="DTH" />
+												<input type="hidden" name="bill_service_type" value="predatacard" />
+												</form>
                                             </div>
                                             <div>
+											<form id="postdataform" action="javascript:void(0);" method="post">
                                                 <p>Quick Recharge</p>
-                                                <input type="text" placeholder="+91" />
-                                                <input type="text" placeholder="Rs" />
-                                                <select name="serviceprovider">
-                                                    <option value="airtel">Airtel</option>
-                                                    <option value="Aircel">Aircel</option>
-                                                    <option value="Reliance gsm">Reliance GSM</option>
-                                                    <option value="Reliance cdma">Reliance CDMA</option>
+                                                <input type="text" id="post_datacard" name="mobile" placeholder="+91" />
+                                                <input type="text" placeholder="Rs" id="post_data_amount" name="amount" />
+                                                <select id="postpaid_datacard" name="serviceprovider">
+                                                    <option value="61">Aircel</option>
+                                                    <option value="62">IDEA</option>
+                                                    <option value="63">MTS</option>
+                                                    <option value="64">Reliance</option>
+													<option value="65">TATA PHOTON PLUS</option>
+													 <option value="66">Vodafone</option>
                                                 </select>
                                                 <input type="submit" class="gradient_btn" value="Pay Bill" id="postpaid_btn" />
-												<input type="hidden" name="bill_service_type" value="DTH" />
+												<input type="hidden" name="bill_service_type" value="postdatacard" />
+												</form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+								 
                                 <!-- child tab ends -->
                             </div>
                         </div>
@@ -1138,6 +1147,7 @@ $(document).on('submit','.dthRecharge',function(){
 	$(document).on('submit','#billForm',function(){
  showModal();
  var  form_data =  $('#billForm').serialize();
+
  var mobile = $('#telephone').val();								
  var money = $('#landlineAmount').val();								
  var provider = $('#bill_serviceprovider option:selected').text();	
@@ -1196,6 +1206,108 @@ $(document).on('submit','.dthRecharge',function(){
  
 });
 
+$(document).on('submit','#predataform',function(){
+ showModal();
+ var  form_data =  $('#predataform').serialize();
+var mobile = $('#datacard').val();
+var money = $('#pre_data_amount').val();								
+ var provider = $('#prepaid_datacard option:selected').text();	
+ var service_type = $('#billUl>li.resp-tab-active').html();;
+ 
+    $.ajax({
+                type: "POST",
+                url: "<?php echo  base_url();?>Recharge/ad_predata", 
+                data: form_data,
+				datatype:"json",
+				success: function( result )  
+                { 
+				$('#trans_id').html(result.trans_id);
+				if(result.class == "fail"){
+					
+				$('.loading-anim').hide();
+					
+				$('#mobileFail').html(mobile);
+				$('#serviceProviderFail').html(provider);
+				$('#serviceTyepeFail').html(service_type);
+				$('#moneyFail').html(money);
+				$('#totalFail').html(money);
+				
+				$('.failure').removeClass('hidden');
+				}else if(result.class == "success"){ 
+				
+				$('.loading-anim').hide();
+				$('#mobileSucc').html(mobile);
+				$('#serviceProviderSucc').html(provider);
+				$('#serviceTyepeSucc').html(service_type);
+				$('#moneySucc').html(money);
+				$('#totalSucc').html(money);	
+					
+				$('.success').removeClass('hidden');
+				}
+			    },
+				error:function(){
+			        $('#otherFail').html('Some Technical Issue.');	
+				//setTimeout(closeModal, 4000);	
+				}
+				}).fail(function() {
+					
+						   $('#otherFail').html('Some Technical Issue.');	
+							setTimeout(closeModal, 2000);
+				  });
+ 
+ 
+});
+$(document).on('submit','#postdataform',function(){
+ showModal();
+ var  form_data =  $('#postdataform').serialize();
+var mobile = $('#post_datacard').val();
+var money = $('#post_data_amount').val();								
+ var provider = $('#postpaid_datacard option:selected').text();	
+ var service_type = $('#billUl>li.resp-tab-active').html();;
+ 
+    $.ajax({
+                type: "POST",
+                url: "<?php echo  base_url();?>Recharge/ad_postdata", 
+                data: form_data,
+				datatype:"json",
+				success: function( result )  
+                { 
+				$('#trans_id').html(result.trans_id);
+				if(result.class == "fail"){
+					
+				$('.loading-anim').hide();
+					
+				$('#mobileFail').html(mobile);
+				$('#serviceProviderFail').html(provider);
+				$('#serviceTyepeFail').html(service_type);
+				$('#moneyFail').html(money);
+				$('#totalFail').html(money);
+				
+				$('.failure').removeClass('hidden');
+				}else if(result.class == "success"){ 
+				
+				$('.loading-anim').hide();
+				$('#mobileSucc').html(mobile);
+				$('#serviceProviderSucc').html(provider);
+				$('#serviceTyepeSucc').html(service_type);
+				$('#moneySucc').html(money);
+				$('#totalSucc').html(money);	
+					
+				$('.success').removeClass('hidden');
+				}
+			    },
+				error:function(){
+			        $('#otherFail').html('Some Technical Issue.');	
+				//setTimeout(closeModal, 4000);	
+				}
+				}).fail(function() {
+					
+						   $('#otherFail').html('Some Technical Issue.');	
+							setTimeout(closeModal, 2000);
+				  });
+ 
+ 
+});
 function showModal(){
 	// $(".bs-example-modal-lg-4").show();
 	 $('#otherFail').html('');
