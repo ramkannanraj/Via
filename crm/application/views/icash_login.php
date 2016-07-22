@@ -90,7 +90,7 @@ function isNumber(evt) {
   
   <div class="form-group">
     <label for="Pin No">Pin No</label>
-    <input type="text" name="pin_no" value="" class="in-btn1 form-control">
+    <input type="text" name="pin_no" required value="" class="in-btn1 form-control">
     
   </div>
   

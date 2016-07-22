@@ -153,9 +153,9 @@
 
                                 <li class="active"><a href="<?php echo base_url();?>">Home</a></li>
 
-                                <li><a href="<?php echo base_url(); ?>index.html">Recharge</a></li>
+                                <li><a href="<?php echo base_url(); ?>index.php#recharge_page">Recharge</a></li>
 
-                                <li><a href="<?php echo base_url(); ?>send-money.html">Send Money</a></li>
+                                <li><a href="<?php echo base_url(); ?>index.php#send_money">Send Money</a></li>
 
                                 <li><a href="<?php echo base_url(); ?>index.html">Ticket Booking</a></li>
 

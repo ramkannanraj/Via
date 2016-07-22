@@ -109,7 +109,7 @@ function isNumber(evt) {
                             <div class="form-group col-md-6">
                              
                              <label>Email</label>
-                             <input type="email" name="mail" value="" class="form-control">
+                             <input type="email" name="mail" required value="" class="form-control">
                              
                              </div>
                             <div class="form-group col-md-6">
@@ -132,13 +132,13 @@ function isNumber(evt) {
                             <div class="form-group col-md-6">
                              
                              <label>City</label>
-                             <input type="text" name="city" value="" class="form-control">
+                             <input type="text" name="city" required value="" class="form-control">
                              
                              </div>
                             <div class="form-group col-md-6">
                              
                              <label>Address</label>
-                             <textarea type="text" name="address" value="" class="form-control"></textarea>
+                             <textarea type="text" name="address" required value="" class="form-control"></textarea>
                              
                              </div>
                             <div class="form-group col-md-6">
