@@ -121,8 +121,13 @@ function isNumber(evt) {
                             <div class="form-group col-md-6">
                              
                              <label>State</label>
-                             <input type="text" name="state" value="" class="form-control">
                              
+                              <select name="state" class="form-control" required>
+                                        <option value="">Select State</option> 
+										<?php foreach($State as $get_state) { ?>
+                                        <option value="<?php echo $get_state->state_name; ?>"><?php echo $get_state->state_name;?></option>
+                                        <?php }?>
+										</select>
                              </div>
                             <div class="form-group col-md-6">
                              

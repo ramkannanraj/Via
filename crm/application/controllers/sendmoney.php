@@ -24,9 +24,11 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 		
 		public function create_card()
 		{
+			$this->load->model('user_model');
 			$this->load->view('common/header');
 			$this->load->view('common/menu');
-			$this->load->view('view_cardgeneration');
+			$data['State']=$this->user_model->getstate();
+			$this->load->view('view_cardgeneration',$data);
 			$this->load->view('common/footer');
 	 
 			 
