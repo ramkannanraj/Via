@@ -136,12 +136,13 @@ public function ad_recharge()
 						{ 
 						  	$auto_code=$this->recharge_model->generateRandomString($length = 30);
 						$req_id=time().$auto_code;
-						  $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
+						 // $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
+						  $url="http://api.hermes-it.in/mobile/hermesmobile.svc/JSONService/GetRechargeDone";
 $mySOAP = <<<EOD
 {
 "Authentication": {
 "LoginId": "Viapaise",
-"Password": "Viapaise123"
+"Password": "apiViapaise"
 },
 "UserTrackId": "$req_id",
 "RechargeInput": {
@@ -234,6 +235,7 @@ if($resultval==1)
 else if($resultval==0)
 {
     $error_description='Pending';
+	$error_status=0;
     $available_totalbalance =  ($user->total_balance - $user->used_balance )- $amount ;  
 						  $used_balance = $user->used_balance + $amount;
 						  $before_balance = $user->available_balance; 
@@ -263,6 +265,7 @@ else if($resultval==0)
 else if($resultval==2)
 {
     $error_description='Unknown';
+	$error_status=2;
   $send_duplicate_sms =$this->recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
 							 
 						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
@@ -274,7 +277,7 @@ else if($resultval==3)
     
     
    $error_description='Failure/Refund'; 
-    
+    $error_status=3;
      $send_failure_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
 								
 						   $response = array('message' => 'Transaction Failure','class' => 'fail','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id,'api'=>$data);
@@ -374,12 +377,13 @@ else if($resultval==3)
 					 
 						  	$auto_code=$this->recharge_model->generateRandomString($length = 30);
 						$req_id=time().$auto_code;
-						  $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
+						 // $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
+						  $url="http://api.hermes-it.in/mobile/hermesmobile.svc/JSONService/GetRechargeDone";
 $mySOAP = <<<EOD
 {
 "Authentication": {
 "LoginId": "Viapaise",
-"Password": "Viapaise123"
+"Password": "apiViapaise"
 },
 "UserTrackId": "$req_id",
 "RechargeInput": {
@@ -474,6 +478,7 @@ if($resultval==1)
 else if($resultval==0)
 {
     $error_description='Pending';
+	$error_status=0;
     $available_totalbalance =  ($user->total_balance - $user->used_balance )- $amount ;  
 						  $used_balance = $user->used_balance + $amount;
 						  $before_balance = $user->available_balance; 
@@ -508,6 +513,7 @@ else if($resultval==0)
 else if($resultval==2)
 {
     $error_description='Unknown';
+	$error_status=2;
   $send_duplicate_sms =$this->recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
 							 
 						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
@@ -520,6 +526,7 @@ else if($resultval==3)
     
     
    $error_description='Failure/Refund'; 
+   $error_status=3;
     
      $send_failure_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
 								
@@ -636,12 +643,13 @@ public function ad_predata()
 					 
 						  	$auto_code=$this->recharge_model->generateRandomString($length = 30);
 						$req_id=time().$auto_code;
-						  $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
+						 // $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
+						  $url="http://api.hermes-it.in/mobile/hermesmobile.svc/JSONService/GetRechargeDone";
 $mySOAP = <<<EOD
 {
 "Authentication": {
 "LoginId": "Viapaise",
-"Password": "Viapaise123"
+"Password": "apiViapaise"
 },
 "UserTrackId": "$req_id",
 "RechargeInput": {
@@ -736,6 +744,7 @@ if($resultval==1)
 else if($resultval==0)
 {
     $error_description='Pending';
+	$error_status=0;
     $available_totalbalance =  ($user->total_balance - $user->used_balance )- $amount ;  
 						  $used_balance = $user->used_balance + $amount;
 						  $before_balance = $user->available_balance; 
@@ -770,6 +779,7 @@ else if($resultval==0)
 else if($resultval==2)
 {
     $error_description='Unknown';
+	$error_status=2;
   $send_duplicate_sms =$this->recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
 							 
 						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
@@ -782,6 +792,7 @@ else if($resultval==3)
     
     
    $error_description='Failure/Refund'; 
+   $error_status=3;
     
      $send_failure_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
 								
@@ -899,12 +910,13 @@ public function ad_postdata()
 					 
 						  	$auto_code=$this->recharge_model->generateRandomString($length = 30);
 						$req_id=time().$auto_code;
-						  $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
+						 // $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
+						  $url="http://api.hermes-it.in/mobile/hermesmobile.svc/JSONService/GetRechargeDone";
 $mySOAP = <<<EOD
 {
 "Authentication": {
 "LoginId": "Viapaise",
-"Password": "Viapaise123"
+"Password": "apiViapaise"
 },
 "UserTrackId": "$req_id",
 "RechargeInput": {
@@ -999,6 +1011,7 @@ if($resultval==1)
 else if($resultval==0)
 {
     $error_description='Pending';
+	$error_status=0;
     $available_totalbalance =  ($user->total_balance - $user->used_balance )- $amount ;  
 						  $used_balance = $user->used_balance + $amount;
 						  $before_balance = $user->available_balance; 
@@ -1033,6 +1046,7 @@ else if($resultval==0)
 else if($resultval==2)
 {
     $error_description='Unknown';
+	$error_status=2;
   $send_duplicate_sms =$this->recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
 							 
 						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
@@ -1045,6 +1059,7 @@ else if($resultval==3)
     
     
    $error_description='Failure/Refund'; 
+   $error_status=3;
     
      $send_failure_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
 								
@@ -1184,12 +1199,13 @@ public function ad_dth_recharge()
 					 
 						  	$auto_code=$this->recharge_model->generateRandomString($length = 30);
 						$req_id=time().$auto_code;
-						  $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
+						 // $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
+						 $url="http://api.hermes-it.in/mobile/hermesmobile.svc/JSONService/GetRechargeDone";
 $mySOAP = <<<EOD
 {
 "Authentication": {
 "LoginId": "Viapaise",
-"Password": "Viapaise123"
+"Password": "apiViapaise"
 },
 "UserTrackId": "$req_id",
 "RechargeInput": {
@@ -1284,7 +1300,7 @@ if($resultval==1)
 else if($resultval==0)
 {   $error_status=0;
     $error_description='Pending';
-    $error_description='Pending';
+   
     $available_totalbalance =  ($user->total_balance - $user->used_balance )- $amount ;  
 						  $used_balance = $user->used_balance + $amount;
 						  $before_balance = $user->available_balance; 
@@ -1319,6 +1335,7 @@ else if($resultval==0)
 else if($resultval==2)
 {
     $error_description='Unknown';
+	$error_status=2;
   $send_duplicate_sms =$this->recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
 							 
 						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
@@ -1346,6 +1363,7 @@ else if($resultval==3)
     
     
    $error_description='Failure/Refund'; 
+   $error_status=3;
     
      $send_failure_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
 								
@@ -1627,12 +1645,13 @@ public function ad_postpaid_recharge()
 					 
 						  	$auto_code=$this->recharge_model->generateRandomString($length = 30);
 						$req_id=time().$auto_code;
-						  $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
+						//  $url = "http://115.248.39.80/HermesMobAPI/HermesMobile.svc/JSONService/GetRechargeDone";
+						$url="http://api.hermes-it.in/mobile/hermesmobile.svc/JSONService/GetRechargeDone";
 $mySOAP = <<<EOD
 {
 "Authentication": {
 "LoginId": "Viapaise",
-"Password": "Viapaise123"
+"Password": "apiViapaise"
 },
 "UserTrackId": "$req_id",
 "RechargeInput": {
@@ -1727,6 +1746,7 @@ if($resultval==1)
 else if($resultval==0)
 {
     $error_description='Pending';
+	$error_status=0;
     $available_totalbalance =  ($user->total_balance - $user->used_balance )- $amount ;  
 						  $used_balance = $user->used_balance + $amount;
 						  $before_balance = $user->available_balance; 
@@ -1761,6 +1781,7 @@ else if($resultval==0)
 else if($resultval==2)
 {
     $error_description='Unknown';
+	$error_status=2;
   $send_duplicate_sms =$this->recharge_model->send_duplicate_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile);			 
 							 
 						   $response = array('message' => 'Duplicate request,please try after 10 minutes','class' => 'pending','number'=>$mobilenumber,'amount'=>$amount,'serviceprovider'=>$provider->name,'trans_id'=>$trans_id);  
@@ -1788,6 +1809,7 @@ else if($resultval==3)
     
     
    $error_description='Failure/Refund'; 
+   $error_status=3;
     
      $send_failure_sms =$this->recharge_model->send_failure_sms($mobilenumber,$avaliable_amount,$error_id,$amount,$trans_id,$user_mobile); 
 								
@@ -1937,14 +1959,14 @@ else if($resultval==3)
 	  $mail = $admin->alert_mail;
 	  $mobilenumber = $admin->alert_sms1;
 	  if($mobilenumber !=""){
-		  $alert =$this->recharge_model->send_sms($mobilenumber,"TEST Insufficient Balance in your esypay account");
+		  $alert =$this->recharge_model->send_sms($mobilenumber,"TEST Insufficient Balance in your HermesMobAPI/HermesMobile account");
 	  }
 	  $mobilenumber = $admin->alert_sms2;
 	  if($mobilenumber !=""){
-		  $alert =$this->recharge_model->send_sms($mobilenumber,"TEST Insufficient Balance in your esypay account");
+		  $alert =$this->recharge_model->send_sms($mobilenumber,"TEST Insufficient Balance in your ermesMobAPI/HermesMobile account");
 	  }
 	  if($mail !=""){
-		 $alert =$this->recharge_model->send_mail( $mail,'TEST Insufficient Balance in your esypay account','Alert from Prepaid Recharge .., '.$data);
+		 $alert =$this->recharge_model->send_mail( $mail,'TEST Insufficient Balance in your ermesMobAPI/HermesMobile account','Alert from Prepaid Recharge .., '.$data);
 	  }  		 	
 	}
 	

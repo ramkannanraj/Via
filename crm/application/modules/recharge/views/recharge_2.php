@@ -945,6 +945,7 @@ var mobile = $('#pre-mobilenumber').val();
 				 
                   
 				$('#trans_id').html(result.trans_id);
+				$('.text-uppercase trans_id').html(result.trans_id);
 				if(result.class == "fail"){
 				
 				$('.loading-anim').hide();
@@ -963,10 +964,11 @@ var mobile = $('#pre-mobilenumber').val();
 				$('.loading-anim').hide();
 					
 				$('#mobileFail').html(mobile);
-				$('#serviceProviderFail').html(provider);
+				$('.serviceprovider').html(provider);
 				$('#serviceTyepeFail').html(service_type);
-				$('#moneyFail').html(money);
-				$('#totalFail').html(money);	
+				$('.money').html(money);
+				$('.totalMoney').html(money);
+                $(".text-uppercase trans_id").html(trans_id);				
 				
 				$('.pending').removeClass('hidden');	
 				
@@ -1048,6 +1050,21 @@ showModal();
 				
 				$('.failure').removeClass('hidden');	
 
+				}
+				else if(result.class == "pending"){
+				
+				$('.loading-anim').hide();
+					
+				$('#mobileFail').html(mobile);
+				$('.serviceprovider').html(provider);
+				$('#serviceTyepeFail').html(service_type);
+				$('.money').html(money);
+				$('.totalMoney').html(money);
+                $(".text-uppercase trans_id").html(trans_id);				
+				
+				$('.pending').removeClass('hidden');	
+				
+				
 				}else if(result.class == "success"){
 					
 				$('.loading-anim').hide();
@@ -1128,7 +1145,23 @@ $(document).on('submit','.dthRecharge',function(){
 				$('#totalFail').html(money);	
 				
 				$('.failure').removeClass('hidden');
-				}else if(result.class == "success"){
+				}
+				else if(result.class == "pending"){
+				
+				$('.loading-anim').hide();
+					
+				$('#mobileFail').html(mobile);
+				$('.serviceprovider').html(provider);
+				$('#serviceTyepeFail').html(service_type);
+				$('.money').html(money);
+				$('.totalMoney').html(money);
+                $(".text-uppercase trans_id").html(trans_id);				
+				
+				$('.pending').removeClass('hidden');	
+				
+				
+				}
+				else if(result.class == "success"){
 				$('.loading-anim').hide();
 				$('#mobileSucc').html(mobile);
 				$('#serviceProviderSucc').html(provider);
@@ -1191,6 +1224,21 @@ $(document).on('submit','.dthRecharge',function(){
 				$('#totalFail').html(money);
 				
 				$('.failure').removeClass('hidden');
+				}
+				else if(result.class == "pending"){
+				
+				$('.loading-anim').hide();
+					
+				$('#mobileFail').html(mobile);
+				$('.serviceprovider').html(provider);
+				$('#serviceTyepeFail').html(service_type);
+				$('.money').html(money);
+				$('.totalMoney').html(money);
+                $(".text-uppercase trans_id").html(trans_id);				
+				
+				$('.pending').removeClass('hidden');	
+				
+				
 				}else if(result.class == "success"){ 
 				
 				$('.loading-anim').hide();
@@ -1243,7 +1291,22 @@ var money = $('#pre_data_amount').val();
 				$('#totalFail').html(money);
 				
 				$('.failure').removeClass('hidden');
-				}else if(result.class == "success"){ 
+				}else if(result.class == "pending"){
+				
+				$('.loading-anim').hide();
+					
+				$('#mobileFail').html(mobile);
+				$('.serviceprovider').html(provider);
+				$('#serviceTyepeFail').html(service_type);
+				$('.money').html(money);
+				$('.totalMoney').html(money);
+                $(".text-uppercase trans_id").html(trans_id);				
+				
+				$('.pending').removeClass('hidden');	
+				
+				
+				}
+				else if(result.class == "success"){ 
 				
 				$('.loading-anim').hide();
 				$('#mobileSucc').html(mobile);
@@ -1294,7 +1357,8 @@ var money = $('#post_data_amount').val();
 				$('#totalFail').html(money);
 				
 				$('.failure').removeClass('hidden');
-				}else if(result.class == "success"){ 
+				}
+				else if(result.class == "success"){ 
 				
 				$('.loading-anim').hide();
 				$('#mobileSucc').html(mobile);
@@ -1304,6 +1368,26 @@ var money = $('#post_data_amount').val();
 				$('#totalSucc').html(money);	
 					
 				$('.success').removeClass('hidden');
+				}
+				else if(result.class=="pending"){
+					
+				
+				$('.loading-anim').hide();
+				$('#mobileSucc').html(mobile);
+				$('#serviceProviderSucc').html(provider);
+				$('#serviceTyepeSucc').html(service_type);
+				$('#moneySucc').html(money);
+				$('#totalSucc').html(money);	
+					
+				$('.success').removeClass('hidden');
+				
+					
+					
+					
+					
+					
+					
+					
 				}
 			    },
 				error:function(){

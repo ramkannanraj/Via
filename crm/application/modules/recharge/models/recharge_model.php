@@ -745,8 +745,8 @@ $mySOAP = <<<EOD
 "Password": "Viapaise123"
 },
 "AccountStatementInput": {
-"FromDate": "$dateform",
-"ToDate": "$dateform"
+"FromDate": $dateform,
+"ToDate": $dateform
 }
 }
 }
