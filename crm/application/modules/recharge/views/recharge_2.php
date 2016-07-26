@@ -507,25 +507,25 @@ if(	$type == '' && $username == '' && $uid == '')
                                     <input type="text" placeholder="Rs" name="amount" onkeypress="return isNumber(event)" id="pre-amount" required  />
                                     <select name="serviceprovider" id="pre-service_type" required >
                                     	
-                                       <!--
- <option value="">Aircel</option>
--->
+                                       
+                                     <option value="2">Aircel</option>
+                                     <option value="1">Airtel</option>
                                         <option value="4">BSNL</option>
                                          <option value="3">BSNL-Validity</option>
                                         
-<option value="15">DOCOMO</option>
+                                         <option value="15">DOCOMO</option>
                                         <option value="16">DOCOMO-Special</option>
                                         <option value="34">IDEA</option>
                                         <option value="45">MTNL DEL</option>
-                                        <option value="40">MTNL DEL-Special</option>
+                                      <!--    <option value="40">MTNL DEL-Special</option>-->
                                         <option value="11">MTNL MUM</option>
-                                        <option value="44">MTNL MUM-Special</option>
+                                     <!--    <option value="44">MTNL MUM-Special</option>-->
                                         <option value="14">MTS</option>
                                         <option value="18">Reliance GSM</option>
                                         <option value="19">Reliance CDMA</option>
                                         
-                                        <option value="42">T24-TOP UP</option>
-                                        <option value="43">T24-SPECIAL</option>
+                                      <!--     <option value="42">T24-TOP UP</option>
+                                        <option value="43">T24-SPECIAL</option> -->
                                         
                                         <option value="17">TATA INDICOM</option>
                                         <option value="6">UNINORQuick Recharge-TOP UP</option>
@@ -533,7 +533,8 @@ if(	$type == '' && $username == '' && $uid == '')
                                         <option value="21">VIDEOCON-TOP UP</option>
                                         <option value="22">VIDEOCON-SPECIAL</option>
                                         <option value="12">VODAFONE-TOP UP</option>
-
+										<option value="0">Virgin CDMA</option>
+                                        <option value="25">Virgin GSM</option>
                                          
                                     </select>
                                     <input type="hidden" id="service_type_pre" name="service_type" value="prepaid"/>
@@ -572,10 +573,10 @@ if(	$type == '' && $username == '' && $uid == '')
                     <div>
                         <div class="ChildVerticalTab_1">
                             <ul class="resp-tabs-list ver_1" id="dthUl">
-                                <!--
+                                
 <li class="dth-1">airtel</li>
                                 <li class="dth-2">tatasky</li>
--->
+
                                 <li class="dth-3">bigtv</li>
                                 <li class="dth-4">dishtv</li>
                                 <li class="dth-5">videcon</li>
@@ -584,7 +585,7 @@ if(	$type == '' && $username == '' && $uid == '')
                             <div class="resp-tabs-container ver_1">
                                 <span id="dthError" style="color:red;"> </span>
                                 <span id="dthSucc" style="color:green;"> </span>
-                               <!--
+                               
  <div>
                                 <form id="airtel" action="javascript:void(0);" class="dthRecharge" method="post">
                                     <label>Customer ID</label>
@@ -605,7 +606,7 @@ if(	$type == '' && $username == '' && $uid == '')
                                     <input type="submit" class="gradient_btn" value="Pay Bill" />
                                      </form>
                                 </div>
--->
+
                                 <div>
                                 <form id="bigtv" action="javascript:void(0);" class="dthRecharge" method="post">
                                     <label>Smart Card</label>
@@ -760,6 +761,8 @@ if(	$type == '' && $username == '' && $uid == '')
                                                     <option value="64">Reliance</option>
 													<option value="65">TATA PHOTON PLUS</option>
 													 <option value="66">Vodafone</option>
+													 <option value="67">BSNL 2G/3G</option>
+													 <option value="68">MTNL MUMBAI</option>
                                                 </select>
                                                 <input type="submit" class="gradient_btn" value="Submit" id="prepaid_btn" />
 												<input type="hidden" name="bill_service_type" value="predatacard" />
@@ -777,6 +780,8 @@ if(	$type == '' && $username == '' && $uid == '')
                                                     <option value="64">Reliance</option>
 													<option value="65">TATA PHOTON PLUS</option>
 													 <option value="66">Vodafone</option>
+													 <option value="67">BSNL 2G/3G</option>
+													 <option value="68">MTNL MUMBAI</option>
                                                 </select>
                                                 <input type="submit" class="gradient_btn" value="Pay Bill" id="postpaid_btn" />
 												<input type="hidden" name="bill_service_type" value="postdatacard" />

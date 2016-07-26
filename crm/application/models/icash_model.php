@@ -321,7 +321,7 @@ while($row=mysql_fetch_array($sql))
 			{
 				$this->session->set_flashdata('error',$status);
 			    redirect('sendmoney/create_card');
-			/* echo "<script type='text/javascript'>alert('$status'); window.location.href = '".site_url()."sendmoney/create_card'</script>"; */
+			/* echo "<script type='text/javascript'>alert($status); window.location.href = '".site_url()."sendmoney/create_card'</script>"; */
 			} 
 			else if($status_code==20)
 			{
@@ -375,7 +375,7 @@ while($row=mysql_fetch_array($sql))
 				{
 					$this->session->set_flashdata('error',$status);
 					redirect('sendmoney/create_card');
-					/*echo "<script type='text/javascript'>alert('$status'); window.location.href = '".site_url()."sendmoney/create_card'</script>";*/
+					/*echo "<script type='text/javascript'>alert($status); window.location.href = '".site_url()."sendmoney/create_card'</script>";*/
 				}
 			}
 		}
@@ -467,7 +467,7 @@ while($row=mysql_fetch_array($sql))
 			else if($status_code==1)
 			{
 				
-				 echo "<script type='text/javascript'>alert('$status'); window.location.href = '".site_url()."sendmoney/create_card'</script>"; 
+				 echo "<script type='text/javascript'>alert($status); window.location.href = '".site_url()."sendmoney/create_card'</script>"; 
 			} 
 			else if($status_code==20)
 			{
@@ -518,7 +518,7 @@ while($row=mysql_fetch_array($sql))
 				}
 				else if($status_cod!=0)
 				{
-					echo "<script type='text/javascript'>alert('$status'); window.location.href = '".site_url()."sendmoney/create_card'</script>";
+					echo "<script type='text/javascript'>alert($status); window.location.href = '".site_url()."sendmoney/create_card'</script>";
 				}
 			}
 		}
@@ -585,7 +585,7 @@ while($row=mysql_fetch_array($sql))
 			}
 			else if($statu_code!=0)
 			{
-				echo "<script type='text/javascript'>alert('$status'); window.location.href = '".site_url()."sendmoney/create_card'</script>";
+				echo "<script type='text/javascript'>alert($status); window.location.href = '".site_url()."sendmoney/create_card'</script>";
 			}	
 
 	}
@@ -657,7 +657,7 @@ while($row=mysql_fetch_array($sql))
 			$this->session->set_flashdata('error',$status);
 			redirect('sendmoney/create_card');
 			
-			/*echo "<script type='text/javascript'>alert('$status'); window.location.href = '".site_url()."sendmoney/pin_generate';  </script>"; */
+			/*echo "<script type='text/javascript'>alert($status); window.location.href = '".site_url()."sendmoney/pin_generate';  </script>"; */
 		}
 	}
 		
@@ -1038,7 +1038,7 @@ while($row=mysql_fetch_array($sql))
 		$this->session->set_flashdata('error',$status);	
 		
 		redirect('beneficiary/add_beneficiary_details');
-		/*echo "<script type='text/javascript'>alert('$status'); window.location.href = '".site_url()."beneficiary';  </script>"; */
+		/*echo "<script type='text/javascript'>alert($status); window.location.href = '".site_url()."beneficiary';  </script>"; */
 		}
 	}
 
@@ -1218,7 +1218,7 @@ $agent_id=$row['agent_id'];
 				$this->session->set_flashdata('message','Beneficiary deleted successfully.');
 				redirect('beneficiary/view');
 				
-				/*echo "<script type='text/javascript'>alert('$status'); window.location.href = '".site_url()."beneficiary';  </script>"; 	*/
+				/*echo "<script type='text/javascript'>alert($status); window.location.href = '".site_url()."beneficiary';  </script>"; 	*/
 			}
 		}	
 		else if($status_code!=0)
@@ -1226,7 +1226,7 @@ $agent_id=$row['agent_id'];
 			$this->session->set_flashdata('error',$status);
 			    redirect('beneficiary/view');
 				
-			/*echo "<script type='text/javascript'>alert('$status'); window.location.href = '".site_url()."sendmoney/create_card';  </script>"; */
+			/*echo "<script type='text/javascript'>alert($status); window.location.href = '".site_url()."sendmoney/create_card';  </script>"; */
 		}
 	}
 
@@ -1308,6 +1308,7 @@ $agent_id=$row['agent_id'];
 		<PARAM5></PARAM5>
 		</TRANSACTION_V3REQUEST>");
 		$post_array_string = '';
+		
 		foreach($curl_post_data as $key=>$value) 
 		{ 
 		$post_array_string .= $key.'='.$value.'&'; 
@@ -1323,13 +1324,14 @@ $agent_id=$row['agent_id'];
 		$xml = simplexml_load_string($xml);
 		$json = json_encode($xml);
 		$response = json_decode($json,true);
+		
 		$status_code=$response['STATUSCODE'];
 		$status=$response['STATUS'];
-		//print_r($response); exit();
+		
 		if($status_code	==0)
 		{
 			$this->updateSendmoneyBal($card_no);
-			$icash_sales_id = $this->add_icash_sales( array('retailer_id'=>$this->session->userdata('uid'),'icash_user_id'=>$card_no,'amount'=>$u_amount,'beneficiary_id'=>$bene_bene_id,'payment_status'=>'$status','transaction_date'=>date('y-m-d')) );
+			$icash_sales_id = $this->add_icash_sales( array('retailer_id'=>$this->session->userdata('uid'),'icash_user_id'=>$card_no,'amount'=>$u_amount,'beneficiary_id'=>$bene_bene_id,'payment_status'=>$status,'transaction_date'=>date('y-m-d')) );
 				
 			$this->icash_model->add_icash_commission( array('icash_sales_id'=>$icash_sales_id,'rcommission'=>$rcommission,'dcommission'=>$dcommission,'created_date'=>date('y-m-d')) );
 			
@@ -1412,7 +1414,7 @@ else if($status_code ==3)
 			if($status==0)
 			{
 			$this->updateSendmoneyBal($card_no);
-			$icash_sales_id = $this->add_icash_sales( array('retailer_id'=>$this->session->userdata('uid'),'icash_user_id'=>$card_no,'amount'=>$u_amount,'beneficiary_id'=>$bene_bene_id,'payment_status'=>'$status','transaction_date'=>date('y-m-d')) );
+			$icash_sales_id = $this->add_icash_sales( array('retailer_id'=>$this->session->userdata('uid'),'icash_user_id'=>$card_no,'amount'=>$u_amount,'beneficiary_id'=>$bene_bene_id,'payment_status'=>$status,'transaction_date'=>date('y-m-d')) );
 				
 			$this->icash_model->add_icash_commission( array('icash_sales_id'=>$icash_sales_id,'rcommission'=>$rcommission,'dcommission'=>$dcommission,'created_date'=>date('y-m-d')) );
 			
@@ -1564,7 +1566,7 @@ else if($status_code ==3)
 		if($status_code	==0)
 		{
 			$this->updateSendmoneyBal($card_no);
-			$icash_sales_id = $this->add_icash_sales( array('retailer_id'=>$this->session->userdata('uid'),'icash_user_id'=>$card_no,'amount'=>$u_amount,'beneficiary_id'=>$bene_bene_id,'payment_status'=>'$status','transaction_date'=>date('y-m-d')) );	
+			$icash_sales_id = $this->add_icash_sales( array('retailer_id'=>$this->session->userdata('uid'),'icash_user_id'=>$card_no,'amount'=>$u_amount,'beneficiary_id'=>$bene_bene_id,'payment_status'=>$status,'transaction_date'=>date('y-m-d')) );	
 				
 			$this->icash_model->add_icash_commission( array('icash_sales_id'=>$icash_sales_id,'rcommission'=>$rcommission,'dcommission'=>$dcommission,'created_date'=>date('y-m-d')) );
 			
@@ -1652,7 +1654,7 @@ else if($status_code ==3)
 			if($status==0)
 			{
 			$this->updateSendmoneyBal($card_no);	
-			$icash_sales_id = $this->add_icash_sales( array('retailer_id'=>$this->session->userdata('uid'),'icash_user_id'=>$card_no,'amount'=>$u_amount,'beneficiary_id'=>$bene_bene_id,'payment_status'=>'$status','transaction_date'=>date('y-m-d')) );	
+			$icash_sales_id = $this->add_icash_sales( array('retailer_id'=>$this->session->userdata('uid'),'icash_user_id'=>$card_no,'amount'=>$u_amount,'beneficiary_id'=>$bene_bene_id,'payment_status'=>$status,'transaction_date'=>date('y-m-d')) );	
 				
 			$this->icash_model->add_icash_commission( array('icash_sales_id'=>$icash_sales_id,'rcommission'=>$rcommission,'dcommission'=>$dcommission,'created_date'=>date('y-m-d')) );
 			
@@ -1789,7 +1791,7 @@ else if($status_code ==3)
 		//print_r($responseArray); exit();		
 		if($status_code	==0)
 		{   $this->updateSendmoneyBal($card_no);
-			$icash_sales_id = $this->add_icash_sales( array('retailer_id'=>$this->session->userdata('uid'),'icash_user_id'=>$card_no,'amount'=>$u_amount,'beneficiary_id'=>$bene_bene_id,'payment_status'=>'$status','transaction_date'=>date('y-m-d')) );
+			$icash_sales_id = $this->add_icash_sales( array('retailer_id'=>$this->session->userdata('uid'),'icash_user_id'=>$card_no,'amount'=>$u_amount,'beneficiary_id'=>$bene_bene_id,'payment_status'=>$status,'transaction_date'=>date('y-m-d')) );
 				
 			$this->icash_model->add_icash_commission( array('icash_sales_id'=>$icash_sales_id,'rcommission'=>$rcommission,'dcommission'=>$dcommission,'created_date'=>date('y-m-d')) );
 			
@@ -1865,7 +1867,7 @@ else if($status_code ==3)
 			$status_response=$responseArray['STATUS'];
 			if($status==0)
 			{  $this->updateSendmoneyBal($card_no);
-				$icash_sales_id = $this->add_icash_sales( array('retailer_id'=>$this->session->userdata('uid'),'icash_user_id'=>$card_no,'amount'=>$u_amount,'beneficiary_id'=>$bene_bene_id,'payment_status'=>'$status','transaction_date'=>date('y-m-d')) );	
+				$icash_sales_id = $this->add_icash_sales( array('retailer_id'=>$this->session->userdata('uid'),'icash_user_id'=>$card_no,'amount'=>$u_amount,'beneficiary_id'=>$bene_bene_id,'payment_status'=>$status,'transaction_date'=>date('y-m-d')) );	
 				
 			$this->icash_model->add_icash_commission( array('icash_sales_id'=>$icash_sales_id,'rcommission'=>$rcommission,'dcommission'=>$dcommission,'created_date'=>date('y-m-d')) );
 			

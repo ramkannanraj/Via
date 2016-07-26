@@ -93,7 +93,7 @@
                    <td><?php echo $val->username?></td>
                    <?php } ?>
                                  <td><?php echo $val->commission?></td> 
-                                <td><?php echo $val->trans_id?></td>					
+                        <td><?php echo $val->req_id;?></td>			
                                 <td><?php echo $con?></td>  
                                  <td><?php echo $val->recharge_type?></td>	
                        		 </tr>
